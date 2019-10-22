@@ -7,14 +7,57 @@
 		"vscode": "^1.39.0"
 	},
 	"categories": [
+		"Snippets",
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onLanguage:edge",
+		"onLanguage:javascript",
+		"workspaceContains:ace"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": []
+		"commands": [],
+		"configuration": {
+			"type": "object",
+			"title": "AdonisJS",
+			"properties": {
+				"adonisjs.autocomplete.quickJump": {
+					"type": "boolean",
+					"default": true,
+					"description": "Use 'Ctrl' or 'Alt' + click"
+				},
+				"adonisjs.autocomplete.views": {
+					"type": "array",
+					"description": "Paths to the directory containing edge views",
+					"default": [
+						"resources/views"
+					]
+				},
+				"adonisjs.autocomplete.extensions": {
+					"type": "array",
+					"description": "Supported file extension for view completion",
+					"default": [
+						".edge"
+					]
+				},
+				"adonisjs.autocomplete.viewRegex": {
+					"type": "string",
+					"description": "Regular expression to match handle edge includes",
+					"default": "(?<=@include\\()(['\"])[^'\"]*\\1"
+				},
+				"adonisjs.autocomplete.maxLinesCount": {
+					"type": "integer",
+					"default": 1200,
+					"description": "Maximum lines of text to scan for view include matches"
+				},
+				"adonisjs.autocomplete.folderTip": {
+					"type": "boolean",
+					"default": true,
+					"description": "Display file path name on hover"
+				}
+			}
+		}
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
