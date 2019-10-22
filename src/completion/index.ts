@@ -1,2 +1,4 @@
 import EdgeHoverProvider from "./providers/edge/hoverProvider";
-export { EdgeHoverProvider };
+import EdgeLinkProvider from "./providers/edge/linkProvider";
+
+export { EdgeHoverProvider, EdgeLinkProvider };
