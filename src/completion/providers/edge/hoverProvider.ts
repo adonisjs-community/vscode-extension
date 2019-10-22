@@ -8,13 +8,12 @@ import {
   MarkdownString,
   workspace
 } from "vscode";
-import { REGEX_VIEW_INCLUDE } from "../../../utilities/constants";
 import { getViewPaths, Path } from "../../../utilities/views";
 import Config from "../../../utilities/config";
 
 class EdgeHoverProvider implements HoverProvider {
   provideHover(doc: TextDocument, pos: Position): ProviderResult<Hover> {
-    const regex = new RegExp(REGEX_VIEW_INCLUDE);
+    const regex = new RegExp(Config.autocomplete.viewRegex);
     const range = doc.getWordRangeAtPosition(pos, regex);
     if (!range) return;
 
