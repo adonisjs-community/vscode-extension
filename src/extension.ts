@@ -1,10 +1,12 @@
-import { ExtensionContext, commands } from "vscode";
+import { ExtensionContext, languages } from "vscode";
+import { EdgeHoverProvider } from "./completion";
 
 export function activate(context: ExtensionContext) {
-  let disposable = commands.registerCommand("extension.helloWorld", () => {});
-  // vscode.window.showInformationMessage("Hello World!");
+  const edgeHoverProvider = new EdgeHoverProvider();
+  let edgeHover = languages.registerHoverProvider(["edge"], edgeHoverProvider);
 
-  context.subscriptions.push(disposable);
+
+  context.subscriptions.push(edgeHover);
 }
 
 export function deactivate() {}
