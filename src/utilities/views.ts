@@ -1,5 +1,10 @@
 // tslint:disable: curly
-import { Uri, TextDocument, workspace as vsWorkspace } from "vscode";
+import {
+  Uri,
+  TextDocument,
+  workspace as vsWorkspace,
+  WorkspaceFolder
+} from "vscode";
 import { getDirectories } from "./directory";
 import Config from "./config";
 import * as fs from "fs";
@@ -39,11 +44,11 @@ export function getViewPaths(text: string, doc: TextDocument): Path[] {
   const fileName = text.replace(/\"|\'/g, "").replace(/\./g, "/");
   const directories = getDirectories(workspacePath, Config.autocomplete.views);
 
-  return buildViewPaths(workspacePath, directories, fileName, extensions);
+  return buildViewPaths(workspace, directories, fileName, extensions);
 }
 
 function buildViewPaths(
-  pwd: string,
+  workspace: WorkspaceFolder,
   paths: string[],
   fileName: string,
   extensions: string[]
@@ -52,13 +57,14 @@ function buildViewPaths(
 
   for (const path in paths) {
     for (let extension of extensions) {
-      let fullpath = `${paths[path]}/${fileName}${extension}`;
-      let filePath = `${pwd}/${fullpath}`;
+      const file = `${fileName}${extension}`;
+      const filePath = `${workspace.uri.fsPath}/${paths[path]}/${file}`;
+      const fullpath = `${workspace.name}/${paths[path]}/${file}`;
 
       if (fs.existsSync(filePath)) {
         result.push({
+          fullpath,
           name: paths[path],
-          fullpath: fullpath,
           uri: Uri.file(filePath)
         });
       }
