@@ -7,7 +7,7 @@ import {
   Range,
   DocumentLinkProvider
 } from "vscode";
-import { getPathMatches } from "../../../utilities/pathMatching";
+import { getExactPathMatch } from "../../../utilities/pathMatching";
 import Config from "../../../utilities/config";
 
 class EdgeLinkProvider implements DocumentLinkProvider {
@@ -60,7 +60,7 @@ function createDocumentLinks(
   if (matches.length < 0) return [];
 
   for (let item of matches) {
-    let file = getPathMatches(item, doc, targetDirectories, fileExtensions);
+    let file = getExactPathMatch(item, doc, targetDirectories, fileExtensions);
 
     if (file !== null) {
       let start = new Position(line.lineNumber, line.text.indexOf(item) + 1);
