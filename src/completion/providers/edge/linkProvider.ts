@@ -7,7 +7,7 @@ import {
   Range,
   DocumentLinkProvider
 } from "vscode";
-import { getViewPath } from "../../../utilities/views";
+import { getPathMatches } from "../../../utilities/pathMatching";
 import Config from "../../../utilities/config";
 
 class EdgeLinkProvider implements DocumentLinkProvider {
@@ -19,11 +19,18 @@ class EdgeLinkProvider implements DocumentLinkProvider {
 
     if (config.quickJump) {
       let currentLine = 0;
+      const regex = new RegExp(config.viewsRegex, "g");
       const maxLinesCount = getMaxLinesCount(doc);
-      const regex = new RegExp(config.viewRegex, "g");
 
       while (currentLine < maxLinesCount) {
-        const links = createDocumentLinks(regex, doc, currentLine);
+        const links = createDocumentLinks(
+          regex,
+          doc,
+          currentLine,
+          config.viewsDirectories,
+          config.viewsExtensions
+        );
+
         docLinks.push(...links);
         currentLine++;
       }
@@ -40,14 +47,20 @@ class EdgeLinkProvider implements DocumentLinkProvider {
  * @param doc Document to create links from
  * @param lineNo Line number in document in which links are created
  */
-function createDocumentLinks(regex: RegExp, doc: TextDocument, lineNo: number) {
+function createDocumentLinks(
+  regex: RegExp,
+  doc: TextDocument,
+  lineNo: number,
+  targetDirectories: string[],
+  fileExtensions: string[]
+) {
   let docLinks = [];
   let line = doc.lineAt(lineNo);
   let matches = line.text.match(regex) || [];
   if (matches.length < 0) return [];
 
   for (let item of matches) {
-    let file = getViewPath(item, doc);
+    let file = getPathMatches(item, doc, targetDirectories, fileExtensions);
 
     if (file !== null) {
       let start = new Position(line.lineNumber, line.text.indexOf(item) + 1);

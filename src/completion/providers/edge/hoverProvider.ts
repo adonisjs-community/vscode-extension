@@ -7,17 +7,23 @@ import {
   Hover
 } from "vscode";
 import Config from "../../../utilities/config";
-import { getViewPath } from "../../../utilities/views";
+import { getExactPathMatch } from "../../../utilities/pathMatching";
 import { generateMarkdownHoverText } from "../../../utilities/text";
 
 class EdgeHoverProvider implements HoverProvider {
   provideHover(doc: TextDocument, pos: Position): ProviderResult<Hover> {
-    const regex = new RegExp(Config.autocomplete.viewRegex);
+    const config = Config.autocomplete;
+    const regex = new RegExp(config.viewsRegex);
     const range = doc.getWordRangeAtPosition(pos, regex);
     if (!range) return;
 
     const text = doc.getText(range);
-    const matchedView = getViewPath(text, doc);
+    const matchedView = getExactPathMatch(
+      text,
+      doc,
+      config.viewsDirectories,
+      config.viewsExtensions
+    );
 
     if (matchedView) {
       const markdown = generateMarkdownHoverText([matchedView]);
