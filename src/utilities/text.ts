@@ -1,5 +1,5 @@
 import { MarkdownString } from "vscode";
-import { Path } from "./views";
+import { Path } from "./pathMatching";
 import { Config } from ".";
 
 /**

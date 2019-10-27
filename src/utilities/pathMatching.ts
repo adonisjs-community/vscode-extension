@@ -6,7 +6,6 @@ import {
   WorkspaceFolder
 } from "vscode";
 import { getDirectories } from "./directory";
-import Config from "./config";
 import * as fs from "fs";
 
 /**
@@ -24,8 +23,13 @@ export type Path = {
  * @param text Name of file for which to match for file name.
  * @param doc Document from which text is extracted
  */
-export function getViewPath(text: string, doc: TextDocument): Path | null {
-  let paths = getViewPaths(text, doc);
+export function getExactPathMatch(
+  text: string,
+  doc: TextDocument,
+  targetDirectories: string[],
+  extensions: string[]
+): Path | null {
+  let paths = getPathMatches(text, doc, targetDirectories, extensions);
   return paths.length > 0 ? paths[0] : null;
 }
 
@@ -35,14 +39,18 @@ export function getViewPath(text: string, doc: TextDocument): Path | null {
  * @param text Name of file for which to match for file names
  * @param document Workspace directory to match files.
  */
-export function getViewPaths(text: string, doc: TextDocument): Path[] {
+export function getPathMatches(
+  text: string,
+  doc: TextDocument,
+  targetDirectories: string[],
+  extensions: string[]
+): Path[] {
   const workspace = vsWorkspace.getWorkspaceFolder(doc.uri);
   if (!workspace) return [];
 
   const workspacePath = workspace.uri.fsPath;
-  const extensions = Config.autocomplete.extensions;
   const fileName = text.replace(/\"|\'/g, "").replace(/\./g, "/");
-  const directories = getDirectories(workspacePath, Config.autocomplete.views);
+  const directories = getDirectories(workspacePath, targetDirectories);
 
   return buildViewPaths(workspace, directories, fileName, extensions);
 }
