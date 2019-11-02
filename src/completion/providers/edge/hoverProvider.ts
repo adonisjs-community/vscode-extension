@@ -8,7 +8,7 @@ import {
 } from "vscode";
 import Config from "../../../utilities/config";
 import { getExactPathMatch } from "../../../utilities/pathMatching";
-import { generateMarkdownHoverText } from "../../../utilities/text";
+import { generateDocFromPath } from "../../../utilities/documentation";
 
 class EdgeHoverProvider implements HoverProvider {
   provideHover(doc: TextDocument, pos: Position): ProviderResult<Hover> {
@@ -26,7 +26,7 @@ class EdgeHoverProvider implements HoverProvider {
     );
 
     if (matchedView) {
-      const markdown = generateMarkdownHoverText([matchedView]);
+      const markdown = generateDocFromPath(matchedView);
       return new Hover(markdown);
     }
   }

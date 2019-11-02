@@ -61,15 +61,32 @@
 					"description": "Regular expression to match handle edge includes",
 					"default": "(?<=@include\\()(['\"])[^'\"]*\\1"
 				},
-				"adonisjs.autocomplete.maxLinesCount": {
-					"type": "integer",
-					"default": 1200,
-					"description": "Maximum lines of text to scan for view include matches"
+				"adonisjs.autocomplete.controllersDirectories": {
+					"type": "array",
+					"description": "Paths to the directory containing AdonisJS controllers",
+					"default": [
+						"app/controllers"
+					]
 				},
-				"adonisjs.autocomplete.folderTip": {
-					"type": "boolean",
-					"default": true,
-					"description": "Display file path name on hover"
+				"adonisjs.autocomplete.controllersExtensions": {
+					"type": "array",
+					"description": "Supported file extension for controller completion",
+					"default": [
+						"controller.js",
+						"controller.ts",
+						"Controller.js",
+						"Controller.ts"
+					]
+				},
+				"adonisjs.autocomplete.controllersRegex": {
+					"type": "string",
+					"description": "Regular expression to match handle route controllers",
+					"default": "(?<=Route\\.[a-zA-Z]*\\(['\"][^'\"]*['\"]\\s*,\\s*)(['\"])([^'\"]*)\\.([^'\"]*)\\1"
+				},
+				"adonisjs.autocomplete.controllersCompletionRegex": {
+					"type": "string",
+					"description": "Regular expression to match handle route controllers",
+					"default": "(?<=Route\\.[a-zA-Z]*\\(['\"][^'\"]*['\"]\\s*,\\s*)(['\"])([^'\"]*)\\.([^'\"]*)\\1"
 				}
 			}
 		}
@@ -91,5 +108,9 @@
 		"tslint": "^5.12.1",
 		"typescript": "^3.3.1",
 		"vscode-test": "^1.2.0"
+	},
+	"dependencies": {
+		"docblock": "^0.4.4",
+		"func-loc": "^0.1.7"
 	}
 }

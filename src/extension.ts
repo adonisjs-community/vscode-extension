@@ -2,7 +2,10 @@ import { ExtensionContext, languages } from "vscode";
 import {
   EdgeHoverProvider,
   EdgeLinkProvider,
-import { EdgeHoverProvider, EdgeLinkProvider } from "./completion";
+  EdgeCompletionProvider,
+  RouteCompletionProvider,
+  RouteHoverProvider,
+  RouteLinkProvider
 } from "./completion";
 
 export function activate(context: ExtensionContext) {
@@ -21,14 +24,28 @@ export function activate(context: ExtensionContext) {
     new EdgeCompletionProvider()
   );
 
-  const linkProvider = new EdgeLinkProvider();
-  let edgeLink = languages.registerDocumentLinkProvider(["edge"], linkProvider);
+  const routeCompletion = languages.registerCompletionItemProvider(
+    ["javascript"],
+    new RouteCompletionProvider()
+  );
+
+  const routeHover = languages.registerHoverProvider(
+    ["javascript"],
+    new RouteHoverProvider()
+  );
+
+  const routeLink = languages.registerDocumentLinkProvider(
+    ["javascript"],
+    new RouteLinkProvider()
   );
 
   context.subscriptions.push(
     edgeHover,
     edgeLink,
-  context.subscriptions.push(edgeHover, edgeLink);
+    edgeCompletion,
+    routeCompletion,
+    routeHover,
+    routeLink
   );
 }
 
