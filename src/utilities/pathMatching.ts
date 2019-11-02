@@ -52,10 +52,10 @@ export function getPathMatches(
   const fileName = text.replace(/\"|\'/g, "").replace(/\./g, "/");
   const directories = getDirectories(workspacePath, targetDirectories);
 
-  return buildViewPaths(workspace, directories, fileName, extensions);
+  return buildPaths(workspace, directories, fileName, extensions);
 }
 
-function buildViewPaths(
+function buildPaths(
   workspace: WorkspaceFolder,
   paths: string[],
   fileName: string,
