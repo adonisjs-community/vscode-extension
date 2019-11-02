@@ -14,6 +14,7 @@ export type Suggestion = {
   text: string;
   detail: string;
   documentation: string | MarkdownString;
+  filePath: string;
 };
 
 /**
@@ -79,11 +80,12 @@ function fromFilePaths(
     if (matches.length < 2) continue;
     const extensionParts = matches[2].split(".");
     const textSuffix = extensionParts[0] === "." ? "" : extensionParts[0];
-    const text: string = matches[1].replace(/\/+/g, ".") + textSuffix;
+
+    const text: string = `${matches[1]}${textSuffix}`;
     const detail = extensionDescription(matches[2]);
     const documentation = new MarkdownString(shortPath);
 
-    suggestions.add({ text, documentation, detail });
+    suggestions.add({ text, documentation, detail, filePath });
   }
 
   return Array.from(suggestions);
