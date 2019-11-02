@@ -4,6 +4,8 @@ import * as fs from "fs";
 /**
  * Get all directories in children directory, relative to the workspace path.
  *
+ * TODO: Switch implementation to using glob.
+ *
  * @param workspacePath Workspace for which the provided directories are located.
  * @param childDirectories Array of all possible directories to scan and match.
  */

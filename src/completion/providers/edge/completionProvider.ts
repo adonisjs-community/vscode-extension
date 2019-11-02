@@ -45,7 +45,10 @@ class EdgeCompletionProvider implements CompletionItemProvider {
       folder,
       config.viewsDirectories,
       config.viewsExtensions
-    );
+    ).map(suggestion => {
+      const text = suggestion.text.replace(/\/+/g, ".");
+      return { ...suggestion, text };
+    });
 
     return suggestions;
   }
