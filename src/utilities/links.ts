@@ -1,4 +1,3 @@
-
 import { getExactPathMatch } from "./pathMatching";
 import { TextDocument, DocumentLink, Position, Range } from "vscode";
 import { parseControllerString, createControllerLink } from "./controller";
@@ -40,7 +39,7 @@ export async function createDocumentLinks(
       const index = line.text.indexOf(controller.fullname);
       let start = new Position(line.lineNumber, index);
       let end = start.translate(0, controller.fullname.length);
-      let link = await createControllerLink(start, end, controller, file);
+      let link = await createControllerLink(start, end, controller, file.uri);
       if (!link) continue;
 
       // Controller method
@@ -48,7 +47,14 @@ export async function createDocumentLinks(
       const initialLink = link;
       start = end.translate(0, 1);
       end = start.translate(0, controller.action.length);
-      link = await createControllerLink(start, end, controller, file, false);
+      link = await createControllerLink(
+        start,
+        end,
+        controller,
+        file.uri,
+        false
+      );
+
       if (!link) {
         docLinks.push(initialLink);
         continue;
