@@ -83,7 +83,12 @@
 					"description": "Regular expression to match handle route controllers",
 					"default": "(?<=Route\\.[a-zA-Z]*\\(['\"][^'\"]*['\"]\\s*,\\s*)(['\"])([^'\"]*)\\.([^'\"]*)\\1"
 				},
-				"adonisjs.autocomplete.controllersCompletionRegex": {
+				"adonisjs.autocomplete.controllersNameCompletionRegex": {
+					"type": "string",
+					"description": "Regular expression to match handle route controllers",
+					"default": "(?<=Route\\.[a-zA-Z]*\\(['\"][^'\"]*['\"]\\s*,\\s*)(['\"])([^\\.'\"]*)\\1"
+				},
+				"adonisjs.autocomplete.controllersMethodCompletionRegex": {
 					"type": "string",
 					"description": "Regular expression to match handle route controllers",
 					"default": "(?<=Route\\.[a-zA-Z]*\\(['\"][^'\"]*['\"]\\s*,\\s*)(['\"])([^'\"]*)\\.([^'\"]*)\\1"

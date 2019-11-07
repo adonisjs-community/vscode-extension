@@ -31,3 +31,15 @@ export async function getLineNumber(
 
   return { lineNo: declation.line, ...declation };
 }
+
+export function getAllFunctionsInFile(filePath: string): string[] {
+  let methods: string[] = [];
+  let file = requireNoCache(filePath.replace(/file:\/\//, ""));
+
+  while (file && file.prototype) {
+    methods = methods.concat(Object.getOwnPropertyNames(file.prototype));
+    file = Object.getPrototypeOf(file);
+  }
+
+  return methods.filter(x => x !== "constructor");
+}
