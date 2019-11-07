@@ -1,4 +1,4 @@
-// tslint:disable: curly
+
 import glob = require("glob");
 import {
   MarkdownString,
@@ -146,6 +146,8 @@ export function toCompletionItems(
 
 /**
  * Get a short descriptio text of a given file extension.
+ * 
+ * TODO: Improve on this implementation.
  *
  * @param fileExtension File extension
  */

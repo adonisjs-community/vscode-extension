@@ -1,4 +1,4 @@
-// tslint:disable: curly
+
 import { getExactPathMatch } from "./pathMatching";
 import { TextDocument, DocumentLink, Position, Range } from "vscode";
 import { parseControllerString, createControllerLink } from "./controller";

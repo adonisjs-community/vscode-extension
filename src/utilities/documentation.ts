@@ -1,4 +1,4 @@
-// tslint:disable: curly
+
 import { MarkdownString } from "vscode";
 const DocBlock = require("docblock");
 import * as fs from "fs";

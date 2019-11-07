@@ -1,4 +1,3 @@
-// tslint:disable: curly
 import {
   HoverProvider,
   TextDocument,
