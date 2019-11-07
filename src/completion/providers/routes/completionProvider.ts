@@ -6,58 +6,105 @@ import {
   CompletionItemProvider,
   CompletionItem,
   CompletionItemKind,
-  workspace
+  workspace,
+  Range
 } from "vscode";
-import Config from "../../../utilities/config";
 import {
   getSuggestions,
   Suggestion,
   toCompletionItems
 } from "../../../utilities/suggestion";
+import Config from "../../../utilities/config";
+import { getAllFunctionsInFile } from "../../../utilities/functions";
+import { parseControllerString } from "../../../utilities/controller";
+
+const {
+  controllersDirectories,
+  controllersExtensions,
+  controllersNameCompletionRegex: controllerNamePattern,
+  controllersMethodCompletionRegex: controllerMethodPattern
+} = Config.autocomplete;
 
 class RouteControllerCompletionProvider implements CompletionItemProvider {
   provideCompletionItems(
     doc: TextDocument,
     pos: Position
   ): ProviderResult<CompletionItem[]> {
-    const regex = new RegExp(
-      Config.autocomplete.controllersCompletionRegex,
-      "gi"
-    );
-    const range = doc.getWordRangeAtPosition(pos, regex);
-    if (!range) return;
+    let showMethodSuggestions = false;
+    let range = this.matchPatternInDocument(controllerNamePattern, doc, pos);
+
+    if (!range) {
+      showMethodSuggestions = true;
+      range = this.matchPatternInDocument(controllerMethodPattern, doc, pos);
+    }
+
     const text = doc.getText(range);
-    const suggestions = this.getSuggestions(text, doc);
+    const suggestions = showMethodSuggestions
+      ? this.getControllerMethodSuggestions(text, doc)
+      : this.getControllerNameSuggestions(text, doc);
+
     return toCompletionItems(suggestions, CompletionItemKind.Value);
   }
 
   /**
-   * Get completion suggestions of controllers based on the provided text.
+   * Match a given pattern in a text document begining from a specified postion.
+   *
+   * @param pattern Pattern to match for
+   * @param doc Document to match in
+   * @param pos Postion in document to begin matching from
+   */
+  matchPatternInDocument(
+    pattern: string,
+    doc: TextDocument,
+    pos: Position
+  ): Range | undefined {
+    const regex = new RegExp(pattern, "gi");
+    return doc.getWordRangeAtPosition(pos, regex);
+  }
+
+  /**
+   * Get controller names suggestions based on the provided route controller text.
+   *
+   * Example of a route controller text is `HomeController.get`.
    *
    * @param text Text to get suggestions for
    * @param doc Document text belongs to
    */
-  private getSuggestions(text: string, doc: TextDocument): Suggestion[] {
-    const {
-      controllersDirectories,
-      controllersExtensions
-    } = Config.autocomplete;
+  getControllerNameSuggestions(text: string, doc: TextDocument): Suggestion[] {
+    const controller = parseControllerString(text);
+    if (controller) text = controller.name;
 
     const folder = workspace.getWorkspaceFolder(doc.uri);
     if (!folder) return [];
 
-    let suggestions: Suggestion[] = [];
-
-    getSuggestions(
+    return getSuggestions(
       text,
       folder,
       controllersDirectories,
       controllersExtensions
-    ).map(suggestion => {
-      //
-    });
+    );
+  }
 
-    return suggestions;
+  /**
+   * Get controller methods suggestions based on the provided route controller text.
+   *
+   * Example of a route controller text is `HomeController.get`.
+   *
+   * @param text Text to get suggestions for
+   * @param doc Document text belongs to
+   */
+  getControllerMethodSuggestions(
+    text: string,
+    doc: TextDocument
+  ): Suggestion[] {
+    const suggestions = this.getControllerNameSuggestions(text, doc)[0];
+    const methods = getAllFunctionsInFile(suggestions.filePath);
+
+    return methods.map(method => {
+      let newSuggestion = Object.assign({}, suggestions);
+      newSuggestion.text = method;
+      return newSuggestion;
+    });
   }
 }
 
