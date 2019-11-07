@@ -1,4 +1,4 @@
-// tslint:disable: curly
+
 import {
   Uri,
   TextDocument,
