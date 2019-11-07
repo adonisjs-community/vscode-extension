@@ -1,4 +1,3 @@
-// tslint:disable: curly
 import { Range, DocumentLink, Uri, Position } from "vscode";
 import { getLineNumber } from "./functions";
 import { Path } from "./pathMatching";
@@ -43,7 +42,7 @@ export function parseControllerString(text: string): Controller | null {
     fullPath,
     parentDirectory: matches[1],
     name: matches[3].replace(/controller$/i, ""),
-    action: parts[1]
+    action: parts[1] || ""
   };
 }
 
@@ -60,16 +59,16 @@ export async function createControllerLink(
   start: Position,
   end: Position,
   controller: Controller,
-  file: Path,
+  file: Uri,
   useFallbackLink = true
 ): Promise<RouteControllerLink | null> {
   const action = controller.action;
   const range = new Range(start, end);
   if (range.isEmpty) return null;
 
-  const link = new RouteControllerLink(range, file.uri, controller);
+  const link = new RouteControllerLink(range, file, controller);
 
-  const line = await getLineNumber(action, file.uri.fsPath.toString());
+  const line = await getLineNumber(action, file.fsPath.toString());
   if (line.lineNo <= -1 && !useFallbackLink) {
     return null;
   } else if (line.lineNo <= -1) {
