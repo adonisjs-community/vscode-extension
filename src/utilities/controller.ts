@@ -65,6 +65,8 @@ export async function createControllerLink(
 ): Promise<RouteControllerLink | null> {
   const action = controller.action;
   const range = new Range(start, end);
+  if (range.isEmpty) return null;
+
   const link = new RouteControllerLink(range, file.uri, controller);
 
   const line = await getLineNumber(action, file.uri.fsPath.toString());
