@@ -7,8 +7,6 @@ import {
   Hover,
   MarkdownString
 } from "vscode";
-import Config from "../../../utilities/config";
-import { getExactPathMatch } from "../../../utilities/pathMatching";
 import {
   parseControllerString,
   Controller
@@ -17,10 +15,17 @@ import {
   getDocForMethodInFile,
   generateDocFromPath
 } from "../../../utilities/documentation";
+import Config from "../../../utilities/config";
+import { getExactPathMatch } from "../../../utilities/pathMatching";
+const {
+  controllersRegex,
+  controllersDirectories,
+  controllersExtensions
+} = Config.autocomplete;
 
 class RouteControllerHoverProvider implements HoverProvider {
   provideHover(doc: TextDocument, pos: Position): ProviderResult<Hover> {
-    const regex = new RegExp(Config.autocomplete.controllersRegex);
+    const regex = new RegExp(controllersRegex);
     const range = doc.getWordRangeAtPosition(pos, regex);
     if (!range) return;
 
@@ -43,12 +48,11 @@ class RouteControllerHoverProvider implements HoverProvider {
     controller: Controller,
     activeDocument: TextDocument
   ): MarkdownString | null {
-    const config = Config.autocomplete;
     const controllerPath = getExactPathMatch(
       controller.name,
       activeDocument,
-      config.controllersDirectories,
-      config.controllersExtensions
+      controllersDirectories,
+      controllersExtensions
     );
 
     if (controllerPath) {

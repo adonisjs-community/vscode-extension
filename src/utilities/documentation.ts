@@ -9,6 +9,8 @@ export function getDocForMethodInFile(
   file: string,
   methodName: string
 ): MarkdownString | null {
+  if (methodName.trim().length === 0) return null;
+
   const source = fs.readFileSync(file);
   const matches = file.match(/\.[0-9a-z]+$/);
   const fileExtension = matches ? matches[0] : "js";
