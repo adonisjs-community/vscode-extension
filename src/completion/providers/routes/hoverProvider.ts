@@ -57,7 +57,8 @@ class RouteControllerHoverProvider implements HoverProvider {
     if (controllerPath) {
       const path = controllerPath.uri.fsPath;
       const methodDoc = getDocForMethodInFile(path, controller.action);
-      const markdown = methodDoc || generateDocFromPath(controllerPath);
+      const markdown =
+        methodDoc || generateDocFromPath(controllerPath, Config.folderTip);
       return markdown;
     }
 

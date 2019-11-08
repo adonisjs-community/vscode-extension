@@ -1,4 +1,3 @@
-
 const { locate } = require("func-loc");
 import { requireNoCache } from "./require";
 
