@@ -5,7 +5,7 @@ import {
   createControllerLink,
   RouteControllerLink
 } from "../../utilities/controller";
-import { Position, Uri, Range } from "vscode";
+import { Position, Uri, Range, workspace, WorkspaceFolder } from "vscode";
 import * as path from "path";
 
 suite("Parse route controller strings", () => {
@@ -131,9 +131,11 @@ suite("Parse route controller strings", () => {
 
 suite("Controller links", () => {
   setup(function() {
+    const workspaceFolders = workspace.workspaceFolders as WorkspaceFolder[];
+
     this.userControllerPath = path.resolve(
-      __dirname,
-      "../../../src/test/data/controller/UserController.js"
+      workspaceFolders[0].uri.fsPath,
+      "controller/UserController.js"
     );
   });
 
