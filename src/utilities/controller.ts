@@ -1,6 +1,5 @@
 import { Range, DocumentLink, Uri, Position } from "vscode";
 import { getLineNumber } from "./functions";
-import { Path } from "./pathMatching";
 
 export class RouteControllerLink extends DocumentLink {
   filePath: Uri;

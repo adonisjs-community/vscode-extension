@@ -25,7 +25,7 @@ class EdgeHoverProvider implements HoverProvider {
     );
 
     if (matchedView) {
-      const markdown = generateDocFromPath(matchedView);
+      const markdown = generateDocFromPath(matchedView, Config.folderTip);
       return new Hover(markdown);
     }
   }
