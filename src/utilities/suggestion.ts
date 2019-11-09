@@ -1,5 +1,4 @@
-
-import glob = require("glob");
+import * as glob from "glob";
 import {
   MarkdownString,
   WorkspaceFolder,
@@ -108,15 +107,17 @@ function getMatches(
   let result: string[] = [];
   const fn = (rgx: string, cur: string) => `${rgx}|${cur}`;
   const extensionRegex = extensions.reduce(fn, "");
-  const textRgx = text.split("").map(c => `(?=.*${c})`).join(""); // prettier-ignore
+  const textRegex = text.split("").map(c => `(?=.*${c})`).join(""); // prettier-ignore
 
   for (const dir of targetDirectories) {
     const globPattern = `${workspacePath}/${dir}/**/**(${extensionRegex})`;
-    const found = glob.sync(globPattern, { nodir: true });
-    const regexPattern = `${workspacePath}/${dir}/${textRgx}([\\w\/]*)(${extensionRegex})`;
+    const files = glob.sync(globPattern, { nodir: true });
+
+    const regexPattern = `${workspacePath}/${dir}/${textRegex}([\\w\/]*)(${extensionRegex})`;
     const regex = new RegExp(regexPattern, "i");
-    const matches = found.filter(file => regex.test(file));
-    result.push(...matches);
+
+    const matchedFiles = files.filter(file => regex.test(file));
+    result.push(...matchedFiles);
   }
 
   return result;
@@ -146,7 +147,7 @@ export function toCompletionItems(
 
 /**
  * Get a short descriptio text of a given file extension.
- * 
+ *
  * TODO: Improve on this implementation.
  *
  * @param fileExtension File extension
