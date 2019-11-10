@@ -20,7 +20,7 @@ export type Controller = {
   fullname: string;
   parentDirectory: string;
   fullPath: string;
-  action: string;
+  method: string;
 };
 
 /**
@@ -41,7 +41,7 @@ export function parseControllerString(text: string): Controller | null {
     fullPath,
     parentDirectory: matches[1],
     name: matches[3].replace(/controller$/i, ""),
-    action: parts[1] || ""
+    method: parts[1] || ""
   };
 }
 
@@ -51,7 +51,7 @@ export function parseControllerString(text: string): Controller | null {
  * @param start Postion in document to start link creation
  * @param end Postion in document to end link creation
  * @param controller Controller object to build link from
- * @param file Javascript file to point controller and action link to
+ * @param file Javascript file to point controller and method link to
  * @param useFallbackLink If no match is found, link to provided file, else return null
  */
 export async function createControllerLink(
@@ -61,18 +61,17 @@ export async function createControllerLink(
   file: Uri,
   useFallbackLink = true
 ): Promise<RouteControllerLink | null> {
-  const action = controller.action;
+  const method = controller.method;
   const range = new Range(start, end);
   if (range.isEmpty) return null;
 
   const link = new RouteControllerLink(range, file, controller);
-  const location = await getLineNumber(file.fsPath.toString(), action);
+  const location = await getLineNumber(file.fsPath.toString(), method);
 
-  if (location.lineno <= -1 && !useFallbackLink) {
-    return null;
-  } else if (location.lineno <= -1) {
+  if (location.lineno <= -1 && !useFallbackLink) return null;
+
+  if (location.lineno <= -1) {
     link.target = Uri.parse(link.filePath.fsPath.toString());
-    return link;
   }
 
   return link;
