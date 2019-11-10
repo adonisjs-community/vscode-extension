@@ -7,12 +7,10 @@ suite("Directory", () => {
     const folder = workspace.workspaceFolders as WorkspaceFolder[];
     const workspacePath = folder[0].uri.fsPath;
 
-    const directories = getDirectories(workspacePath, [
-      "directories/dir1",
-      "directories/dir2"
-    ]);
+    const directories = getDirectories(workspacePath, ["directories"]);
 
     assert.deepStrictEqual(directories, [
+      "directories",
       "directories/dir1",
       "directories/dir2",
       "directories/dir1/dir1.1",

@@ -20,10 +20,12 @@ export function getDirectories(
 
     if (fs.existsSync(directory)) {
       fs.readdirSync(directory).forEach((dirItem: string) => {
-        let view = path.join(directory, dirItem);
+        let fullPath = path.join(directory, dirItem);
 
-        if (fs.statSync(view).isDirectory()) {
-          folders.push(`${childDir}/${dirItem}`);
+        if (fs.statSync(fullPath).isDirectory()) {
+          const directory = `${childDir}/${dirItem}`;
+          folders.push(directory);
+          childDirectories.push(directory);
         }
       });
     }
