@@ -14,7 +14,7 @@ import {
   toCompletionItems
 } from "../../../utilities/suggestion";
 import Config from "../../../utilities/config";
-import { getAllFunctionsInFile } from "../../../utilities/functions";
+import { getMethodsInSourceFile } from "../../../utilities/functions";
 import { parseControllerString } from "../../../utilities/controller";
 
 const {
@@ -97,7 +97,7 @@ class RouteControllerCompletionProvider implements CompletionItemProvider {
     doc: TextDocument
   ): Suggestion[] {
     const suggestions = this.getControllerNameSuggestions(text, doc)[0];
-    const methods = getAllFunctionsInFile(suggestions.filePath);
+    const methods = getMethodsInSourceFile(suggestions.filePath);
 
     return methods.map(method => {
       let newSuggestion = Object.assign({}, suggestions);

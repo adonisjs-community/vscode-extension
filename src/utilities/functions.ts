@@ -1,44 +1,55 @@
-const { locate } = require("func-loc");
-import { requireNoCache } from "./require";
+import * as fs from "fs";
+import { Extractor } from "@poppinss/module-methods-extractor";
+import { ExtractorOutput } from "@poppinss/module-methods-extractor/build/src/contracts";
 
 /**
- * Location in a file.
+ * Location of a method in a source file.
  */
 export type Location = {
-  lineNo: number;
-  column: number;
-  source: string;
+  lineno: number;
+  name: string;
+  // column: number;
 };
 
 /**
- * Get the line number a function is declared in a Javascrip file.
+ * Get the line number a method is declared in a source file.
  *
- * @param functionName Function name to locate
- * @param jsFilePath Javascript file to search
+ * @param methodName Method name to locate
+ * @param sourcePath Source file to extract from
  */
 export async function getLineNumber(
-  functionName: string,
-  jsFilePath: string
+  sourcePath: string,
+  methodName: string
 ): Promise<Location> {
-  const notFound: Location = { lineNo: -1, column: -1, source: "" };
-  const file = requireNoCache(jsFilePath.replace(/file:\/\//, ""));
-  const prototype = file.prototype[functionName];
-  if (!prototype) return notFound;
+  const notFound: Location = { lineno: -1, name: methodName };
+  const methods = extractMethodsInSourceFile(sourcePath);
+  if (!methods) return notFound;
 
-  const declation = await locate(prototype);
-  if (!declation) return notFound;
+  const method = methods.methods.find(
+    method => method.name === methodName.trim()
+  );
 
-  return { lineNo: declation.line, ...declation };
+  return method || notFound;
 }
 
-export function getAllFunctionsInFile(filePath: string): string[] {
-  let methods: string[] = [];
-  let file = requireNoCache(filePath.replace(/file:\/\//, ""));
+export function getMethodsInSourceFile(sourcePath: string): string[] {
+  try {
+    const output = extractMethodsInSourceFile(sourcePath);
+    if (!output) return [];
 
-  while (file && file.prototype) {
-    methods = methods.concat(Object.getOwnPropertyNames(file.prototype));
-    file = Object.getPrototypeOf(file);
+    return output.methods.map(method => method.name);
+  } catch (err) {
+    return [];
   }
+}
 
-  return methods.filter(x => x !== "constructor");
+function extractMethodsInSourceFile(
+  sourcePath: string
+): ExtractorOutput | null {
+  const source = fs
+    .readFileSync(sourcePath.replace(/file:\/\//, ""))
+    .toString("ascii");
+
+  const extractor = new Extractor();
+  return extractor.extract(source);
 }
