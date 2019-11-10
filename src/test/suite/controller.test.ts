@@ -17,7 +17,7 @@ suite("Parse route controller strings", () => {
       fullname: text,
       parentDirectory: "",
       fullPath: text,
-      action: ""
+      method: ""
     };
 
     assert.deepStrictEqual(path, controller);
@@ -31,7 +31,7 @@ suite("Parse route controller strings", () => {
       fullname: "User/People/HomeController",
       parentDirectory: "User/People/",
       fullPath: text,
-      action: ""
+      method: ""
     };
 
     assert.deepStrictEqual(path, controller);
@@ -45,7 +45,7 @@ suite("Parse route controller strings", () => {
       fullname: "UserController",
       parentDirectory: "",
       fullPath: text,
-      action: "getProfile"
+      method: "getProfile"
     };
 
     assert.deepStrictEqual(path, controller);
@@ -59,7 +59,7 @@ suite("Parse route controller strings", () => {
       fullname: "User/People/HomeController",
       parentDirectory: "User/People/",
       fullPath: text,
-      action: "me"
+      method: "me"
     };
 
     assert.deepStrictEqual(path, controller);
@@ -73,7 +73,7 @@ suite("Parse route controller strings", () => {
       fullname: "HomeController",
       parentDirectory: "",
       fullPath: text,
-      action: ""
+      method: ""
     };
 
     assert.deepStrictEqual(path, controller);
@@ -88,7 +88,7 @@ suite("Parse route controller strings", () => {
       fullname: "User/People/HomeController",
       parentDirectory: "User/People/",
       fullPath: text,
-      action: ""
+      method: ""
     };
 
     assert.deepStrictEqual(path, controller);
@@ -102,7 +102,7 @@ suite("Parse route controller strings", () => {
       fullname: "Home",
       parentDirectory: "",
       fullPath: text,
-      action: ""
+      method: ""
     };
 
     assert.deepStrictEqual(path, controller);
@@ -116,7 +116,7 @@ suite("Parse route controller strings", () => {
       fullname: "Country/People/Home",
       parentDirectory: "Country/People/",
       fullPath: text,
-      action: ""
+      method: ""
     };
 
     assert.deepStrictEqual(path, controller);
@@ -211,7 +211,7 @@ suite("Controller links", () => {
     const end = new Position(0, 0);
 
     const controller: Controller = {
-      action: "me",
+      method: "me",
       fullPath: "HomeController.me",
       fullname: "HomeController",
       name: "Home",

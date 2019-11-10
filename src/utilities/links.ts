@@ -46,7 +46,7 @@ export async function createDocumentLinks(
       const initialPosition = start;
       const initialLink = link;
       start = end.translate(0, 1);
-      end = start.translate(0, controller.action.length);
+      end = start.translate(0, controller.method.length);
       link = await createControllerLink(
         start,
         end,
