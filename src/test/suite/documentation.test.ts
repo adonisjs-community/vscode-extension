@@ -7,11 +7,17 @@ import {
   generateDocFromPath
 } from "../../utilities/documentation";
 
-suite("Autocomplete Documentation Generation", () => {
-  test("Test that documentation is returned for existing method in javascript file", () => {
-    const folder = workspace.workspaceFolders as WorkspaceFolder[];
-    const workspacePath = folder[0].uri.fsPath;
-    const file = path.resolve(workspacePath, "documentation/HomeController.js");
+suite("Autocomplete Markedown Documentation Generation", () => {
+  setup(function() {
+    const workspaceFolders = workspace.workspaceFolders as WorkspaceFolder[];
+    this.workspace = workspaceFolders[0].uri.fsPath;
+  });
+
+  test("Test that documentation is returned for existing method in javascript file", function() {
+    const file = path.resolve(
+      this.workspace,
+      "documentation/HomeController.js"
+    );
 
     let documentation = getDocForMethodInFile(file, "store");
     assert.notEqual(documentation, null);
@@ -21,20 +27,19 @@ suite("Autocomplete Documentation Generation", () => {
     assert.deepEqual(found, true);
   });
 
-  test("Test that documentation is not returned for methods that do not exist in javascript file", () => {
-    const folder = workspace.workspaceFolders as WorkspaceFolder[];
-    const workspacePath = folder[0].uri.fsPath;
-    const file = path.resolve(workspacePath, "documentation/HomeController.js");
+  test("Test that documentation is not returned for methods that do not exist in javascript file", function() {
+    const file = path.resolve(
+      this.workspace,
+      "documentation/HomeController.js"
+    );
 
     let documentation = getDocForMethodInFile(file, "notExisting");
     assert.deepEqual(documentation, null);
   });
 
-  test("Test that documentation is returned for existing method in typescript file", () => {
-    const folder = workspace.workspaceFolders as WorkspaceFolder[];
-    const workspacePath = folder[0].uri.fsPath;
+  test("Test that documentation is returned for existing method in typescript file", function() {
     const file = path.resolve(
-      workspacePath,
+      this.workspace,
       "documentation/PeopleController.ts"
     );
 
@@ -47,18 +52,18 @@ suite("Autocomplete Documentation Generation", () => {
     assert.deepEqual(found, true);
   });
 
-  test("Test that documentation is not returned for methods that do not exist in typescript file", () => {
-    const folder = workspace.workspaceFolders as WorkspaceFolder[];
-    const workspacePath = folder[0].uri.fsPath;
+  test("Test that documentation is not returned for methods that do not exist in typescript file", function() {
     const file = path.resolve(
-      workspacePath,
+      this.workspace,
       "documentation/PeopleController.ts"
     );
 
     let documentation = getDocForMethodInFile(file, "notExisting");
     assert.deepEqual(documentation, null);
   });
+});
 
+suite("Autocomplete Plain String Documentation Generation", () => {
   test("Test that documentation generation from path is correct", () => {
     const path: Path = {
       fullpath: "me/resources/views/home.edge",
