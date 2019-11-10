@@ -108,7 +108,6 @@
 		"@types/mocha": "^5.2.6",
 		"@types/node": "^10.12.21",
 		"@types/vscode": "^1.39.0",
-		"glob": "^7.1.5",
 		"mocha": "^6.1.4",
 		"tslint": "^5.12.1",
 		"typescript": "^3.3.1",
@@ -116,6 +115,7 @@
 	},
 	"dependencies": {
 		"@poppinss/module-methods-extractor": "^1.0.0",
-		"docblock": "^0.4.4"
+		"docblock": "^0.4.4",
+		"glob": "^7.1.5"
 	}
 }
