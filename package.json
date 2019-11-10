@@ -115,7 +115,7 @@
 		"vscode-test": "^1.2.0"
 	},
 	"dependencies": {
-		"docblock": "^0.4.4",
-		"func-loc": "^0.1.7"
+		"@poppinss/module-methods-extractor": "^1.0.0",
+		"docblock": "^0.4.4"
 	}
 }

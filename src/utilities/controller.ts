@@ -66,11 +66,11 @@ export async function createControllerLink(
   if (range.isEmpty) return null;
 
   const link = new RouteControllerLink(range, file, controller);
+  const location = await getLineNumber(file.fsPath.toString(), action);
 
-  const line = await getLineNumber(action, file.fsPath.toString());
-  if (line.lineNo <= -1 && !useFallbackLink) {
+  if (location.lineno <= -1 && !useFallbackLink) {
     return null;
-  } else if (line.lineNo <= -1) {
+  } else if (location.lineno <= -1) {
     link.target = Uri.parse(link.filePath.fsPath.toString());
     return link;
   }
