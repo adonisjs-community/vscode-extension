@@ -32,6 +32,11 @@ export async function getLineNumber(
   return method || notFound;
 }
 
+/**
+ * Get all method names in a JS/TS source file.
+ *
+ * @param sourcePath File path of the source file
+ */
 export function getMethodsInSourceFile(sourcePath: string): string[] {
   try {
     const output = extractMethodsInSourceFile(sourcePath);
@@ -43,6 +48,12 @@ export function getMethodsInSourceFile(sourcePath: string): string[] {
   }
 }
 
+/**
+ * Extract all the methods in a  JS/TS souce file. If the source file
+ * doesn't exist, a null value is returned.
+ *
+ * @param sourcePath File path of the source file
+ */
 function extractMethodsInSourceFile(
   sourcePath: string
 ): ExtractorOutput | null {
