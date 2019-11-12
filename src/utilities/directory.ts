@@ -14,6 +14,7 @@ export function getDirectories(
   childDirectories: string[]
 ): string[] {
   let folders = Object.values(childDirectories);
+  childDirectories = Object.values(childDirectories);
 
   for (const childDir of childDirectories) {
     let directory = path.join(workspacePath, childDir);
