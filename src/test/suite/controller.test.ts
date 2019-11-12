@@ -94,32 +94,16 @@ suite("Parse route controller strings", () => {
     assert.deepStrictEqual(path, controller);
   });
 
-  test("Test that controller string without `controller` substring is parsed", () => {
+  test("Test that controller string without `controller` substring fails to parse", () => {
     const text = "Home.";
     const controller = parseControllerString(text);
-    const path = {
-      name: "Home",
-      fullname: "Home",
-      parentDirectory: "",
-      fullPath: text,
-      method: ""
-    };
-
-    assert.deepStrictEqual(path, controller);
+    assert.deepStrictEqual(controller, null);
   });
 
-  test("Test that controller string without `controller` substring and with parent directory is parsed", () => {
+  test("Test that controller string without `controller` substring and with parent directory fails to parse", () => {
     const text = "Country/People/Home.";
     const controller = parseControllerString(text);
-    const path = {
-      name: "Home",
-      fullname: "Country/People/Home",
-      parentDirectory: "Country/People/",
-      fullPath: text,
-      method: ""
-    };
-
-    assert.deepStrictEqual(path, controller);
+    assert.deepStrictEqual(controller, null);
   });
 
   test("Test that controller without name is invalid", () => {

@@ -33,14 +33,14 @@ export function parseControllerString(text: string): Controller | null {
   const parts = fullPath.split(".");
   if (parts.length === 0) return null;
 
-  const matches = parts[0].match(/(([^\/]*\/)*)([^\/]+)$/);
+  const matches = parts[0].match(/(([^\/]*\/)*)([^\/]+)Controller$/);
   if (!matches) return null;
 
   return {
     fullname: parts[0],
     fullPath,
     parentDirectory: matches[1],
-    name: matches[3].replace(/controller$/i, ""),
+    name: matches[3],
     method: parts[1] || ""
   };
 }
