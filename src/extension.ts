@@ -1,4 +1,4 @@
-import { ExtensionContext, languages } from "vscode";
+import { ExtensionContext, languages, DocumentFilter } from "vscode";
 import {
   EdgeHoverProvider,
   EdgeLinkProvider,
@@ -9,6 +9,11 @@ import {
 } from "./completion";
 
 export function activate(context: ExtensionContext) {
+  const jsAndTsSelector: Array<DocumentFilter> = [
+    { scheme: "file", language: "javascript" },
+    { scheme: "file", language: "typescript" }
+  ];
+
   const edgeHover = languages.registerHoverProvider(
     ["edge"],
     new EdgeHoverProvider()
@@ -25,17 +30,17 @@ export function activate(context: ExtensionContext) {
   );
 
   const routeCompletion = languages.registerCompletionItemProvider(
-    ["javascript", "typescript"],
+    jsAndTsSelector,
     new RouteCompletionProvider()
   );
 
   const routeHover = languages.registerHoverProvider(
-    ["javascript", "typescript"],
+    jsAndTsSelector,
     new RouteHoverProvider()
   );
 
   const routeLink = languages.registerDocumentLinkProvider(
-    ["javascript", "typescript"],
+    jsAndTsSelector,
     new RouteLinkProvider()
   );
 
