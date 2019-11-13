@@ -25,17 +25,17 @@ export function activate(context: ExtensionContext) {
   );
 
   const routeCompletion = languages.registerCompletionItemProvider(
-    ["javascript"],
+    ["javascript", "typescript"],
     new RouteCompletionProvider()
   );
 
   const routeHover = languages.registerHoverProvider(
-    ["javascript"],
+    ["javascript", "typescript"],
     new RouteHoverProvider()
   );
 
   const routeLink = languages.registerDocumentLinkProvider(
-    ["javascript"],
+    ["javascript", "typescript"],
     new RouteLinkProvider()
   );
 
