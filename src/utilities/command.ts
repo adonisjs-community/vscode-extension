@@ -3,7 +3,7 @@ import { VscodeCommand } from "../tasks/types";
 const AdonisCommands = require("@adonisjs/cli/src/Commands");
 
 /**
- * Create a VSCode command
+ * Create a VSCode command.
  */
 export function createVscodeCommand(
   key: string,

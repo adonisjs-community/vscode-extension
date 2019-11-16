@@ -5,90 +5,97 @@ import { window } from "vscode";
  * Input recieved from a series of command steps executed.
  */
 type CommandStepsInputs = {
-  required?: { [key: string]: any };
-  optional?: { [key: string]: any };
+  required: { [key: string]: any };
+  optional: { [key: string]: any };
 };
 
 export class CommandSteps {
-  _params: {
-    required: { [key: string]: any };
-    optional: { [key: string]: any };
-  };
-
   /**
    * Create a new collection of command steps.
    */
-  constructor(public steps: CommandStep[]) {
-    this._params = { required: {}, optional: {} };
-  }
+  constructor(public steps: CommandStep[]) {}
 
   /**
-   * Clear params previously recieved.
-   */
-  private _clearParams() {
-    this._params.required = {};
-    this._params.optional = {};
-  }
-
-  /**
-   * Execute the series of sequential command.
+   * Execute the series of command steps.
    */
   public async collectInputs(): Promise<CommandStepsInputs> {
-    this._clearParams();
+    let params: CommandStepsInputs = {
+      required: {},
+      optional: {}
+    };
 
     for (const step of this.steps) {
-      switch (step.type) {
-        case DataType.String:
-        case DataType.Integer: {
-          await this._collectInputForStringAndInteger(step);
-          break;
-        }
-        case DataType.Boolean: {
-          await this._collectInputForBoolean(step);
-          break;
-        }
-        default: {
-          await this._collectInputForEnum(step);
-          break;
-        }
-      }
+      let input = await this._collectInputByStepType(step);
+      if (!input) throw Error;
+      if (step.optional) params.optional[step.param] = input;
+      else params.required[step.param] = input;
     }
 
-    return this._params;
+    return params;
   }
 
-  private async _collectInputForStringAndInteger(step: CommandStep) {
-    const value = await window.showInputBox({
+  /**
+   * Collect user input for a command step. Input type show to user, is
+   * dependent on the type of the command step.
+   *
+   * @param step Command step to collect input for.
+   */
+  private async _collectInputByStepType(
+    step: CommandStep
+  ): Promise<string | boolean | undefined> {
+    switch (step.type) {
+      case DataType.String:
+      case DataType.Integer:
+        return this._collectInputForStringAndInteger(step);
+
+      case DataType.Boolean:
+        return this._collectInputForBoolean(step);
+
+      default:
+        return this._collectInputForEnum(step);
+    }
+  }
+
+  /**
+   * Collect user input for an command step expecting either a string or an
+   * integer value.
+   *
+   * @param step Command step to collect input for.
+   */
+  private async _collectInputForStringAndInteger(
+    step: CommandStep
+  ): Promise<string | undefined> {
+    return window.showInputBox({
       placeHolder: step.message,
       value: step.default === null ? "" : step.default.toString(),
       validateInput: (input: string) => {
         if (input.length === 0) return `Invalid value`;
       }
     });
-    this._setParam(step.param, value, step.optional);
   }
 
-  private async _collectInputForBoolean(step: CommandStep) {
+  /**
+   * * Collect user input for an command step expecting a boolean value.
+   *
+   * @param step Command step to collect input for.
+   */
+  private async _collectInputForBoolean(step: CommandStep): Promise<boolean> {
     const items = ["Yes", "No"];
     const options = { placeHolder: step.message };
     const value = await window.showQuickPick(items, options);
-    this._setParam(step.param, value === "Yes", step.optional);
+    return value === "Yes";
   }
 
-  private async _collectInputForEnum(step: CommandStep) {
+  /**
+   * Collect user input for an command step expecting an enum value.
+   *
+   * @param step Command step to collect input for.
+   */
+  private async _collectInputForEnum(
+    step: CommandStep
+  ): Promise<string | undefined> {
     const items = Object.values(step.type);
     const options = { placeHolder: step.message };
-    const value = await window.showQuickPick(items, options);
-    this._setParam(step.param, value, step.optional);
-  }
-
-  private _setParam(
-    key: string,
-    value: boolean | string | undefined,
-    isOptional: boolean
-  ) {
-    if (!value) throw Error;
-    if (isOptional) this._params.optional[key] = value;
-    else this._params.required[key] = value;
+    return window.showQuickPick(items, options);
   }
 }
