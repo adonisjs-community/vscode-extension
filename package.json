@@ -19,26 +19,6 @@
 	"contributes": {
 		"commands": [
 			{
-				"title": "Adonis: Addon",
-				"command": "adonisjs.addon"
-			},
-			{
-				"title": "Adonis: Install",
-				"command": "adonisjs.install"
-			},
-			{
-				"title": "Adonis: serve",
-				"command": "adonisjs.serve"
-			},
-			{
-				"title": "Adonis: Install",
-				"command": "adonisjs.install"
-			},
-			{
-				"title": "Adonis: Repl",
-				"command": "adonisjs.repl"
-			},
-			{
 				"title": "Adonis: Key Generate",
 				"command": "adonisjs.key.generate"
 			},
@@ -93,10 +73,6 @@
 			{
 				"title": "Adonis: Make Seed",
 				"command": "adonisjs.make.seed"
-			},
-			{
-				"title": "Adonis: Route List",
-				"command": "adonisjs.route.list"
 			},
 			{
 				"title": "Adonis: Run Instructions",

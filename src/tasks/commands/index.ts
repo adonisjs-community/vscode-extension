@@ -1,5 +1,3 @@
-import install from "./install";
-import serve from "./serve";
 import Generate from "./keyGenerate";
 import makeController from "./make/controller";
 import makeModel from "./make/model";
@@ -19,8 +17,6 @@ import { createVscodeCommand as createCommand } from "../../utilities/command";
 const VSCODE_COMMAND_BASE_NAME = "adonisjs";
 
 const adonisCommands = {
-  install,
-  serve,
   "key:generate": Generate,
   "make:controller": makeController,
   "make:model": makeModel,
