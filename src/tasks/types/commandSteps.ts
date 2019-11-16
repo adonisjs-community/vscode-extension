@@ -26,7 +26,7 @@ export class CommandSteps {
 
     for (const step of this.steps) {
       let input = await this._collectInputByStepType(step);
-      if (!input) throw Error;
+      if (input === undefined) throw Error;
       if (step.optional) params.optional[step.param] = input;
       else params.required[step.param] = input;
     }
