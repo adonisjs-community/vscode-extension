@@ -19,63 +19,63 @@
 	"contributes": {
 		"commands": [
 			{
-				"title": "Adonis: Key Generate",
+				"title": "🚀 Adonis: Key Generate",
 				"command": "adonisjs.key.generate"
 			},
 			{
-				"title": "Adonis: Make Controller",
+				"title": "🚀 Adonis: Make Controller",
 				"command": "adonisjs.make.controller"
 			},
 			{
-				"title": "Adonis: Make Model",
+				"title": "🚀 Adonis: Make Model",
 				"command": "adonisjs.make.model"
 			},
 			{
-				"title": "Adonis: Make Trait",
+				"title": "🚀 Adonis: Make Trait",
 				"command": "adonisjs.make.trait"
 			},
 			{
-				"title": "Adonis: Make View",
+				"title": "🚀 Adonis: Make View",
 				"command": "adonisjs.make.view"
 			},
 			{
-				"title": "Adonis: Make Middleware",
+				"title": "🚀 Adonis: Make Middleware",
 				"command": "adonisjs.make.middleware"
 			},
 			{
-				"title": "Adonis: Make Command",
+				"title": "🚀 Adonis: Make Command",
 				"command": "adonisjs.make.command"
 			},
 			{
-				"title": "Adonis: Make Exception",
+				"title": "🚀 Adonis: Make Exception",
 				"command": "adonisjs.make.exception"
 			},
 			{
-				"title": "Adonis: Make Hook",
+				"title": "🚀 Adonis: Make Hook",
 				"command": "adonisjs.make.hook"
 			},
 			{
-				"title": "Adonis: Make Migration",
+				"title": "🚀 Adonis: Make Migration",
 				"command": "adonisjs.make.migration"
 			},
 			{
-				"title": "Adonis: Make Listener",
+				"title": "🚀 Adonis: Make Listener",
 				"command": "adonisjs.make.listener"
 			},
 			{
-				"title": "Adonis: Make Provider",
+				"title": "🚀 Adonis: Make Provider",
 				"command": "adonisjs.make.provider"
 			},
 			{
-				"title": "Adonis: Make Exception Handler",
+				"title": "🚀 Adonis: Make Exception Handler",
 				"command": "adonisjs.make.ehandler"
 			},
 			{
-				"title": "Adonis: Make Seed",
+				"title": "🚀 Adonis: Make Seed",
 				"command": "adonisjs.make.seed"
 			},
 			{
-				"title": "Adonis: Run Instructions",
+				"title": "🚀 Adonis: Run Instructions",
 				"command": "adonisjs.run.instructions"
 			}
 		],
