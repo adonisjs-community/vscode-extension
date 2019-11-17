@@ -10,16 +10,15 @@ enum MiddlewareType {
 const makeMiddleware = new CommandSteps([
   {
     param: "name",
-    default: null,
     message: "Name of the middleware",
     optional: false,
     type: DataType.String
   },
   {
     param: "type",
-    default: MiddlewareType.Http,
-    message: "The type can be [http], [ws] or [both]",
+    message: "The type can be [http], [ws] or [both]. Default is [http]",
     optional: true,
+    default: MiddlewareType.Http,
     type: MiddlewareType
   }
 ]);

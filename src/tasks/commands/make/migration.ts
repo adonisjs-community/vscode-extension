@@ -16,7 +16,6 @@ enum MigrationActionType {
 const makeMigrations = new CommandSteps([
   {
     param: "name",
-    default: null,
     message:
       "Name of migration file, current timestamp will be prepended to the name",
     optional: false,
@@ -24,9 +23,10 @@ const makeMigrations = new CommandSteps([
   },
   {
     param: "action",
-    default: MigrationActionType.Create,
-    message: "Choose an action to [create] or [select] a table",
+    message:
+      "Choose an action to [create] or [select] a table. Default is [create]",
     optional: true,
+    default: MigrationActionType.Create,
     type: MigrationActionType
   }
 ]);

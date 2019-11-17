@@ -4,9 +4,17 @@ import { window } from "vscode";
 /**
  * Input recieved from a series of command steps executed.
  */
-type CommandStepsInputs = {
+type CommandStepsOutput = {
   required: { [key: string]: any };
   optional: { [key: string]: any };
+};
+
+/**
+ * Filtered command steps from a collection of command steps.
+ */
+type FilteredCommandSteps = {
+  requiredSteps: CommandStep[];
+  optionalDefaultParams: { [key: string]: any };
 };
 
 export class CommandSteps {
@@ -17,21 +25,66 @@ export class CommandSteps {
 
   /**
    * Execute the series of command steps.
+   *
+   * If optional steps are disabled, default values for the parameters
+   * are used.
+   *
+   * @param disableOptionalSteps Should command steps that are optional be skipped
    */
-  public async collectInputs(): Promise<CommandStepsInputs> {
-    let params: CommandStepsInputs = {
+  public async collectInputs(
+    disableOptionalSteps = false
+  ): Promise<CommandStepsOutput> {
+    let steps = this.steps;
+    let params: CommandStepsOutput = {
       required: {},
       optional: {}
     };
 
-    for (const step of this.steps) {
+    // If disable is true, optional input prompt are hidden, and adonis
+    // cli fallsback on in-built default values for optional params.
+    if (disableOptionalSteps) {
+      const filtered = CommandSteps._filterOptionalSteps(this.steps);
+      steps = filtered.requiredSteps;
+      params.optional = filtered.optionalDefaultParams;
+    }
+
+    for (const step of steps) {
       let input = await this._collectInputByStepType(step);
-      if (input === undefined) throw Error;
+      if (input === undefined) throw Error("Input prompt exited abruptly.");
       if (step.optional) params.optional[step.param] = input;
       else params.required[step.param] = input;
     }
 
     return params;
+  }
+
+  /**
+   * Filter out command steps, and return only required compulsory steps and the default
+   * values for all optional steps.
+   *
+   * @param steps Command steps to filter.
+   */
+  private static _filterOptionalSteps(
+    steps: CommandStep[]
+  ): FilteredCommandSteps {
+    let result: FilteredCommandSteps = {
+      optionalDefaultParams: {},
+      requiredSteps: []
+    };
+
+    return steps.reduce((previous, current) => {
+      if (current.optional && current.default) {
+        // If optional, when step is executed, it use the default provided,
+        // else it will fallback to the default provided by Adonis CLI.
+        result.optionalDefaultParams[current.param] = current.default;
+      }
+
+      if (!current.optional) {
+        previous.requiredSteps.push(current);
+      }
+
+      return previous;
+    }, result);
   }
 
   /**
@@ -67,9 +120,10 @@ export class CommandSteps {
   ): Promise<string | undefined> {
     return window.showInputBox({
       placeHolder: step.message,
-      value: step.default === null ? "" : step.default.toString(),
+      value: step.default === undefined ? "" : step.default.toString(),
       validateInput: (input: string) => {
         if (input.length === 0) return `Invalid value`;
+        // TODO: Add validate input to all command step (allow undefined)
       }
     });
   }

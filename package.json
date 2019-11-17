@@ -153,6 +153,11 @@
 					"type": "string",
 					"description": "Regular expression to match handle route controllers",
 					"default": "(?<=Route\\.[a-zA-Z]*\\(['\"][^'\"]*['\"]\\s*,\\s*)(['\"])([^'\"]*)\\.([^'\"]*)\\1"
+				},
+				"adonisjs.tasks.disableOptionalValuePrompts": {
+					"type": "boolean",
+					"description": "Disable showing of prompts for optional fields. All commands will be ran with default values",
+					"default": false
 				}
 			}
 		}

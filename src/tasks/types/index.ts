@@ -37,7 +37,7 @@ export type CommandStep = {
   /**
    * Default value for this command step input
    */
-  default: Object | null;
+  default?: Object;
 
   /**
    * Is this paramter optional for the command
