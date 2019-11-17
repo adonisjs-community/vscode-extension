@@ -1,5 +1,6 @@
 import { DataType } from "../../types";
 import { CommandSteps } from "../../types/commandSteps";
+import InputValidation from "../../../utilities/inputValidation";
 
 enum MigrationActionType {
   /**
@@ -19,7 +20,8 @@ const makeMigrations = new CommandSteps([
     message:
       "Name of migration file, current timestamp will be prepended to the name",
     optional: false,
-    type: DataType.String
+    type: DataType.String,
+    validateInput: InputValidation.notEmpty
   },
   {
     param: "action",

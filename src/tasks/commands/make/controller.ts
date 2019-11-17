@@ -1,5 +1,6 @@
 import { DataType } from "../../types";
 import { CommandSteps } from "../../types/commandSteps";
+import InputValidation from "../../../utilities/inputValidation";
 
 enum ControllerType {
   Http = "http",
@@ -11,7 +12,8 @@ const makeController = new CommandSteps([
     param: "name",
     message: "Name of the controller",
     optional: false,
-    type: DataType.String
+    type: DataType.String,
+    validateInput: InputValidation.notEmpty
   },
   {
     param: "resource",

@@ -43,6 +43,18 @@ export type CommandStep = {
    * Is this paramter optional for the command
    */
   optional: boolean;
+
+  /**
+   * An optional function that will be called to validate input and to give a hint
+   * to the user.
+   *
+   * @param value The current value of the input box.
+   * @return A human readable string which is presented as diagnostic message.
+   * Return `undefined`, `null`, or the empty string when 'value' is valid.
+   */
+  validateInput?(
+    value: string
+  ): string | undefined | null | Thenable<string | undefined | null>;
 };
 
 /**

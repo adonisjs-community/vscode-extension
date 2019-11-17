@@ -1,5 +1,6 @@
 import { DataType } from "../../types";
 import { CommandSteps } from "../../types/commandSteps";
+import InputValidation from "../../../utilities/inputValidation";
 
 const keyGenerate = new CommandSteps([
   {
@@ -12,13 +13,15 @@ const keyGenerate = new CommandSteps([
     param: "env",
     message: ".env file location",
     optional: true,
-    type: DataType.String
+    type: DataType.String,
+    validateInput: InputValidation.notEmpty
   },
   {
     param: "size",
     message: "The key size which defaults to 32 characters",
     optional: true,
-    type: DataType.Integer
+    type: DataType.Integer,
+    validateInput: InputValidation.notEmpty
   },
   {
     param: "echo", // This would console.log to the in-built console

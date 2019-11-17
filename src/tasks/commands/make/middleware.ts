@@ -1,5 +1,6 @@
 import { DataType } from "../../types";
 import { CommandSteps } from "../../types/commandSteps";
+import InputValidation from "../../../utilities/inputValidation";
 
 enum MiddlewareType {
   Http = "http",
@@ -12,7 +13,8 @@ const makeMiddleware = new CommandSteps([
     param: "name",
     message: "Name of the middleware",
     optional: false,
-    type: DataType.String
+    type: DataType.String,
+    validateInput: InputValidation.notEmpty
   },
   {
     param: "type",

@@ -1,18 +1,21 @@
 import { DataType } from "../../types";
 import { CommandSteps } from "../../types/commandSteps";
+import InputValidation from "../../../utilities/inputValidation";
 
 const makeListener = new CommandSteps([
   {
     param: "name",
     message: "Name of the listener",
     optional: false,
-    type: DataType.String
+    type: DataType.String,
+    validateInput: InputValidation.notEmpty
   },
   {
     param: "method",
     message: "The method to be created on listener",
     optional: true,
-    type: DataType.String
+    type: DataType.String,
+    validateInput: InputValidation.notEmpty
   }
 ]);
 

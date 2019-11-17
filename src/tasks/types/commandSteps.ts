@@ -121,10 +121,7 @@ export class CommandSteps {
     return window.showInputBox({
       placeHolder: step.message,
       value: step.default === undefined ? "" : step.default.toString(),
-      validateInput: (input: string) => {
-        if (input.length === 0) return `Invalid value`;
-        // TODO: Add validate input to all command step (allow undefined)
-      }
+      validateInput: step.validateInput
     });
   }
 

@@ -1,12 +1,14 @@
 import { DataType } from "../../types";
 import { CommandSteps } from "../../types/commandSteps";
+import InputValidation from "../../../utilities/inputValidation";
 
 const makeModel = new CommandSteps([
   {
     param: "name",
     message: "Name of the model",
     optional: false,
-    type: DataType.String
+    type: DataType.String,
+    validateInput: InputValidation.notEmpty
   },
   {
     param: "migration",
