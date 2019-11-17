@@ -7,7 +7,7 @@ import {
   CompletionItemKind,
   workspace
 } from "vscode";
-import Config from "../../../utilities/config";
+import { Config } from "../../../utilities";
 import {
   getSuggestions,
   Suggestion,

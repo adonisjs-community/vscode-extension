@@ -7,7 +7,7 @@ import {
   DocumentLinkProvider
 } from "vscode";
 import { getExactPathMatch } from "../../../utilities/pathMatching";
-import Config from "../../../utilities/config";
+import { Config } from "../../../utilities";
 
 class EdgeLinkProvider implements DocumentLinkProvider {
   public provideDocumentLinks(
