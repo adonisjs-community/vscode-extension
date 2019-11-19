@@ -13,6 +13,7 @@
 	"activationEvents": [
 		"onLanguage:edge",
 		"onLanguage:javascript",
+		"onLanguage:typescript",
 		"workspaceContains:ace"
 	],
 	"main": "./out/extension.js",
