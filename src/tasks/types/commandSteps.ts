@@ -130,10 +130,13 @@ export class CommandSteps {
    *
    * @param step Command step to collect input for.
    */
-  private async _collectInputForBoolean(step: CommandStep): Promise<boolean> {
+  private async _collectInputForBoolean(
+    step: CommandStep
+  ): Promise<boolean | undefined> {
     const items = ["Yes", "No"];
     const options = { placeHolder: step.message };
     const value = await window.showQuickPick(items, options);
+    if (value === undefined) return value;
     return value === "Yes";
   }
 

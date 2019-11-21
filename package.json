@@ -159,6 +159,16 @@
 					"type": "boolean",
 					"description": "Disable showing of prompts for optional fields. All commands will be ran with default values",
 					"default": false
+				},
+				"adonisjs.tasks.adonisExecutable": {
+					"type": "string",
+					"description": "Executable path for Adonis CLI",
+					"default": "adonis"
+				},
+				"adonisjs.tasks.maxBuffer": {
+					"type": "integer",
+					"description": "Buffer size for stdout and stderr",
+					"default": 204800
 				}
 			}
 		}
@@ -184,6 +194,7 @@
 		"@adonisjs/cli": "^4.0.12",
 		"@poppinss/module-methods-extractor": "^1.0.0",
 		"docblock": "^0.4.4",
-		"glob": "^7.1.5"
+		"glob": "^7.1.5",
+		"strip-ansi": "^6.0.0"
 	}
 }

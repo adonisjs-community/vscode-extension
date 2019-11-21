@@ -58,13 +58,25 @@ export type CommandStep = {
 };
 
 /**
+ * Output after running a vscode command.
+ */
+export type CommandOutput = {
+  stdout?: string;
+  stderr?: string;
+};
+
+/**
  * A wrapper around the vscode command handler
  */
 export type VscodeCommand = {
   key: string;
   description: string;
   steps: CommandSteps;
-  handle: (compulsory: any, optional: any) => Promise<void>;
+  handle: (
+    cwd: string,
+    compulsory: any,
+    optional: any
+  ) => Promise<CommandOutput>;
 };
 
 // export interface ICommand {
