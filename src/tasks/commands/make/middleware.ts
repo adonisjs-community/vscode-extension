@@ -8,7 +8,7 @@ enum MiddlewareType {
   Both = "both"
 }
 
-const makeMiddleware = new CommandSteps([
+const makeMiddleware = new CommandSteps("Make a new HTTP or Ws Middleware", [
   {
     param: "name",
     message: "Name of the middleware",

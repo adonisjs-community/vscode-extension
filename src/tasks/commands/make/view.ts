@@ -2,7 +2,7 @@ import { DataType } from "../../types";
 import { CommandSteps } from "../../types/commandSteps";
 import InputValidation from "../../../utilities/inputValidation";
 
-const makeTrait = new CommandSteps([
+const makeTrait = new CommandSteps("Make a view file", [
   {
     param: "name",
     message: "Name of the view",

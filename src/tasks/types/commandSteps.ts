@@ -21,7 +21,7 @@ export class CommandSteps {
   /**
    * Create a new collection of command steps.
    */
-  constructor(public steps: CommandStep[]) {}
+  constructor(public description: string, public steps: CommandStep[]) {}
 
   /**
    * Execute the series of command steps.

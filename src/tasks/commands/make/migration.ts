@@ -14,7 +14,7 @@ enum MigrationActionType {
   Select = "select"
 }
 
-const makeMigrations = new CommandSteps([
+const makeMigrations = new CommandSteps("Create a new migration file", [
   {
     param: "name",
     message:

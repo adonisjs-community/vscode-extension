@@ -191,7 +191,6 @@
 		"vscode-test": "^1.2.0"
 	},
 	"dependencies": {
-		"@adonisjs/cli": "^4.0.12",
 		"@poppinss/module-methods-extractor": "^1.0.0",
 		"docblock": "^0.4.4",
 		"glob": "^7.1.5",

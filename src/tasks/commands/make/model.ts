@@ -2,7 +2,7 @@ import { DataType } from "../../types";
 import { CommandSteps } from "../../types/commandSteps";
 import InputValidation from "../../../utilities/inputValidation";
 
-const makeModel = new CommandSteps([
+const makeModel = new CommandSteps("Make a new lucid model", [
   {
     param: "name",
     message: "Name of the model",

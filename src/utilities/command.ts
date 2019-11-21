@@ -6,7 +6,6 @@ import { promisify } from "util";
 import { window } from "vscode";
 import { Config } from ".";
 
-const AdonisCommands = require("@adonisjs/cli/src/Commands");
 const exec = promisify(cmdExec);
 
 /**
@@ -17,12 +16,10 @@ export function createVscodeCommand(
   steps: CommandSteps,
   baseName: string = "adonisjs"
 ): VscodeCommand {
-  const CommandHandler = AdonisCommands[key];
-
   return {
     steps,
+    description: steps.description,
     key: toVscodeCommandKey(baseName, key),
-    description: CommandHandler.description,
     handle: async (cwd: string, compulsory: any = {}, optional: any = {}) => {
       compulsory = Object.values(compulsory).join(" ");
       optional = adonisOptionalParamsToString(optional);

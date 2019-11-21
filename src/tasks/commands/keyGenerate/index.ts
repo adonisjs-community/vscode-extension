@@ -2,7 +2,7 @@ import { DataType } from "../../types";
 import { CommandSteps } from "../../types/commandSteps";
 import InputValidation from "../../../utilities/inputValidation";
 
-const keyGenerate = new CommandSteps([
+const keyGenerate = new CommandSteps("Generate secret key for the app", [
   {
     param: "force",
     message: "Forcefully generate the key in production enviroment",

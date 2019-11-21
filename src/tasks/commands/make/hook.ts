@@ -2,7 +2,7 @@ import { DataType } from "../../types";
 import { CommandSteps } from "../../types/commandSteps";
 import InputValidation from "../../../utilities/inputValidation";
 
-const makeHook = new CommandSteps([
+const makeHook = new CommandSteps("Make a new lucid model hook", [
   {
     param: "name",
     message: "Name of the hook",
