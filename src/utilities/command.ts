@@ -78,6 +78,13 @@ export async function showCommandOutput({ stderr, stdout }: CommandOutput) {
   stderr = stderr ? stripAnsi(stderr).replace(/^\s*ERROR\s*/, "") : stderr;
   stdout = stdout ? stripAnsi(stdout).replace(/^\s*SUCCESS\s*/, "") : stdout;
 
-  if (stdout) await window.showInformationMessage(stdout);
+  if (stdout) {
+    await Promise.all(
+      stdout.split("\n").map(line => {
+        return window.showInformationMessage(line);
+      })
+    );
+  }
+
   if (stderr) await window.showErrorMessage(stderr);
 }
