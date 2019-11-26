@@ -13,11 +13,73 @@
 	"activationEvents": [
 		"onLanguage:edge",
 		"onLanguage:javascript",
+		"onLanguage:typescript",
 		"workspaceContains:ace"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"commands": [],
+		"commands": [
+			{
+				"title": "🚀 Adonis: Key Generate",
+				"command": "adonisjs.key.generate"
+			},
+			{
+				"title": "🚀 Adonis: Make Controller",
+				"command": "adonisjs.make.controller"
+			},
+			{
+				"title": "🚀 Adonis: Make Model",
+				"command": "adonisjs.make.model"
+			},
+			{
+				"title": "🚀 Adonis: Make Trait",
+				"command": "adonisjs.make.trait"
+			},
+			{
+				"title": "🚀 Adonis: Make View",
+				"command": "adonisjs.make.view"
+			},
+			{
+				"title": "🚀 Adonis: Make Middleware",
+				"command": "adonisjs.make.middleware"
+			},
+			{
+				"title": "🚀 Adonis: Make Command",
+				"command": "adonisjs.make.command"
+			},
+			{
+				"title": "🚀 Adonis: Make Exception",
+				"command": "adonisjs.make.exception"
+			},
+			{
+				"title": "🚀 Adonis: Make Hook",
+				"command": "adonisjs.make.hook"
+			},
+			{
+				"title": "🚀 Adonis: Make Migration",
+				"command": "adonisjs.make.migration"
+			},
+			{
+				"title": "🚀 Adonis: Make Listener",
+				"command": "adonisjs.make.listener"
+			},
+			{
+				"title": "🚀 Adonis: Make Provider",
+				"command": "adonisjs.make.provider"
+			},
+			{
+				"title": "🚀 Adonis: Make Exception Handler",
+				"command": "adonisjs.make.ehandler"
+			},
+			{
+				"title": "🚀 Adonis: Make Seed",
+				"command": "adonisjs.make.seed"
+			},
+			{
+				"title": "🚀 Adonis: Run Instructions",
+				"command": "adonisjs.run.instructions"
+			}
+		],
 		"configuration": {
 			"type": "object",
 			"title": "AdonisJS",
@@ -92,6 +154,21 @@
 					"type": "string",
 					"description": "Regular expression to match handle route controllers",
 					"default": "(?<=Route\\.[a-zA-Z]*\\(['\"][^'\"]*['\"]\\s*,\\s*)(['\"])([^'\"]*)\\.([^'\"]*)\\1"
+				},
+				"adonisjs.tasks.disableOptionalValuePrompts": {
+					"type": "boolean",
+					"description": "Disable showing of prompts for optional fields. All commands will be ran with default values",
+					"default": false
+				},
+				"adonisjs.tasks.adonisExecutable": {
+					"type": "string",
+					"description": "Executable path for Adonis CLI",
+					"default": "adonis"
+				},
+				"adonisjs.tasks.maxBuffer": {
+					"type": "integer",
+					"description": "Buffer size for stdout and stderr",
+					"default": 204800
 				}
 			}
 		}
@@ -116,6 +193,7 @@
 	"dependencies": {
 		"@poppinss/module-methods-extractor": "^1.0.0",
 		"docblock": "^0.4.4",
-		"glob": "^7.1.5"
+		"glob": "^7.1.5",
+		"strip-ansi": "^6.0.0"
 	}
 }

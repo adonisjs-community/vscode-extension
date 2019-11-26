@@ -5,7 +5,7 @@ import {
   ProviderResult,
   Hover
 } from "vscode";
-import Config from "../../../utilities/config";
+import { Config } from "../../../utilities";
 import { getExactPathMatch } from "../../../utilities/pathMatching";
 import { generateDocFromPath } from "../../../utilities/documentation";
 
@@ -25,7 +25,10 @@ class EdgeHoverProvider implements HoverProvider {
     );
 
     if (matchedView) {
-      const markdown = generateDocFromPath(matchedView, Config.folderTip);
+      const markdown = generateDocFromPath(
+        matchedView,
+        Config.autocomplete.folderTip
+      );
       return new Hover(markdown);
     }
   }

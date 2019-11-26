@@ -5,7 +5,7 @@ import {
   DocumentLinkProvider,
   Uri
 } from "vscode";
-import Config from "../../../utilities/config";
+import { Config } from "../../../utilities";
 import { RouteControllerLink } from "../../../utilities/controller";
 import { getLineNumber } from "../../../utilities/functions";
 import { createDocumentLinks } from "../../../utilities/links";

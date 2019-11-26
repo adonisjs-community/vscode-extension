@@ -8,6 +8,8 @@ import {
   RouteLinkProvider
 } from "./completion";
 
+import Tasks from "./tasks";
+
 export function activate(context: ExtensionContext) {
   const jsAndTsSelector: Array<DocumentFilter> = [
     { scheme: "file", language: "javascript" },
@@ -44,13 +46,16 @@ export function activate(context: ExtensionContext) {
     new RouteLinkProvider()
   );
 
+  const tasks = Tasks();
+
   context.subscriptions.push(
     edgeHover,
     edgeLink,
     edgeCompletion,
     routeCompletion,
     routeHover,
-    routeLink
+    routeLink,
+    ...tasks
   );
 }
 

@@ -14,7 +14,7 @@ import {
   getDocForMethodInFile,
   generateDocFromPath
 } from "../../../utilities/documentation";
-import Config from "../../../utilities/config";
+import { Config } from "../../../utilities";
 import { getExactPathMatch } from "../../../utilities/pathMatching";
 const {
   controllersRegex,
@@ -58,7 +58,8 @@ class RouteControllerHoverProvider implements HoverProvider {
       const path = controllerPath.uri.fsPath;
       const methodDoc = getDocForMethodInFile(path, controller.method);
       const markdown =
-        methodDoc || generateDocFromPath(controllerPath, Config.folderTip);
+        methodDoc ||
+        generateDocFromPath(controllerPath, Config.autocomplete.folderTip);
       return markdown;
     }
 

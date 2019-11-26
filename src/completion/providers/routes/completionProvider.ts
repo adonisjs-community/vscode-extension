@@ -13,7 +13,7 @@ import {
   Suggestion,
   toCompletionItems
 } from "../../../utilities/suggestion";
-import Config from "../../../utilities/config";
+import { Config } from "../../../utilities";
 import { getMethodsInSourceFile } from "../../../utilities/functions";
 import { parseControllerString } from "../../../utilities/controller";
 
