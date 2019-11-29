@@ -34,6 +34,13 @@ type TaskConfig = {
  */
 class ConfigWrapper {
   /**
+   * In-built vscode HTML configuration.
+   */
+  public static get html(): Config {
+    return workspace.getConfiguration("html");
+  }
+
+  /**
    * Configuration for autocompletion related activities.
    */
   public static get autocomplete(): Config {

@@ -27,6 +27,21 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"languages": [
+			{
+				"id": "edge",
+				"aliases": [
+					"Edge Template",
+					"Edge",
+					"edge"
+				],
+				"extensions": [
+					".edge",
+					".edge.html"
+				],
+				"configuration": "./src/syntaxes/edge/edge.configuration.jsonc"
+			}
+		],
 		"grammars": [
 			{
 				"language": "edge",
@@ -194,8 +209,9 @@
 		}
 	},
 	"scripts": {
+		"compile-html-server": "cd ./languageServers/html && npm install && tsc -p ./",
 		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
+		"compile": "tsc -p ./ && npm run compile-html-server",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile",
 		"test": "node ./out/test/runTest.js"
@@ -214,6 +230,9 @@
 		"@poppinss/module-methods-extractor": "^1.0.0",
 		"docblock": "^0.4.4",
 		"glob": "^7.1.5",
-		"strip-ansi": "^6.0.0"
+		"strip-ansi": "^6.0.0",
+		"vscode-html-languageservice": "^3.0.3",
+		"vscode-languageclient": "^5.2.1",
+		"vscode-languageserver-types": "^3.14.0"
 	}
 }

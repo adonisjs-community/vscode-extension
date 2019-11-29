@@ -1,4 +1,3 @@
-import { ExtensionContext, languages, DocumentFilter } from "vscode";
 import {
   EdgeHoverProvider,
   EdgeLinkProvider,
@@ -7,27 +6,34 @@ import {
   RouteHoverProvider,
   RouteLinkProvider
 } from "./completion";
-
+import {
+  HtmlHighlighterProvider,
+  EdgeFormatterProvider,
+  EdgeLanguageClient
+} from "./languages";
 import Tasks from "./tasks";
+import { ExtensionContext, languages, DocumentFilter } from "vscode";
 
 export function activate(context: ExtensionContext) {
+  const edgeSelector = { language: "edge", scheme: "file" };
+
   const jsAndTsSelector: Array<DocumentFilter> = [
     { scheme: "file", language: "javascript" },
     { scheme: "file", language: "typescript" }
   ];
 
   const edgeHover = languages.registerHoverProvider(
-    ["edge"],
+    edgeSelector,
     new EdgeHoverProvider()
   );
 
   const edgeLink = languages.registerDocumentLinkProvider(
-    ["edge"],
+    edgeSelector,
     new EdgeLinkProvider()
   );
 
   const edgeCompletion = languages.registerCompletionItemProvider(
-    ["edge"],
+    edgeSelector,
     new EdgeCompletionProvider()
   );
 
@@ -46,7 +52,29 @@ export function activate(context: ExtensionContext) {
     new RouteLinkProvider()
   );
 
+  const edgeHighlighters = [
+    // Highlight html in edge file
+    languages.registerDocumentHighlightProvider(
+      edgeSelector,
+      new HtmlHighlighterProvider()
+    )
+  ];
+
+  const edgeFormatters = [
+    languages.registerDocumentFormattingEditProvider(
+      edgeSelector,
+      new EdgeFormatterProvider()
+    ),
+
+    languages.registerDocumentRangeFormattingEditProvider(
+      edgeSelector,
+      new EdgeFormatterProvider()
+    )
+  ];
+
   const tasks = Tasks();
+
+  const edgeLanguageClient = new EdgeLanguageClient(context).start();
 
   context.subscriptions.push(
     edgeHover,
@@ -55,7 +83,10 @@ export function activate(context: ExtensionContext) {
     routeCompletion,
     routeHover,
     routeLink,
-    ...tasks
+    ...edgeHighlighters,
+    ...edgeFormatters,
+    ...tasks,
+    edgeLanguageClient
   );
 }
 
