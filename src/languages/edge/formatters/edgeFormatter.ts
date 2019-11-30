@@ -29,7 +29,26 @@ class EdgeFormatter {
    * @param inputText Test to format
    */
   format(inputText: string): string {
-    let output: string = inputText.replace(/url\(\"(\s*)/g, 'url("');
+    let output: string = inputText;
+
+    // Block pattern
+    const patternBlock = /(\@)(inject|extends|section|hasSection|include|stop|endpush|endphp)/g;
+
+    // edge format fix
+    output = output.replace(patternBlock, match => `\n${match}`);
+    output = output.replace(
+      /(\s*)\@include/g,
+      `\n${this.indentPattern}@include`
+    );
+    output = output.replace(/(\s*)\@endsection/g, "\n@endsection\n");
+
+    // Fix empty new line after @extends and self-closing @section
+    output = output.replace(
+      /(\@(section|yield)\(.*\',.*|\@extends\(.*\))/g,
+      match => `${match}\n`
+    );
+
+    output = inputText.replace(/url\(\"(\s*)/g, 'url("');
     return output.trim();
   }
 }
