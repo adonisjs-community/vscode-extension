@@ -1,0 +1,107 @@
+{
+    "session": {
+        "body": [
+            "${1:session}.${2|put,get,all,increment,decrement,forget,pull,clear,flashAll,flashOnly,flashExcept,withErrors,flash,old,withErrorFor,getErrorFor,flashMessage,commit|}($3)"
+        ],
+        "description": "Adonis View",
+        "prefix": "session"
+    },
+    "session.put": {
+        "body": [
+            "${1:session}.put(${2:key}, ${3:value})"
+        ],
+        "description": "Adonis put",
+        "prefix": "session-put"
+    },
+    "session.get": {
+        "body": [
+            "${1:session}.get(${2:key}, ${3:default})"
+        ],
+        "description": "Adonis get",
+        "prefix": "session-get"
+    },
+    "session.all": {
+        "body": [
+            "${1:session}.all()"
+        ],
+        "description": "Adonis all",
+        "prefix": "session-all"
+    },
+    "session.increment": {
+        "body": [
+            "${1:session}.increment(${2:key}, ${3:steps})"
+        ],
+        "description": "Adonis increment",
+        "prefix": "session-increment"
+    },
+    "session.decrement": {
+        "body": [
+            "${1:session}.decrement(${2:key}, ${3:steps})"
+        ],
+        "description": "Adonis decrement",
+        "prefix": "session-decrement"
+    },
+    "session.forget": {
+        "body": [
+            "${1:session}.forget(${2:key})"
+        ],
+        "description": "Adonis forget",
+        "prefix": "session-forget"
+    },
+    "session.pull": {
+        "body": [
+            "${1:session}.pull(${2:key}, ${3:default})"
+        ],
+        "description": "Adonis pull",
+        "prefix": "session-pull"
+    },
+    "session.clear": {
+        "body": [
+            "${1:session}.clear()"
+        ],
+        "description": "Adonis clear",
+        "prefix": "session-clear"
+    },
+    "session.flashAll": {
+        "body": [
+            "${1:session}.flashAll()"
+        ],
+        "description": "Adonis flashAll",
+        "prefix": "session-flashAll"
+    },
+    "session.flashOnly": {
+        "body": [
+            "${1:session}.flashOnly([$2,$3])"
+        ],
+        "description": "Adonis flashOnly",
+        "prefix": "session-flashOnly"
+    },
+    "session.flashExcept": {
+        "body": [
+            "${1:session}.flashExcept([$2,$3])"
+        ],
+        "description": "Adonis flashExcept",
+        "prefix": "session-flashExcept"
+    },
+    "session.withErrors": {
+        "body": [
+            "${1:session}.withErrors([{$2}])"
+        ],
+        "description": "Adonis withErrors",
+        "prefix": "session-withErrors"
+    },
+    "session.flash": {
+        "body": [
+            "${1:session}.flash({$2})"
+        ],
+        "description": "Adonis flash",
+        "prefix": "session-flash"
+    },
+    "session.commit": {
+        "body": [
+            "${1:session}.commit($2)"
+        ],
+        "description": "Adonis commit",
+        "prefix": "session-commit"
+    }
+}

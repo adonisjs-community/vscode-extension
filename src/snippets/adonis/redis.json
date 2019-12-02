@@ -1,0 +1,59 @@
+{
+    "Redis": {
+        "body": [
+            "${4:await }${1:Redis}.${2|subscribe,psubscribe,publish,unsubscribe,punsubscribe,connection,quit|}($3)"
+        ],
+        "description": "Adonis Redis",
+        "prefix": "redis"
+    },
+    "Redis subscribe": {
+        "body": [
+            "${4:await }${1:Redis}.subscribe(${2:channel}, ${3:listener})"
+        ],
+        "description": "Adonis Redis - subscribe",
+        "prefix": "redis-sub"
+    },
+    "Redis psubscribe": {
+        "body": [
+            "${4:await }${1:Redis}.psubscribe(${2:pattern}, ${3:listener})"
+        ],
+        "description": "Adonis Redis - psubscribe",
+        "prefix": "redis-psub"
+    },
+    "Redis publish": {
+        "body": [
+            "${4:await }${1:Redis}.publish(${2:channel}, ${3:message})"
+        ],
+        "description": "Adonis Redis - publish",
+        "prefix": "redis-publish"
+    },
+    "Redis unsubscribe": {
+        "body": [
+            "${3:await }${1:Redis}.unsubscribe(${2:channel})"
+        ],
+        "description": "Adonis Redis - unsubscribe",
+        "prefix": "redis-unsub"
+    },
+    "Redis punsubscribe": {
+        "body": [
+            "${3:await }${1:Redis}.punsubscribe(${2:channelPattern})"
+        ],
+        "description": "Adonis Redis - punsubscribe",
+        "prefix": "redis-punsub"
+    },
+    "Redis connection": {
+        "body": [
+            "${4:await }${1:Redis}.connection(${2:name})"
+        ],
+        "description": "Adonis Redis - connection",
+        "prefix": "redis-conn"
+    },
+    "Redis quit": {
+        "body": [
+            "${4:await }${1:Redis}.quit(['${2:connection}', $3])"
+        ],
+        "description": "Adonis Redis - quit",
+        "prefix": "redis-quit"
+    }
+    // TODO: Port all redis commands as snippets e.g. hmset, xread, xlen etc
+}

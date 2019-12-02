@@ -1,0 +1,23 @@
+{
+    "Encryption": {
+        "body": [
+            "${1:Encryption}.${2|encrypt,decrypt|}($3)"
+        ],
+        "description": "Adonis Encryption",
+        "prefix": "encryption"
+    },
+    "Encryption decrypt": {
+        "body": [
+            "${1:Encryption}.decrypt(${2:value})"
+        ],
+        "description": "Adonis Encryption - decrypt",
+        "prefix": "decrypt"
+    },
+    "Encryption encrypt": {
+        "body": [
+            "${1:Encryption}.encrypt(${2:value})"
+        ],
+        "description": "Adonis Encryption - encrypt",
+        "prefix": "encrypt"
+    }
+}

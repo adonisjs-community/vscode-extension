@@ -1,0 +1,79 @@
+{
+    "Logger": {
+        "body": [
+            "${1:Logger}.${2|emerg,alert,crit,error,warning,notice,info,debug|}(${3:msg}, ${4:...data})"
+        ],
+        "description": "Adonis Logger",
+        "prefix": "log"
+    },
+    "Logger Debug": {
+        "body": [
+            "${1:Logger}.debug(${2:msg}, ${3:...data})"
+        ],
+        "description": "Adonis Logger - debug",
+        "prefix": "log-debug"
+    },
+    "Logger Info": {
+        "body": [
+            "${1:Logger}.info(${2:msg}, ${3:...data})"
+        ],
+        "description": "Adonis Logger - info",
+        "prefix": "log-info"
+    },
+    "Logger Notice": {
+        "body": [
+            "${1:Logger}.notice(${2:msg}, ${3:...data})"
+        ],
+        "description": "Adonis Logger - notice",
+        "prefix": "log-notice"
+    },
+    "Logger Warning": {
+        "body": [
+            "${1:Logger}.warning(${2:msg}, ${3:...data})"
+        ],
+        "description": "Adonis Logger - warning",
+        "prefix": "log-warning"
+    },
+    "Logger Error": {
+        "body": [
+            "${1:Logger}.error(${2:msg}, ${3:...data})"
+        ],
+        "description": "Adonis Logger - error",
+        "prefix": "log-error"
+    },
+    "Logger Crit": {
+        "body": [
+            "${1:Logger}.crit(${2:msg}, ${3:...data})"
+        ],
+        "description": "Adonis Logger - crit",
+        "prefix": "log-crit"
+    },
+    "Logger Alert": {
+        "body": [
+            "${1:Logger}.alert(${2:msg}, ${3:...data})"
+        ],
+        "description": "Adonis Logger - alert",
+        "prefix": "log-alert"
+    },
+    "Logger Emerg": {
+        "body": [
+            "${1:Logger}.emerg(${2:msg}, ${3:...data})"
+        ],
+        "description": "Adonis Logger - emerg",
+        "prefix": "log-emerg"
+    },
+    "Logger Switch Transport": {
+        "body": [
+            "${1:Logger}.transport(${2:transport}).${3|emerg,alert,crit,error,warning,notice,info,debug|}(${4:msg}, ${5:...data})"
+        ],
+        "description": "Adonis Logger - switch transport",
+        "prefix": "log-transport"
+    },
+    "Logger Change Level": {
+        "body": [
+            "${1:Logger}.level = '${2|emerg,alert,crit,error,warning,notice,info,debug|}'"
+        ],
+        "description": "Adonis Logger - emerg",
+        "prefix": "log-emerg"
+    }
+}

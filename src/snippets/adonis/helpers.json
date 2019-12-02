@@ -1,0 +1,62 @@
+{
+    "Helper": {
+        "body": "${1:Helper}.${2|appRoot,publicPath,configPath,resourcesPath,migrationsPath,seedsPath,databasePath,viewsPath,tmpPath,promisify,isAceCommand|}($3)",
+        "description": "Adonis Helper",
+        "prefix": "help"
+    },
+    "Helper appRoot": {
+        "body": "${1:Helper}.appRoot()",
+        "description": "Adonis Helper - appRoot",
+        "prefix": "help-appRoot"
+    },
+    "Helper publicPath": {
+        "body": "${1:Helper}.publicPath(${2:toFile = optional})",
+        "description": "Adonis Helper - publicPath",
+        "prefix": "help-publicPath"
+    },
+    "Helper configPath": {
+        "body": "${1:Helper}.configPath(${2:toFile = optional})",
+        "description": "Adonis Helper - configPath",
+        "prefix": "help-configPath"
+    },
+    "Helper resourcesPath": {
+        "body": "${1:Helper}.resourcesPath(${2:toFile = optional})",
+        "description": "Adonis Helper - resourcesPath",
+        "prefix": "help-resourcesPath"
+    },
+    "Helper migrationsPath": {
+        "body": "${1:Helper}.migrationsPath(${2:toFile = optional})",
+        "prefix": "help-migrationsPath",
+        "description": "Adonis Helper - migrationsPath",
+    },
+    "Helper seedsPath": {
+        "body": "${1:Helper}.seedsPath(${2:toFile = optional})",
+        "description": "Adonis Helper - seedsPath",
+        "prefix": "help-seedsPath"
+    },
+    "Helper databasePath": {
+        "body": "${1:Helper}.databasePath(${2:toFile = optional})",
+        "description": "Adonis Helper - databasePath",
+        "prefix": "help-databasePath"
+    },
+    "Helper viewsPath": {
+        "body": "${1:Helper}.viewsPath(${2:toFile = optional})",
+        "description": "Adonis Helper - viewsPath",
+        "prefix": "help-viewsPath"
+    },
+    "Helper tmpPath": {
+        "body": "${1:Helper}.tmpPath(${2:toFile = optional})",
+        "description": "Adonis Helper - tmpPath",
+        "prefix": "help-tmpPath"
+    },
+    "Helper promisify": {
+        "body": "${1:Helper}.promisify(${2:item})",
+        "description": "Adonis Helper - promisify",
+        "prefix": "help-promisify"
+    },
+    "Helper isAceCommand": {
+        "body": "${1:Helper}.isAceCommand()",
+        "description": "Adonis Helper - isAceCommand",
+        "prefix": "help-isAceCommand"
+    }
+}

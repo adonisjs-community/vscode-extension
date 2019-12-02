@@ -8,6 +8,8 @@
 	},
 	"categories": [
 		"Snippets",
+		"Programming Languages",
+		"Formatters",
 		"Other"
 	],
 	"activationEvents": [
@@ -18,6 +20,16 @@
 	],
 	"main": "./out/extension.js",
 	"contributes": {
+		"snippets": [
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonisSnippets.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edgeSnippets.json"
+			}
+		],
 		"commands": [
 			{
 				"title": "🚀 Adonis: Key Generate",

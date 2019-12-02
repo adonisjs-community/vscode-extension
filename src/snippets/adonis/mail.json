@@ -1,0 +1,120 @@
+{
+    "Mail": {
+        "body": [
+            "${1:Mail}.${2|send,raw,connection|}($3)"
+        ],
+        "description": "Adonis Mail",
+        "prefix": "mail"
+    },
+    "Mail send": {
+        "body": [
+            "await ${1:Mail}.send(${2:views = []}, ${3:data}, (${4:message}) => {",
+            "  ${4:message}$0",
+            "\\})$5"
+        ],
+        "description": "Adonis Mail",
+        "prefix": "mail-send"
+    },
+    "Mail raw": {
+        "body": [
+            "await ${1:Mail}.raw(${2:views = []}, (${3:message}) => {",
+            "  ${3:message}$0",
+            "\\})$4"
+        ],
+        "description": "Adonis Mail",
+        "prefix": "mail-send"
+    },
+    "Mail connection": {
+        "body": [
+            "await ${1:Mail}",
+            "  .connection(${2:name})",
+            "  .${3|send,raw|}($4)"
+        ],
+        "description": "Adonis Mail - connection",
+        "prefix": "mail-connection"
+    },
+    "Mail message to": {
+        "body": [
+            "${1:message}.to(${2:email}, ${3:optionalName})"
+        ],
+        "description": "Adonis Mail - message to",
+        "prefix": "mail-msg-to"
+    },
+    "Mail message from": {
+        "body": [
+            "${1:message}.from(${2:email}, ${3:optionalName})"
+        ],
+        "description": "Adonis Mail - message from",
+        "prefix": "mail-msg-from"
+    },
+    "Mail message cc": {
+        "body": [
+            "${1:message}.cc(${2:email}, ${3:optionalName})"
+        ],
+        "description": "Adonis Mail - message cc",
+        "prefix": "mail-msg-cc"
+    },
+    "Mail message bcc": {
+        "body": [
+            "${1:message}.bcc(${2:email}, ${3:optionalName})"
+        ],
+        "description": "Adonis Mail - message bcc",
+        "prefix": "mail-msg-bcc"
+    },
+    "Mail message replyTo": {
+        "body": [
+            "${1:message}.replyTo(${2:email})",
+        ],
+        "description": "Adonis Mail - message replyTo",
+        "prefix": "mail-msg-reply-to"
+    },
+    "Mail message inReplyTo": {
+        "body": [
+            "${1:message}.inReplyTo(${2:messageId})",
+        ],
+        "description": "Adonis Mail - message replyTo",
+        "prefix": "mail-msg-in-reply-to"
+    },
+    "Mail message subject": {
+        "body": [
+            "${1:message}.subject(${2:value})",
+        ],
+        "description": "Adonis Mail - message subject",
+        "prefix": "mail-msg-subject"
+    },
+    "Mail message text": {
+        "body": [
+            "${1:message}.text(${2:messageId})",
+        ],
+        "description": "Adonis Mail - message text",
+        "prefix": "mail-msg-text"
+    },
+    "Mail message attach": {
+        "body": [
+            "${1:message}.attach(${2:filePath}, ${3:options = {\\}})",
+        ],
+        "description": "Adonis Mail - message attach",
+        "prefix": "mail-msg-attach"
+    },
+    "Mail message attachData": {
+        "body": [
+            "${1:message}.attachData(${2|new Buffer,fs|}, ${3:filename}, ${4:options = {\\}})",
+        ],
+        "description": "Adonis Mail - message attachData",
+        "prefix": "mail-msg-attach-data"
+    },
+    "Mail message embed": {
+        "body": [
+            "${1:message}.embed(${2:filePath}, ${3:contendId}, ${4:options = {\\}}))",
+        ],
+        "description": "Adonis Mail - message embed",
+        "prefix": "mail-msg-embed"
+    },
+    "Mail message driverExtras": {
+        "body": [
+            "${1:message}.driverExtras(${2:options = {\\}})",
+        ],
+        "description": "Adonis Mail - message driver extras",
+        "prefix": "mail-msg-driver-extras"
+    }
+}

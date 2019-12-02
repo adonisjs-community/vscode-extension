@@ -1,0 +1,23 @@
+{
+    "Hashing": {
+        "body": [
+            "${1:Encryption}.${2|make,verify|}($3)"
+        ],
+        "description": "Adonis Hashing",
+        "prefix": "hashing"
+    },
+    "Hashing make": {
+        "body": [
+            "${1:Encryption}.make(${2:value}, ${3:config = {\\}})"
+        ],
+        "description": "Adonis Hashing - make",
+        "prefix": "hash"
+    },
+    "Hashing verify": {
+        "body": [
+            "${1:Encryption}.verify(${2:value}, ${3:hashedValue})"
+        ],
+        "description": "Adonis Hashing - verify",
+        "prefix": "hash-verify"
+    }
+}

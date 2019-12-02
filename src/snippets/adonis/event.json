@@ -1,0 +1,100 @@
+{
+    "Event": {
+        "body": [
+            "${1:Event}.${2|on,fire,when,once,onAny,times,emit,removeListener,off,removeAlllisteners,listenersCount,getListeners,hasListeners|}($3)"
+        ],
+        "description": "Adonis Event",
+        "prefix": "event"
+    },
+    "Event on": {
+        "body": [
+            "${1:Event}.on(${2:event}, ${3:listener})"
+        ],
+        "description": "Adonis Event - on",
+        "prefix": "event-on",
+    },
+    "Event fire": {
+        "body": [
+            "${1:Event}.fire(${2:event}, ${3:data})"
+        ],
+        "description": "Adonis Event - fire",
+        "prefix": "event-fire",
+    },
+    "Event when": {
+        "body": [
+            "${1:Event}.when(${2:event}, ${3:listener})"
+        ],
+        "description": "Adonis Event - when",
+        "prefix": "event-when",
+    },
+    "Event once": {
+        "body": [
+            "${1:Event}.once(${2:event}, ${3:listener})"
+        ],
+        "description": "Adonis Event - once",
+        "prefix": "event-once",
+    },
+    "Event onAny": {
+        "body": [
+            "${1:Event}.onAny(${2:listener})"
+        ],
+        "description": "Adonis Event - onAny",
+        "prefix": "event-onAny",
+    },
+    "Event times": {
+        "body": [
+            "${1:Event}.times(${2:times})"
+        ],
+        "description": "Adonis Event - times",
+        "prefix": "event-times",
+    },
+    "Event emit": {
+        "body": [
+            "${1:Event}.emit(${2:event}, ${3:data})"
+        ],
+        "description": "Adonis Event - emit",
+        "prefix": "event-emit",
+    },
+    "Event removeListener": {
+        "body": [
+            "${1:Event}.removeListener(${2:event}, ${3:listener})"
+        ],
+        "description": "Adonis Event - removeListener",
+        "prefix": "event-removeListener",
+    },
+    "Event off": {
+        "body": [
+            "${1:Event}.off(${2:event}, ${3:listener})"
+        ],
+        "description": "Adonis Event - off",
+        "prefix": "event-off",
+    },
+    "Event removeAlllisteners": {
+        "body": [
+            "${1:Event}.removeAlllisteners(${2:event})"
+        ],
+        "description": "Adonis Event - removeAlllisteners",
+        "prefix": "event-removeAlllisteners",
+    },
+    "Event listenersCount": {
+        "body": [
+            "${1:Event}.listenersCount(${2:event})"
+        ],
+        "description": "Adonis Event - listenersCount",
+        "prefix": "event-listenersCount",
+    },
+    "Event getListeners": {
+        "body": [
+            "${1:Event}.getListeners(${2:event})"
+        ],
+        "description": "Adonis Event - getListeners",
+        "prefix": "event-getListeners",
+    },
+    "Event hasListeners": {
+        "body": [
+            "${1:Event}.hasListeners(${2:event})"
+        ],
+        "description": "Adonis Event - hasListeners",
+        "prefix": "event-hasListeners",
+    }
+}

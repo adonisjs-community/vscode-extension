@@ -1,0 +1,97 @@
+{
+    "Ws": {
+        "body": "${1:Ws}.${2|channel,getChannel|}($3)", // 
+        "description": "Adonis Ws",
+        "prefix": "ws"
+    },
+    "Ws Channel": {
+        "body": [
+            "${1:Ws}.channel(${2:name}, ({ ${3:socket} \\}) => {",
+            "  ${4:// implementation}",
+            "\\})"
+        ],
+        "description": "Adonis Ws - channel",
+        "prefix": "ws-channel"
+    },
+    "Ws Get Channel": {
+        "body": [
+            "${1:Ws}.getChannel(${2:name})$0",
+        ],
+        "description": "Adonis Ws - get channel",
+        "prefix": "ws-get-channel"
+    },
+    "Ws Middleware": {
+        "body": [
+            "${1:Ws}",
+            "  .channel(${2:name}, ${3:controller})",
+            "  .middleware([${4:middleware},$5])$0",
+        ],
+        "description": "Adonis Ws - middleware",
+        "prefix": "ws-middleware"
+    },
+    "Socket": {
+        "body": "${1:socket}.${2|on,emit,emitTo,broadcast,broadcastToAllon,emit,close|}($3)",
+        "description": "Adonis Ws",
+        "prefix": "socket"
+    },
+    // Socket events
+    "Socket On": {
+        "body": [
+            "${1:socket}.on('${2|close,error|}', ${3:() => {",
+            "  // implementation",
+            "\\}})"
+        ],
+        "description": "Adonis Ws - on",
+        "prefix": "socket-on"
+    },
+    "Socket On Close": {
+        "body": [
+            "${1:socket}.on('close', ${2:() => {",
+            "  // implementation",
+            "\\}})"
+        ],
+        "description": "Adonis Ws - on close",
+        "prefix": "socket-on-close"
+    },
+    "Socket On Error": {
+        "body": [
+            "${1:socket}.on('error', ${2:() => {",
+            "  // implementation",
+            "\\}})"
+        ],
+        "description": "Adonis Ws - on error",
+        "prefix": "socket-on-error"
+    },
+    // Socket methods
+    "Socket Emit": {
+        "body": "${1:socket}.emit(${2:event}, ${3:data}, ${4:[ackCallback]})",
+        "description": "Adonis Ws - emit",
+        "prefix": "socket-emit"
+    },
+    "Socket Emit To": {
+        "body": "${1:socket}.emitTo(${2:event}, ${3:data}, ${4:[socketIds]})",
+        "description": "Adonis Ws - emit to",
+        "prefix": "socket-emit-to"
+    },
+    "Socket Broadcast": {
+        "body": "${1:socket}.broadcast(${2:event}, ${3:data})",
+        "description": "Adonis Ws - broadcast",
+        "prefix": "socket-broadcast"
+    },
+    "Socket Broadcast To All": {
+        "body": "${1:socket}.broadcastToAll(${2:event}, ${3:data})",
+        "description": "Adonis Ws - broadcastToAll",
+        "prefix": "socket-broadcastToAll"
+    },
+    "Socket Close": {
+        "body": "${1:socket}.close()",
+        "description": "Adonis Ws - close",
+        "prefix": "socket-close"
+    },
+    // Socket properties
+    "Socket Properties": {
+        "body": "${1:socket}.${2|id,topic,connection|}",
+        "description": "Adonis Socket - properties",
+        "prefix": "socket-props"
+    }
+}

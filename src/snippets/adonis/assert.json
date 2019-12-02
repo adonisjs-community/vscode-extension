@@ -1,0 +1,412 @@
+{
+    "Assert .fail": {
+        "body": "${1:assert}.fail(${2:actual}, ${3:expected}, ${4:[message]}, ${5:[operator]})",
+        "description": "Adonis Assert - Throw a failure. Node.js assert module-compatible.",
+        "prefix": "assert-fail"
+    },
+    "Assert .isOk": {
+        "body": "${1:assert}.isOk(${2:object}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that object is truthy.",
+        "prefix": "assert-isOk"
+    },
+    "Assert .isNotOk": {
+        "body": "${1:assert}.isNotOk(${2:object}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that object is falsy.",
+        "prefix": "assert-isNotOk"
+    },
+    "Assert .equal": {
+        "body": "${1:assert}.equal(${2:actual}, ${3:expected}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts non-strict equality (==) of actual and expected.",
+        "prefix": "assert-equal"
+    },
+    "Assert .notEqual": {
+        "body": "${1:assert}.notEqual(${2:actual}, ${3:expected}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts non-strict inequality (!=) of actual and expected.",
+        "prefix": "assert-notEqual"
+    },
+    "Assert .strictEqual": {
+        "body": "${1:assert}.strictEqual(${2:actual}, ${3:expected}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts strict equality (===) of actual and expected.",
+        "prefix": "assert-strictEqual"
+    },
+    "Assert .notStrictEqual": {
+        "body": "${1:assert}.notStrictEqual(${2:actual}, ${3:expected}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts strict inequality (!==) of actual and expected.",
+        "prefix": "assert-notStrictEqual"
+    },
+    "Assert .deepEqual": {
+        "body": "${1:assert}.deepEqual(${2:actual}, ${3:expected}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that actual is deeply equal to expected.",
+        "prefix": "assert-deepEqual"
+    },
+    "Assert .notDeepEqual": {
+        "body": "${1:assert}.notDeepEqual(${2:actual}, ${3:expected}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that actual is deeply equal to expected.",
+        "prefix": "assert-notDeepEqual"
+    },
+    "Assert .isAbove": {
+        "body": "${1:assert}.isAbove(${2:valueToCheck}, ${3:valueToBeAbove}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts valueToCheck is strictly greater than (>) valueToBeAbove.",
+        "prefix": "assert-isAbove"
+    },
+    "Assert .isAtLeast": {
+        "body": "${1:assert}.isAtLeast(${2:valueToCheck}, ${3:valueToBeAtLeast}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts valueToCheck is greater than or equal to (>=) valueToBeAtLeast.",
+        "prefix": "assert-isAtLeast"
+    },
+    "Assert .isBelow": {
+        "body": "${1:assert}.isBelow(${2:valueToCheck}, ${3:valueToBeBelow}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts valueToCheck is strictly less than (<) valueToBeBelow.",
+        "prefix": "assert-isBelow"
+    },
+    "Assert .isAtMost": {
+        "body": "${1:assert}.isAtMost(${2:valueToCheck}, ${3:valueToBeAtMost}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts valueToCheck is less than or equal to (<=) valueToBeAtMost.",
+        "prefix": "assert-isAtMost"
+    },
+    "Assert .isTrue": {
+        "body": "${1:assert}.isTrue(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is true.",
+        "prefix": "assert-isTrue"
+    },
+    "Assert .isNotTrue": {
+        "body": "${1:assert}.isNotTrue(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is not true.",
+        "prefix": "assert-isNotTrue"
+    },
+    "Assert .isFalse": {
+        "body": "${1:assert}.isFalse(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is false.",
+        "prefix": "assert-isFalse"
+    },
+    "Assert .isNotFalse": {
+        "body": "${1:assert}.isNotFalse(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is not false.",
+        "prefix": "assert-isNotFalse"
+    },
+    "Assert .isNull": {
+        "body": "${1:assert}.isNull(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is null.",
+        "prefix": "assert-isNull"
+    },
+    "Assert .isNotNull": {
+        "body": "${1:assert}.isNotNull(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is not null.",
+        "prefix": "assert-isNotNull"
+    },
+    "Assert .isNaN": {
+        "body": "${1:assert}.isNaN(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is NaN.",
+        "prefix": "assert-isNaN"
+    },
+    "Assert .isNotNaN": {
+        "body": "${1:assert}.isNotNaN(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is not NaN.",
+        "prefix": "assert-isNotNaN"
+    },
+    "Assert .exists": {
+        "body": "${1:assert}.exists(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that the target is neither null nor undefined.",
+        "prefix": "assert-exists"
+    },
+    "Assert .notExists": {
+        "body": "${1:assert}.notExists(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that the target is either null or undefined.",
+        "prefix": "assert-notExists"
+    },
+    "Assert .isUndefined": {
+        "body": "${1:assert}.isUndefined(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is undefined.",
+        "prefix": "assert-isUndefined"
+    },
+    "Assert .isDefined": {
+        "body": "${1:assert}.isDefined(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is not undefined.",
+        "prefix": "assert-isDefined"
+    },
+    "Assert .isFunction": {
+        "body": "${1:assert}.isFunction(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is a function.",
+        "prefix": "assert-isFunction"
+    },
+    "Assert .isNotFunction": {
+        "body": "${1:assert}.isNotFunction(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is not a function.",
+        "prefix": "assert-isNotFunction"
+    },
+    "Assert .isObject": {
+        "body": "${1:assert}.isObject(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is an object of type ‘Object’ (as revealed by Object.prototype.toString). The assertion does not match subclassed objects.",
+        "prefix": "assert-isObject"
+    },
+    "Assert .isNotObject": {
+        "body": "${1:assert}.isNotObject(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is not an object of type ‘Object’ (as revealed by Object.prototype.toString).",
+        "prefix": "assert-isNotObject"
+    },
+    "Assert .isArray": {
+        "body": "${1:assert}.isArray(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is an array.",
+        "prefix": "assert-isArray"
+    },
+    "Assert .isNotArray": {
+        "body": "${1:assert}.isNotArray(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is not an array.",
+        "prefix": "assert-isNotArray"
+    },
+    "Assert .isString": {
+        "body": "${1:assert}.isString(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is a string.",
+        "prefix": "assert-isString"
+    },
+    "Assert .isNotString": {
+        "body": "${1:assert}.isNotString(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is not a string.",
+        "prefix": "assert-isNotString"
+    },
+    "Assert .isNumber": {
+        "body": "${1:assert}.isNumber(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is a number.",
+        "prefix": "assert-isNumber"
+    },
+    "Assert .isNotNumber": {
+        "body": "${1:assert}.isNotNumber(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is not a number.",
+        "prefix": "assert-isNotNumber"
+    },
+    "Assert .isFinite": {
+        "body": "${1:assert}.isFinite(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is a finite number. Unlike .isNumber, this will fail for NaN and Infinity.",
+        "prefix": "assert-isFinite"
+    },
+    "Assert .isBoolean": {
+        "body": "${1:assert}.isBoolean(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is a boolean.",
+        "prefix": "assert-isBoolean"
+    },
+    "Assert .isNotBoolean": {
+        "body": "${1:assert}.isNotBoolean(${2:value}, ${3:[message]})",
+        "description": "Adonis Assert - Asserts that value is not a boolean.",
+        "prefix": "assert-isNotBoolean"
+    },
+    "Assert .typeOf": {
+        "body": "${1:assert}.typeOf(${2:value}, ${3:name}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that value’s type is name, as determined by Object.prototype.toString.",
+        "prefix": "assert-typeOf"
+    },
+    "Assert .notTypeOf": {
+        "body": "${1:assert}.notTypeOf(${2:value}, ${3:name}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that value’s type is not name, as determined by Object.prototype.toString.",
+        "prefix": "assert-notTypeOf"
+    },
+    "Assert .instanceOf": {
+        "body": "${1:assert}.instanceOf(${2:object}, ${3:constructor}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that value is an instance of constructor.",
+        "prefix": "assert-instanceOf"
+    },
+    "Assert .notInstanceOf": {
+        "body": "${1:assert}.notInstanceOf(${2:object}, ${3:constructor}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts value is not an instance of constructor.",
+        "prefix": "assert-notInstanceOf"
+    },
+    "Assert .include": {
+        "body": "${1:assert}.include(${2:haystack}, ${3:needle}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that haystack includes needle. Can be used to assert the inclusion of a value in an array, a substring in a string, or a subset of properties in an object.",
+        "prefix": "assert-include"
+    },
+    "Assert .notInclude": {
+        "body": "${1:assert}.notInclude(${2:haystack}, ${3:needle}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that haystack does not include needle. Can be used to assert the absence of a value in an array, a substring in a string, or a subset of properties in an object.",
+        "prefix": "assert-notInclude"
+    },
+    "Assert .deepInclude": {
+        "body": "${1:assert}.deepInclude(${2:haystack}, ${3:needle}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that haystack includes needle. Can be used to assert the inclusion of a value in an array or a subset of properties in an object. Deep equality is used.",
+        "prefix": "assert-deepInclude"
+    },
+    "Assert .notDeepInclude": {
+        "body": "${1:assert}.notDeepInclude(${2:haystack}, ${3:needle}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that haystack does not include needle. Can be used to assert the absence of a value in an array or a subset of properties in an object. Deep equality is used.",
+        "prefix": "assert-notDeepInclude"
+    },
+    "Assert .nestedInclude": {
+        "body": "${1:assert}.nestedInclude(${2:haystack}, ${3:needle}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that ‘haystack’ includes ‘needle’. Can be used to assert the inclusion of a subset of properties in an object. Enables the use of dot- and bracket-notation for referencing nested properties. ‘[]’ and ‘.’ in property names can be escaped using double backslashes.",
+        "prefix": "assert-nestedInclude"
+    },
+    "Assert .notNestedInclude": {
+        "body": "${1:assert}.notNestedInclude(${2:haystack}, ${3:needle}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that ‘haystack’ does not include ‘needle’. Can be used to assert the absence of a subset of properties in an object. Enables the use of dot- and bracket-notation for referencing nested properties. ‘[]’ and ‘.’ in property names can be escaped using double backslashes.",
+        "prefix": "assert-notNestedInclude"
+    },
+    "Assert .deepNestedInclude": {
+        "body": "${1:assert}.deepNestedInclude(${2:haystack}, ${3:needle}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that ‘haystack’ includes ‘needle’. Can be used to assert the inclusion of a subset of properties in an object while checking for deep equality. Enables the use of dot- and bracket-notation for referencing nested properties. ‘[]’ and ‘.’ in property names can be escaped using double backslashes.",
+        "prefix": "assert-deepNestedInclude"
+    },
+    "Assert .notDeepNestedInclude": {
+        "body": "${1:assert}.notDeepNestedInclude(${2:haystack}, ${3:needle}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that ‘haystack’ does not include ‘needle’. Can be used to assert the absence of a subset of properties in an object while checking for deep equality. Enables the use of dot- and bracket-notation for referencing nested properties. ‘[]’ and ‘.’ in property names can be escaped using double backslashes.",
+        "prefix": "assert-notDeepNestedInclude"
+    },
+    "Assert .ownInclude": {
+        "body": "${1:assert}.ownInclude(${2:haystack}, ${3:needle}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that ‘haystack’ includes ‘needle’. Can be used to assert the inclusion of a subset of properties in an object while ignoring inherited properties.",
+        "prefix": "assert-ownInclude"
+    },
+    "Assert .notOwnInclude": {
+        "body": "${1:assert}.notOwnInclude(${2:haystack}, ${3:needle}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that ‘haystack’ includes ‘needle’. Can be used to assert the absence of a subset of properties in an object while ignoring inherited properties.",
+        "prefix": "assert-notOwnInclude"
+    },
+    "Assert .deepOwnInclude": {
+        "body": "${1:assert}.deepOwnInclude(${2:haystack}, ${3:needle}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that ‘haystack’ includes ‘needle’. Can be used to assert the inclusion of a subset of properties in an object while ignoring inherited properties and checking for deep equality.",
+        "prefix": "assert-deepOwnInclude"
+    },
+    "Assert .notDeepOwnInclude": {
+        "body": "${1:assert}.notDeepOwnInclude(${2:haystack}, ${3:needle}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that ‘haystack’ includes ‘needle’. Can be used to assert the absence of a subset of properties in an object while ignoring inherited properties and checking for deep equality.",
+        "prefix": "assert-notDeepOwnInclude"
+    },
+    "Assert .match": {
+        "body": "${1:assert}.match(${2:value}, ${3:regexp}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that value matches the regular expression regexp.",
+        "prefix": "assert-match"
+    },
+    "Assert .notMatch": {
+        "body": "${1:assert}.notMatch(${2:value}, ${3:regexp}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that value does not match the regular expression regexp.",
+        "prefix": "assert-notMatch"
+    },
+    "Assert .property": {
+        "body": "${1:assert}.property(${2:object}, ${3:property}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object has a direct or inherited property named by property.",
+        "prefix": "assert-property"
+    },
+    "Assert .notProperty": {
+        "body": "${1:assert}.notProperty(${2:object}, ${3:property}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object does not have a direct or inherited property named by property.",
+        "prefix": "assert-notProperty"
+    },
+    "Assert .propertyVal": {
+        "body": "${1:assert}.propertyVal(${2:object}, ${3:property}, ${4:value}, ${5:[message]})",
+        "description": "Adonis Assert - Asserts that object has a direct or inherited property named by property with a value given by value. Uses a strict equality check (===).",
+        "prefix": "assert-propertyVal"
+    },
+    "Assert .notPropertyVal": {
+        "body": "${1:assert}.notPropertyVal(${2:object}, ${3:property}, ${4:value}, ${5:[message]})",
+        "description": "Adonis Assert - Asserts that object does not have a direct or inherited property named by property with value given by value. Uses a strict equality check (===).",
+        "prefix": "assert-notPropertyVal"
+    },
+    "Assert .deepPropertyVal": {
+        "body": "${1:assert}.deepPropertyVal(${2:object}, ${3:property}, ${4:value}, ${5:[message]})",
+        "description": "Adonis Assert - Asserts that object has a direct or inherited property named by property with a value given by value. Uses a deep equality check.",
+        "prefix": "assert-deepPropertyVal"
+    },
+    "Assert .notDeepPropertyVal": {
+        "body": "${1:assert}.notDeepPropertyVal(${2:object}, ${3:property}, ${4:value}, ${5:[message]})",
+        "description": "Adonis Assert - Asserts that object does not have a direct or inherited property named by property with value given by value. Uses a deep equality check.",
+        "prefix": "assert-notDeepPropertyVal"
+    },
+    "Assert .nestedProperty": {
+        "body": "${1:assert}.nestedProperty(${2:object}, ${3:property}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object has a direct or inherited property named by property, which can be a string using dot- and bracket-notation for nested reference.",
+        "prefix": "assert-nestedProperty"
+    },
+    "Assert .notNestedProperty": {
+        "body": "${1:assert}.notNestedProperty(${2:object}, ${3:property}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object does not have a property named by property, which can be a string using dot- and bracket-notation for nested reference. The property cannot exist on the object nor anywhere in its prototype chain.",
+        "prefix": "assert-notNestedProperty"
+    },
+    "Assert .nestedPropertyVal": {
+        "body": "${1:assert}.nestedPropertyVal(${2:object}, ${3:property}, ${4:value}, ${5:[message]})",
+        "description": "Adonis Assert - Asserts that object has a property named by property with value given by value. property can use dot- and bracket-notation for nested reference. Uses a strict equality check (===).",
+        "prefix": "assert-nestedPropertyVal"
+    },
+    "Assert .notNestedPropertyVal": {
+        "body": "${1:assert}.notNestedPropertyVal(${2:object}, ${3:property}, ${4:value}, ${5:[message]})",
+        "description": "Adonis Assert - Asserts that object does not have a property named by property with value given by value. property can use dot- and bracket-notation for nested reference. Uses a strict equality check (===).",
+        "prefix": "assert-notNestedPropertyVal"
+    },
+    "Assert .deepNestedPropertyVal": {
+        "body": "${1:assert}.deepNestedPropertyVal(${2:object}, ${3:property}, ${4:value}, ${5:[message]})",
+        "description": "Adonis Assert - Asserts that object has a property named by property with a value given by value. property can use dot- and bracket-notation for nested reference. Uses a deep equality check.",
+        "prefix": "assert-deepNestedPropertyVal"
+    },
+    "Assert .notDeepNestedPropertyVal": {
+        "body": "${1:assert}.notDeepNestedPropertyVal(${2:object}, ${3:property}, ${4:value}, ${5:[message]})",
+        "description": "Adonis Assert - Asserts that object does not have a property named by property with value given by value. property can use dot- and bracket-notation for nested reference. Uses a deep equality check.",
+        "prefix": "assert-notDeepNestedPropertyVal"
+    },
+    "Assert .lengthOf": {
+        "body": "${1:assert}.lengthOf(${2:object}, ${3:length}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object has a length or size with the expected value.",
+        "prefix": "assert-lengthOf"
+    },
+    "Assert .hasAnyKeys": {
+        "body": "${1:assert}.hasAnyKeys(${2:object}, ${3:keys}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object has at least one of the keys provided. You can also provide a single object instead of a keys array and its keys will be used as the expected set of keys.",
+        "prefix": "assert-hasAnyKeys"
+    },
+    "Assert .hasAllKeys": {
+        "body": "${1:assert}.hasAllKeys(${2:object}, ${3:keys}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object has all and only all of the keys provided. You can also provide a single object instead of a keys array and its keys will be used as the expected set of keys.",
+        "prefix": "assert-hasAllKeys"
+    },
+    "Assert .containsAllKeys": {
+        "body": "${1:assert}.containsAllKeys(${2:object}, ${3:keys}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object has all of the keys provided but may have more keys not listed. You can also provide a single object instead of a keys array and its keys will be used as the expected set of keys.",
+        "prefix": "assert-containsAllKeys"
+    },
+    "Assert .doesNotHaveAnyKeys": {
+        "body": "${1:assert}.doesNotHaveAnyKeys(${2:object}, ${3:keys}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object has none of the keys provided. You can also provide a single object instead of a keys array and its keys will be used as the expected set of keys.",
+        "prefix": "assert-doesNotHaveAnyKeys"
+    },
+    "Assert .doesNotHaveAllKeys": {
+        "body": "${1:assert}.doesNotHaveAllKeys(${2:object}, ${3:keys}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object does not have at least one of the keys provided. You can also provide a single object instead of a keys array and its keys will be used as the expected set of keys.",
+        "prefix": "assert-doesNotHaveAllKeys"
+    },
+    "Assert .hasAnyDeepKeys": {
+        "body": "${1:assert}.hasAnyDeepKeys(${2:object}, ${3:keys}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object has at least one of the keys provided. Since Sets and Maps can have objects as keys you can use this assertion to perform a deep comparison. You can also provide a single object instead of a keys array and its keys will be used as the expected set of keys.",
+        "prefix": "assert-hasAnyDeepKeys"
+    },
+    "Assert .hasAllDeepKeys": {
+        "body": "${1:assert}.hasAllDeepKeys(${2:object}, ${3:keys}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object has all and only all of the keys provided. Since Sets and Maps can have objects as keys you can use this assertion to perform a deep comparison. You can also provide a single object instead of a keys array and its keys will be used as the expected set of keys.",
+        "prefix": "assert-hasAllDeepKeys"
+    },
+    "Assert .containsAllDeepKeys": {
+        "body": "${1:assert}.containsAllDeepKeys(${2:object}, ${3:keys}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object contains all of the keys provided. Since Sets and Maps can have objects as keys you can use this assertion to perform a deep comparison. You can also provide a single object instead of a keys array and its keys will be used as the expected set of keys.",
+        "prefix": "assert-containsAllDeepKeys"
+    },
+    "Assert .doesNotHaveAnyDeepKeys": {
+        "body": "${1:assert}.doesNotHaveAnyDeepKeys(${2:object}, ${3:keys}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object has none of the keys provided. Since Sets and Maps can have objects as keys you can use this assertion to perform a deep comparison. You can also provide a single object instead of a keys array and its keys will be used as the expected set of keys.",
+        "prefix": "assert-doesNotHaveAnyDeepKeys"
+    },
+    "Assert .doesNotHaveAllDeepKeys": {
+        "body": "${1:assert}.doesNotHaveAllDeepKeys(${2:object}, ${3:keys}, ${4:[message]})",
+        "description": "Adonis Assert - Asserts that object does not have at least one of the keys provided. Since Sets and Maps can have objects as keys you can use this assertion to perform a deep comparison. You can also provide a single object instead of a keys array and its keys will be used as the expected set of keys.",
+        "prefix": "assert-doesNotHaveAllDeepKeys"
+    },
+    "Assert .throws": {
+        "body": "${1:assert}.throws(${2:fn}, ${3:errorLike/string/regexp}, ${4:string/regexp}, ${5:[message]})",
+        "description": "Adonis Assert - If errorLike is an Error constructor, asserts that fn will throw an error that is an instance of errorLike. If errorLike is an Error instance, asserts that the error thrown is the same instance as errorLike. If errMsgMatcher is provided, it also asserts that the error thrown will have a message matching errMsgMatcher.",
+        "prefix": "assert-throws"
+    },
+    "Assert .doesNotThrow": {
+        "body": "${1:assert}.doesNotThrow(${2:fn}, ${3:errorLike/string/regexp}, ${4:string/regexp}, ${5:[message]})",
+        "description": "Adonis Assert - If errorLike is an Error constructor, asserts that fn will not throw an error that is an instance of errorLike. If errorLike is an Error instance, asserts that the error thrown is not the same instance as errorLike. If errMsgMatcher is provided, it also asserts that the error thrown will not have a message matching errMsgMatcher.",
+        "prefix": "assert-doesNotThrow"
+    },
+    "Assert .operator": {
+        "body": "${1:assert}.operator(${2:val1}, ${3:operator}, ${4:val2}, ${5:[message]})",
+        "description": "Compares two values using operator.",
+        "prefix": "assert-operator"
+    }
+}
