@@ -1,0 +1,11 @@
+{
+    "edge: @raw ... @endraw": {
+        "prefix": "raw",
+        "body": [
+            "@raw",
+            "  $1",
+            "@endraw"
+        ],
+        "description": "Edge - echo untouched data (allow javascript expression)"
+    }
+}

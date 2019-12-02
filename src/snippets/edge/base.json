@@ -1,0 +1,111 @@
+{
+    "edge: {{ css('path') }}": {
+        "prefix": "css",
+        "body": [
+            "{{ css('$1') }}"
+        ],
+        "description": "Adonis - make css link"
+    },
+    "edge: {{ script ('path') }}": {
+        "prefix": "script",
+        "body": [
+            "{{ script('$1') }}"
+        ],
+        "description": "Adonis - make script link"
+    },
+    "edge: {{ assetsUrl('path') }}": {
+        "prefix": "assetsUrl",
+        "body": [
+            "{{ assetsUrl('$1') }}"
+        ],
+        "description": "Adonis - make asset link"
+    },
+    "edge: {{ route('name', params = {}) }}": {
+        "prefix": "route",
+        "body": [
+            "{{ route('$1', { $2 }) }}"
+        ],
+        "description": "Adonis - make link from route"
+    },
+    "edge: {{ url }}": {
+        "prefix": "url",
+        "body": [
+            "{{ url }}"
+        ],
+        "description": "Adonis - current url"
+    },
+    "edge: {{ auth.user }}": {
+        "prefix": "auth-user",
+        "body": [
+            "{{ auth.user$1 }}$0"
+        ],
+        "description": "Adonis - current auth user"
+    },
+    "edge: {{ csrfField() }}": {
+        "prefix": "csrf",
+        "body": [
+            "{{ csrfField() }}"
+        ],
+        "description": "Adonis - csrf field"
+    },
+    "edge: {{ cspMeta() }}": {
+        "prefix": "cspMeta",
+        "body": [
+            "{{ cspMeta() }}"
+        ],
+        "description": "Adonis - meta tag"
+    },
+    "edge: @loggedIn ... @else ... @endLoggedIn": {
+        "prefix": "logged-in",
+        "body": [
+            "@loggedIn",
+            "  $1",
+            "@else",
+            "  $2",
+            "@endloggedIn"
+        ],
+        "description": "Edge - @loggedIn else block"
+    },
+    "edge: {{ old(key, default) }}": {
+        "prefix": "old",
+        "body": [
+            "{{ old($1, $2) }}"
+        ],
+        "description": "Edge View - returns the value for a given key from the flash store"
+    },
+    "edge: {{ hasErrorFor(key) }}": {
+        "prefix": "has-error-for",
+        "body": [
+            "{{ hasErrorFor($1) }}"
+        ],
+        "description": "Edge View - returns true if there is an error for a given field inside the flash store"
+    },
+    "edge: {{ getErrorFor(key) }}": {
+        "prefix": "get-error-for",
+        "body": [
+            "{{ getErrorFor($1) }}"
+        ],
+        "description": "Edge View - returns the error message for a given field"
+    },
+    "edge: {{ flashMessage(key, default) }}": {
+        "prefix": "flash",
+        "body": [
+            "{{ flashMessage(${1:key}, ${2:default}) }}"
+        ],
+        "description": "Edge View - returns the error message for a given field"
+    },
+    "edge: {{ auth }}": {
+        "prefix": "auth",
+        "body": [
+            "{{ auth$1 }}"
+        ],
+        "description": "Edge View - authenticated object"
+    },
+    "edge: {{ antl }}": {
+        "prefix": "antl",
+        "body": [
+            "{{ antl.${1|formatNumber,formatRelative,formatDate,formatAmount,formatMessage|}($3) }}"
+        ],
+        "description": "Edge Localizalisation - antl"
+    }
+}

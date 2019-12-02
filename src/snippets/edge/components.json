@@ -1,0 +1,32 @@
+{
+    "edge: @include('view')": {
+        "prefix": "include",
+        "body": [
+            "@include('${1:name}')$2"
+        ],
+        "description": "Edge - include view"
+    },
+    "edge: @super": {
+        "prefix": "super",
+        "body": [
+            "@super"
+        ],
+        "description": "Edge - Super extend"
+    },
+    "edge: @!component('name')": {
+        "prefix": "component",
+        "body": [
+            "@!component('$1')"
+        ],
+        "description": "Edge - component self close"
+    },
+    "edge: @component('name') ... @endcomponent": {
+        "prefix": "component-block",
+        "body": [
+            "@component('$1')",
+            "  $2",
+            "@endcomponent"
+        ],
+        "description": "Edge - component block"
+    }
+}

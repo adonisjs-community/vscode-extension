@@ -1,0 +1,32 @@
+{
+    "edge: @layout('view')": {
+        "prefix": "layout",
+        "body": [
+            "@layout('${1:name}')"
+        ],
+        "description": "Edge - Layout view"
+    },
+    "edge: @extend('layout')": {
+        "prefix": "extends",
+        "body": [
+            "@extends('${1:name}')$2"
+        ],
+        "description": "Edge - extends view layout"
+    },
+    "edge: @section('block') ... @endsection": {
+        "prefix": "section-block",
+        "body": [
+            "@section('${1:name}')",
+            "  $2",
+            "@endsection"
+        ],
+        "description": "Edge - section block"
+    },
+    "edge: @!section('block')": {
+        "prefix": "section",
+        "body": [
+            "@!section('${1:name}')"
+        ],
+        "description": "Edge - section no default"
+    }
+}
