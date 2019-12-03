@@ -1,6 +1,6 @@
 {
     "Ws": {
-        "body": "${1:Ws}.${2|channel,getChannel|}($3)", // 
+        "body": "${1:Ws}.${2|channel,getChannel|}($3)",
         "description": "Adonis Ws",
         "prefix": "ws"
     },
@@ -14,9 +14,7 @@
         "prefix": "ws-channel"
     },
     "Ws Get Channel": {
-        "body": [
-            "${1:Ws}.getChannel(${2:name})$0",
-        ],
+        "body": "${1:Ws}.getChannel(${2:name})$0",
         "description": "Adonis Ws - get channel",
         "prefix": "ws-get-channel"
     },
@@ -24,7 +22,7 @@
         "body": [
             "${1:Ws}",
             "  .channel(${2:name}, ${3:controller})",
-            "  .middleware([${4:middleware},$5])$0",
+            "  .middleware([${4:middleware},$5])$0"
         ],
         "description": "Adonis Ws - middleware",
         "prefix": "ws-middleware"

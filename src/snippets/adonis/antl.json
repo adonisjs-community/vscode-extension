@@ -1,85 +1,61 @@
 {
     "Antl": {
-        "body": [
-            "${1:Antl}.${2|currentLocale,defaultLocale,formatMessage,formatNumber,formatAmount,formateDate,formatRelative,forLocale,bootLoader,loader,switchLocale|}($3)"
-        ],
+        "body": "${1:Antl}.${2|currentLocale,defaultLocale,formatMessage,formatNumber,formatAmount,formateDate,formatRelative,forLocale,bootLoader,loader,switchLocale|}($3)",
         "description": "Adonis Antl",
         "prefix": "antl"
     },
     "Antl currentLocale": {
-        "body": [
-            "${1:Antl}.currentLocale()"
-        ],
+        "body": "${1:Antl}.currentLocale()",
         "description": "Adonis Antl - currentLocale",
         "prefix": "antl-currentLocale"
     },
     "Antl defaultLocale": {
-        "body": [
-            "${1:Antl}.defaultLocale()"
-        ],
+        "body": "${1:Antl}.defaultLocale()",
         "description": "Adonis Antl - defaultLocale",
         "prefix": "antl-defaultLocale"
     },
     "Antl formatMessage": {
-        "body": [
-            "${1:Antl}.formatMessage(${2:key}, ${3:data}, ${4:format})"
-        ],
+        "body": "${1:Antl}.formatMessage(${2:key}, ${3:data}, ${4:format})",
         "description": "Adonis Antl - formatMessage",
         "prefix": "antl-formatMessage"
     },
     "Antl formatNumber": {
-        "body": [
-            "${1:Antl}.formatNumber(${2:value}, ${3:options = {\\}})"
-        ],
+        "body": "${1:Antl}.formatNumber(${2:value}, ${3:options = {\\}})",
         "description": "Adonis Antl - formatNumber",
         "prefix": "antl-formatNumber"
     },
     "Antl formatAmount": {
-        "body": [
-            "${1:Antl}.formatAmount(${2:value}, ${3:currency}, ${4:options = {\\}})"
-        ],
+        "body": "${1:Antl}.formatAmount(${2:value}, ${3:currency}, ${4:options = {\\}})",
         "description": "Adonis Antl - formatAmount",
         "prefix": "antl-formatAmount"
     },
     "Antl formateDate": {
-        "body": [
-            "${1:Antl}.formateDate(${2:value}, ${3:options = {\\}})"
-        ],
+        "body": "${1:Antl}.formateDate(${2:value}, ${3:options = {\\}})",
         "description": "Adonis Antl - formateDate",
         "prefix": "antl-formateDate"
     },
     "Antl formatRelative": {
-        "body": [
-            "${1:Antl}.formatRelative(${2:value}, ${3:options = {\\}})"
-        ],
+        "body": "${1:Antl}.formatRelative(${2:value}, ${3:options = {\\}})",
         "description": "Adonis Antl - formatRelative",
         "prefix": "antl-formatRelative"
     },
     "Antl forLocale": {
-        "body": [
-            "${1:Antl}.forLocale('${2:fr}')"
-        ],
+        "body": "${1:Antl}.forLocale('${2:fr}')",
         "description": "Adonis Antl - forLocale",
         "prefix": "antl-forLocale"
     },
     "Antl bootLoader": {
-        "body": [
-            "await ${1:Antl}.bootLoader()"
-        ],
+        "body": "await ${1:Antl}.bootLoader()",
         "description": "Adonis Antl - bootLoader",
         "prefix": "antl-bootLoader"
     },
     "Antl loader": {
-        "body": [
-            "${1:Antl}.loader(${2:loader})"
-        ],
+        "body": "${1:Antl}.loader(${2:loader})",
         "description": "Adonis Antl - loader",
         "prefix": "antl-loader"
     },
     "Antl switchLocale": {
-        "body": [
-            "${1:Antl}.switchLocale(${2:key}, ${3:data}, ${4:format})"
-        ],
+        "body": "${1:Antl}.switchLocale(${2:key}, ${3:data}, ${4:format})",
         "description": "Adonis Antl - switchLocale",
         "prefix": "antl-switchLocale"
     },

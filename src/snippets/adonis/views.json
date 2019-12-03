@@ -1,15 +1,11 @@
 {
     "view": {
-        "body": [
-            "${1:view}.render('${3:path.name}')"
-        ],
+        "body": "${1:view}.render('${3:path.name}')",
         "description": "Adonis View",
         "prefix": "view"
     },
     "view-share": {
-        "body": [
-            "${1:view}.share({$3})"
-        ],
+        "body": "${1:view}.share({$3})",
         "description": "Adonis View - share",
         "prefix": "view-share"
     }

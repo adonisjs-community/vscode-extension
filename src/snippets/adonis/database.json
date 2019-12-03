@@ -1,64 +1,46 @@
 {
     "Database": {
-        "body": [
-            "${1:Database}.${2|table,connection,close,withOutPrefix,on|}($3)"
-        ],
+        "body": "${1:Database}.${2|table,connection,close,withOutPrefix,on|}($3)",
         "description": "Adonis Database",
         "prefix": "db"
     },
     "Database Table": {
-        "body": [
-            "${4:await }${1:Database}.table('${2:users}')$3"
-        ],
+        "body": "${4:await }${1:Database}.table('${2:users}')$3",
         "description": "Adonis Database - table",
         "prefix": "db-table"
     },
     "Database Where": {
-        "body": [
-            "${5:await }${1:Database}.table('${2:users}').where($3)$4"
-        ],
+        "body": "${5:await }${1:Database}.table('${2:users}').where($3)$4",
         "description": "Adonis Database - where",
         "prefix": "db-where"
     },
     "Database Or Where": {
-        "body": [
-            "${6:await }${1:Database}.table('${2:users}').where($3).orWhere($4)$5"
-        ],
+        "body": "${6:await }${1:Database}.table('${2:users}').where($3).orWhere($4)$5",
         "description": "Adonis Database - orWhere",
         "prefix": "db-or-where"
     },
     "Database Select": {
-        "body": [
-            "${5:await }${1:Database}.table('${2:users}').select($3)$4"
-        ],
+        "body": "${5:await }${1:Database}.table('${2:users}').select($3)$4",
         "description": "Adonis Database - select",
         "prefix": "db-select"
     },
     "Database Connection": {
-        "body": [
-            "${1:Database}.connection('${2:mysql}').${3:table}($4)"
-        ],
+        "body": "${1:Database}.connection('${2:mysql}').${3:table}($4)",
         "description": "Adonis Database - connection",
         "prefix": "db-conn"
     },
     "Database Close": {
-        "body": [
-            "${1:Database}.close(['${2:mysql}', $3])"
-        ],
+        "body": "${1:Database}.close(['${2:mysql}', $3])",
         "description": "Adonis Database - close",
         "prefix": "db-close"
     },
     "Database withOutPrefix": {
-        "body": [
-            "${1:Database}.withOutPrefix()"
-        ],
+        "body": "${1:Database}.withOutPrefix()",
         "description": "Adonis Database - wihOutPrefix",
         "prefix": "db-close"
     },
     "Database on": {
-        "body": [
-            "${1:Database}.on('${2:query}', ${3:(param) => {\\}})"
-        ],
+        "body": "${1:Database}.on('${2:query}', ${3:(param) => {\\}})",
         "description": "Adonis Database - on",
         "prefix": "db-on"
     }

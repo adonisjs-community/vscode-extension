@@ -1,36 +1,26 @@
 {
     "Factory": {
-        "body": [
-            "${1:Factory}.${2|model,blueprint,get|}($3)"
-        ],
+        "body": "${1:Factory}.${2|model,blueprint,get|}($3)",
         "description": "Adonis Factory",
         "prefix": "factory"
     },
     "Factory Create From Model": {
-        "body": [
-            "${1:Factory}.model(${2:name}).create()"
-        ],
+        "body": "${1:Factory}.model(${2:name}).create()",
         "description": "Adonis Factory - create from model",
         "prefix": "factory-create"
     },
     "Factory Create Many From Model": {
-        "body": [
-            "${1:Factory}.model(${2:name}).createMany(${3:3})"
-        ],
+        "body": "${1:Factory}.model(${2:name}).createMany(${3:3})",
         "description": "Adonis Factory - create many from model",
         "prefix": "factory-create-many"
     },
     "Factory Make From Model": {
-        "body": [
-            "${1:Factory}.model(${2:name}).make()"
-        ],
+        "body": "${1:Factory}.model(${2:name}).make()",
         "description": "Adonis Factory - make from model",
         "prefix": "factory-make"
     },
     "Factory Make Many From Model": {
-        "body": [
-            "${1:Factory}.model(${2:name}).makeMany(${3:3})"
-        ],
+        "body": "${1:Factory}.model(${2:name}).makeMany(${3:3})",
         "description": "Adonis Factory - make many from model",
         "prefix": "factory-make-many"
     },
@@ -46,30 +36,22 @@
         "prefix": "factory-blueprint"
     },
     "Factory Table Without Lucid": {
-        "body": [
-            "${1:Factory}.get(${2:table}).table(${3:newTableName}).create()"
-        ],
+        "body": "${1:Factory}.get(${2:table}).table(${3:newTableName}).create()",
         "description": "Adonis Factory - table without lucid",
         "prefix": "factory-table"
     },
     "Factory Returning Without Lucid": {
-        "body": [
-            "${1:Factory}.get(${2:table}).returning(${3:column}).create()"
-        ],
+        "body": "${1:Factory}.get(${2:table}).returning(${3:column}).create()",
         "description": "Adonis Factory - returning column without lucid",
         "prefix": "factory-return"
     },
     "Factory Change Connection Without Lucid": {
-        "body": [
-            "${1:Factory}.get(${2:table}).connection('${3:myql}')"
-        ],
+        "body": "${1:Factory}.get(${2:table}).connection('${3:myql}')",
         "description": "Adonis Factory - create without lucid",
         "prefix": "factory-conn"
     },
     "Factory Create Many Without Lucid": {
-        "body": [
-            "${1:Factory}.get(${2:table}).creatMany(${3:3})"
-        ],
+        "body": "${1:Factory}.get(${2:table}).creatMany(${3:3})",
         "description": "Adonis Factory - create many without lucid",
         "prefix": "factory-create-many"
     }

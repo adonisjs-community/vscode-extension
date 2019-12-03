@@ -1,218 +1,156 @@
 {
     "request": {
-        "body": [
-            "${1:request}.${2|all,get,post,raw,only,except,input,collect,header,headers,cookie,cookies,plainCookie,plainCookies,accepts,language,url,originalUrl,method,intended,ip,ips,subdomains,ajax,pjax,hostname,protocol,match,hasBody,is|}($3)"
-        ],
+        "body": "${1:request}.${2|all,get,post,raw,only,except,input,collect,header,headers,cookie,cookies,plainCookie,plainCookies,accepts,language,url,originalUrl,method,intended,ip,ips,subdomains,ajax,pjax,hostname,protocol,match,hasBody,is|}($3)",
         "description": "Adonis Route",
         "prefix": "req"
     },
     "request.all": {
-        "body": [
-            "${1:request}.all()"
-        ],
+        "body": "${1:request}.all()",
         "description": "Adonis Route - all",
         "prefix": "req-all"
     },
     "request.get": {
-        "body": [
-            "${1:request}.get()"
-        ],
+        "body": "${1:request}.get()",
         "description": "Adonis Route - get",
         "prefix": "req-get"
     },
     "request.post": {
-        "body": [
-            "${1:request}.post()"
-        ],
+        "body": "${1:request}.post()",
         "description": "Adonis Route - post",
         "prefix": "req-post"
     },
     "request.raw": {
-        "body": [
-            "${1:request}.raw()"
-        ],
+        "body": "${1:request}.raw()",
         "description": "Adonis Route - raw",
         "prefix": "req-raw"
     },
     "request.only": {
-        "body": [
-            "${1:request}.only([${2:key}$3])"
-        ],
+        "body": "${1:request}.only([${2:key}$3])",
         "description": "Adonis Route - only",
         "prefix": "req-only"
     },
     "request.except": {
-        "body": [
-            "${1:request}.except([${2:key}$3])"
-        ],
+        "body": "${1:request}.except([${2:key}$3])",
         "description": "Adonis Route - except",
         "prefix": "req-except"
     },
     "request.input": {
-        "body": [
-            "${1:request}.input(${2:key}, ${3:default})"
-        ],
+        "body": "${1:request}.input(${2:key}, ${3:default})",
         "description": "Adonis Route - input",
         "prefix": "req-input"
     },
     "request.collect": {
-        "body": [
-            "${1:request}.collect([${2:key}$3])"
-        ],
+        "body": "${1:request}.collect([${2:key}$3])",
         "description": "Adonis Route - collect",
         "prefix": "req-collect"
     },
     "request.header": {
-        "body": [
-            "${1:request}.header(${2:key}, ${3:default})"
-        ],
+        "body": "${1:request}.header(${2:key}, ${3:default})",
         "description": "Adonis Route - header",
         "prefix": "req-header"
     },
     "request.headers": {
-        "body": [
-            "${1:request}.headers()"
-        ],
+        "body": "${1:request}.headers()",
         "description": "Adonis Route - headers",
         "prefix": "req-headers"
     },
     "request.cookie": {
-        "body": [
-            "${1:request}.cookie(${2:key}, ${3:default})"
-        ],
+        "body": "${1:request}.cookie(${2:key}, ${3:default})",
         "description": "Adonis Route - cookie",
         "prefix": "req-cookie"
     },
     "request.cookies": {
-        "body": [
-            "${1:request}.cookies()"
-        ],
+        "body": "${1:request}.cookies()",
         "description": "Adonis Route - cookies",
         "prefix": "req-cookies"
     },
     "request.plainCookie": {
-        "body": [
-            "${1:request}.plainCookie(${2:key}, ${3:default})"
-        ],
+        "body": "${1:request}.plainCookie(${2:key}, ${3:default})",
         "description": "Adonis Route - plainCookie",
         "prefix": "req-plainCookie"
     },
     "request.plainCookies": {
-        "body": [
-            "${1:request}.plainCookies()"
-        ],
+        "body": "${1:request}.plainCookies()",
         "description": "Adonis Route - plainCookies",
         "prefix": "req-plainCookies"
     },
     "request.accepts": {
-        "body": [
-            "${1:request}.accepts([${2:value}$3])"
-        ],
+        "body": "${1:request}.accepts([${2:value}$3])",
         "description": "Adonis Route - accepts",
         "prefix": "req-accepts"
     },
     "request.language": {
-        "body": [
-            "${1:request}.language([${2:value}$3])"
-        ],
+        "body": "${1:request}.language([${2:value}$3])",
         "description": "Adonis Route - language",
         "prefix": "req-language"
     },
     "request.url": {
-        "body": [
-            "${1:request}.url()"
-        ],
+        "body": "${1:request}.url()",
         "description": "Adonis Route - url",
         "prefix": "req-url"
     },
     "request.originalUrl": {
-        "body": [
-            "${1:request}.originalUrl()"
-        ],
+        "body": "${1:request}.originalUrl()",
         "description": "Adonis Route - originalUrl",
         "prefix": "req-originalUrl"
     },
     "request.method": {
-        "body": [
-            "${1:request}.method()"
-        ],
+        "body": "${1:request}.method()",
         "description": "Adonis Route - method",
         "prefix": "req-method"
     },
     "request.intended": {
-        "body": [
-            "${1:request}.intended()"
-        ],
+        "body": "${1:request}.intended()",
         "description": "Adonis Route - intended",
         "prefix": "req-intended"
     },
     "request.ip": {
-        "body": [
-            "${1:request}.ip()"
-        ],
+        "body": "${1:request}.ip()",
         "description": "Adonis Route - ip",
         "prefix": "req-ip"
     },
     "request.ips": {
-        "body": [
-            "${1:request}.ips()"
-        ],
+        "body": "${1:request}.ips()",
         "description": "Adonis Route - ips",
         "prefix": "req-ips"
     },
     "request.subdomains": {
-        "body": [
-            "${1:request}.subdomains()"
-        ],
+        "body": "${1:request}.subdomains()",
         "description": "Adonis Route - subdomains",
         "prefix": "req-subdomains"
     },
     "request.ajax": {
-        "body": [
-            "${1:request}.ajax()"
-        ],
+        "body": "${1:request}.ajax()",
         "description": "Adonis Route - ajax",
         "prefix": "req-ajax"
     },
     "request.pjax": {
-        "body": [
-            "${1:request}.pjax()"
-        ],
+        "body": "${1:request}.pjax()",
         "description": "Adonis Route - pjax",
         "prefix": "req-pjax"
     },
     "request.hostname": {
-        "body": [
-            "${1:request}.hostname()"
-        ],
+        "body": "${1:request}.hostname()",
         "description": "Adonis Route - hostname",
         "prefix": "req-hostname"
     },
     "request.protocol": {
-        "body": [
-            "${1:request}.protocol()"
-        ],
+        "body": "${1:request}.protocol()",
         "description": "Adonis Route - protocol",
         "prefix": "req-protocol"
     },
     "request.match": {
-        "body": [
-            "${1:request}.match([${2:expression}$3])"
-        ],
+        "body": "${1:request}.match([${2:expression}$3])",
         "description": "Adonis Route - match",
         "prefix": "req-match"
     },
     "request.hasBody": {
-        "body": [
-            "${1:request}.hasBody()"
-        ],
+        "body": "${1:request}.hasBody()",
         "description": "Adonis Route - hasBody",
         "prefix": "req-hasBody"
     },
     "request.is": {
-        "body": [
-            "${1:request}.is([${2:contentType}$3])"
-        ],
+        "body": "${1:request}.is([${2:contentType}$3])",
         "description": "Adonis Route - is",
         "prefix": "req-is"
     }

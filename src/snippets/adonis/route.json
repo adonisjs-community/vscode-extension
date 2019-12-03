@@ -1,29 +1,21 @@
 {
     "Route": {
-        "body": [
-            "Route.${1|get,put,post,patch,delete,any|}('$2', $3, $4)"
-        ],
+        "body": "Route.${1|get,put,post,patch,delete,any|}('$2', $3, $4)",
         "description": "Adonis Route",
         "prefix": "route"
     },
     "Route.on(...).render('view')": {
-        "body": [
-            "Route.on($1).render($2)"
-        ],
+        "body": "Route.on($1).render($2)",
         "description": "Adonis Route - on",
         "prefix": "route-on"
     },
     "Named Route": {
-        "body": [
-            "Route.${1|get,put,post,patch,delete,any|}('$2', $3, $4).as('$7')"
-        ],
+        "body": "Route.${1|get,put,post,patch,delete,any|}('$2', $3, $4).as('$7')",
         "description": "Adonis Route - on",
         "prefix": "route-named"
     },
     "Route Formats": {
-        "body": [
-            "Route.${1|get,put,post,patch,delete,any|}('$2', $3, $4).formats(['$7',$8], $9)"
-        ],
+        "body": "Route.${1|get,put,post,patch,delete,any|}('$2', $3, $4).formats(['$7',$8], $9)",
         "description": "Adonis Route - formats",
         "prefix": "route-formats"
     },
@@ -37,9 +29,7 @@
         "prefix": "route-inline"
     },
     "Route Resource": {
-        "body": [
-            "Route.resource('$1', $2).${3|apiOnly,only,except,middleware,formats|}($4)"
-        ],
+        "body": "Route.resource('$1', $2).${3|apiOnly,only,except,middleware,formats|}($4)",
         "description": "Adonis Route - formats",
         "prefix": "route-resource"
     },
