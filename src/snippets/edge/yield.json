@@ -6,6 +6,6 @@
             "  $2",
             "@endyield"
         ],
-        "description": "Edge - yield slot"
+        "description": "Edge: yield slot"
     }
 }

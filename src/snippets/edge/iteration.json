@@ -6,7 +6,7 @@
             "  $3",
             "@endeach"
         ],
-        "description": "Edge - @each array block"
+        "description": "Edge: @each array block"
     },
     "edge: @each( (key, value) in object) ... @endeach": {
         "prefix": "each-object",
@@ -15,7 +15,7 @@
             "  $3",
             "@endeach"
         ],
-        "description": "Edge - @each array block"
+        "description": "Edge: @each array block"
     },
     "edge: @each (item in collection) ... @endeach": {
         "prefix": "each-in",
@@ -24,7 +24,7 @@
             "  $3",
             "@endeach"
         ],
-        "description": "Edge - @each else block"
+        "description": "Edge: @each else block"
     },
     "edge: @each(item in collection) ... @else ... @endeach": {
         "prefix": "each-else",
@@ -35,21 +35,17 @@
             "  $4",
             "@endeach"
         ],
-        "description": "Edge - @each else block"
+        "description": "Edge: @each else block"
     },
     "edge: $loop.index": {
         "prefix": "loop-index",
-        "body": [
-            "\\$loop.${1:index}$2"
-        ],
-        "description": "Edge - Holds the iteration index, start from 0"
+        "body": "\\$loop.${1:index}$2",
+        "description": "Edge: Holds the iteration index, start from 0"
     },
     "edge: $loop.total": {
         "prefix": "loop-total",
-        "body": [
-            "\\$loop.${1:total}$2"
-        ],
-        "description": "Edge - The total number of items"
+        "body": "\\$loop.${1:total}$2",
+        "description": "Edge: The total number of items"
     },
     "edge: @if($loop.first) ... @endif": {
         "prefix": "loop-first",
@@ -59,7 +55,7 @@
             "@endif",
             "$2"
         ],
-        "description": "Edge - Whether or not the item is the first in the loop"
+        "description": "Edge: Whether or not the item is the first in the loop"
     },
     "edge: @if($loop.last) ... @endif": {
         "prefix": "loop-last",
@@ -69,7 +65,7 @@
             "@endif",
             "$2"
         ],
-        "description": "Edge - Whether or not the item is the last in the loop"
+        "description": "Edge: Whether or not the item is the last in the loop"
     },
     "edge: @if(loop.isEven) ... @endif": {
         "prefix": "loop-isEven",
@@ -79,7 +75,7 @@
             "@endif",
             "$2"
         ],
-        "description": "Edge - Whether or not an iteration count is an even number"
+        "description": "Edge: Whether or not an iteration count is an even number"
     },
     "edge: @if($loop.isOdd) ... @endif": {
         "prefix": "loop-isOdd",
@@ -89,6 +85,6 @@
             "@endif",
             "$2"
         ],
-        "description": "Edge - Whether or not an iteration count is an odd number. The first item returns true for isOdd"
+        "description": "Edge: Whether or not an iteration count is an odd number. The first item returns true for isOdd"
     }
 }

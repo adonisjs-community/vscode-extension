@@ -6,7 +6,7 @@
             "  $2",
             "@endif"
         ],
-        "description": "Edge - @if block"
+        "description": "Edge: if block"
     },
     "edge: @if (...) ... @else ... @endif": {
         "prefix": "ifelse",
@@ -17,7 +17,7 @@
             "  $3",
             "@endif"
         ],
-        "description": "Edge - if-else block"
+        "description": "Edge: if-else block"
     },
     "edge: @if (...) ... @elseif (...) ... @else ... @endif": {
         "prefix": "ifelseif",
@@ -30,7 +30,7 @@
             "  $5",
             "@endif"
         ],
-        "description": "Edge - if-else block"
+        "description": "Edge: if-else block"
     },
     "edge: @unless (...) ... @else ... @endunless": {
         "prefix": "unless",
@@ -41,6 +41,6 @@
             "  $3",
             "@endunless"
         ],
-        "description": "Edge - unless-block"
+        "description": "Edge: unless-block"
     }
 }

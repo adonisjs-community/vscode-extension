@@ -1,9 +1,7 @@
 {
     "edge: @!each(item in collection, include = 'partial')": {
         "prefix": "each-include",
-        "body": [
-            "@!each(${1:item} in ${2:collection}, include = '${3:partial}')$4"
-        ],
-        "description": "Edge - @each include"
+        "body": "@!each(${1:item} in ${2:collection}, include = '${3:partial}')$4",
+        "description": "Edge: @each include"
     }
 }

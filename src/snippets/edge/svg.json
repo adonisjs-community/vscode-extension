@@ -1,9 +1,7 @@
 {
     "edge: @inlineSvg('path')": {
         "prefix": "inlineSvg",
-        "body": [
-            "@inlineSvg('${1:name}')$2"
-        ],
-        "description": "Edge - Inline Svg"
+        "body": "@inlineSvg('${1:name}')$2",
+        "description": "Edge: Inline Svg"
     }
 }

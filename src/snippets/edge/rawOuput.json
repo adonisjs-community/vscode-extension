@@ -6,6 +6,6 @@
             "  $1",
             "@endraw"
         ],
-        "description": "Edge - echo untouched data (allow javascript expression)"
+        "description": "Edge: echo untouched data (allow javascript expression)"
     }
 }
