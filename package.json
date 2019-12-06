@@ -23,11 +23,135 @@
 		"snippets": [
 			{
 				"language": "javascript",
-				"path": "./src/snippets/adonisSnippets.json"
+				"path": "./src/snippets/adonis/ally.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/antl.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/assert.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/auth.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/database.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/drive.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/encryption.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/event.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/factory.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/hash.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/helpers.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/logger.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/mail.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/redis.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/request.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/response.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/route.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/session.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/views.json"
+			},
+			{
+				"language": "javascript",
+				"path": "./src/snippets/adonis/websocket.json"
 			},
 			{
 				"language": "edge",
-				"path": "./src/snippets/edgeSnippets.json"
+				"path": "./src/snippets/edge/base.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edge/comment.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edge/components.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edge/conditionals.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edge/debugger.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edge/echo.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edge/globals.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edge/iteration.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edge/layout.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edge/partials.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edge/rawOuput.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edge/svg.json"
+			},
+			{
+				"language": "edge",
+				"path": "./src/snippets/edge/yield.json"
 			}
 		],
 		"commands": [
