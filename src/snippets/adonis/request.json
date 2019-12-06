@@ -4,154 +4,155 @@
         "description": "Adonis Route",
         "prefix": "req"
     },
-    "request.all": {
+    "request: all": {
         "body": "${1:request}.all()",
-        "description": "Adonis Route - all",
+        "description": "Adonis Route: Get an object containing all request data (merges query params and request body data).",
         "prefix": "req-all"
     },
-    "request.get": {
+    "request: get": {
         "body": "${1:request}.get()",
-        "description": "Adonis Route - get",
+        "description": "Adonis Route: Get an object containing query params data.",
         "prefix": "req-get"
     },
-    "request.post": {
+    "request: post": {
         "body": "${1:request}.post()",
-        "description": "Adonis Route - post",
+        "description": "Adonis Route: Get an object containing request body data.",
         "prefix": "req-post"
     },
-    "request.raw": {
+    "request: raw": {
         "body": "${1:request}.raw()",
-        "description": "Adonis Route - raw",
+        "description": "Adonis Route: Get raw body data as a string.",
         "prefix": "req-raw"
     },
-    "request.only": {
+    "request: only": {
         "body": "${1:request}.only([${2:key}$3])",
-        "description": "Adonis Route - only",
+        "description": "Adonis Route: Get an object with only the specified keys.",
         "prefix": "req-only"
     },
-    "request.except": {
+    "request: except": {
         "body": "${1:request}.except([${2:key}$3])",
-        "description": "Adonis Route - except",
+        "description": "Adonis Route: Get an object with everything except the specified keys (opposite of only).",
         "prefix": "req-except"
     },
-    "request.input": {
+    "request: input": {
         "body": "${1:request}.input(${2:key}, ${3:default})",
-        "description": "Adonis Route - input",
+        "description": "Adonis Route: Get the value of a given key (if it doesn’t exist, return the default value).",
         "prefix": "req-input"
     },
-    "request.collect": {
+    "request: collect": {
         "body": "${1:request}.collect([${2:key}$3])",
-        "description": "Adonis Route - collect",
+        "description": "Adonis Route: Collect request data in a read-to-save to DB format.",
         "prefix": "req-collect"
     },
-    "request.header": {
+    "request: header": {
         "body": "${1:request}.header(${2:key}, ${3:default})",
-        "description": "Adonis Route - header",
+        "description": "Adonis Route: Get the header value for a given key (optionally with default value)",
         "prefix": "req-header"
     },
-    "request.headers": {
+    "request: headers": {
         "body": "${1:request}.headers()",
-        "description": "Adonis Route - headers",
+        "description": "Adonis Route: Get an object of all header data.",
         "prefix": "req-headers"
     },
-    "request.cookie": {
+    "request: cookie": {
         "body": "${1:request}.cookie(${2:key}, ${3:default})",
-        "description": "Adonis Route - cookie",
+        "description": "Adonis Route: Get the cookie value for a given key (optionally with default value).",
         "prefix": "req-cookie"
     },
-    "request.cookies": {
+    "request: cookies": {
         "body": "${1:request}.cookies()",
-        "description": "Adonis Route - cookies",
+        "description": "Adonis Route: Get an object of all cookie data.",
         "prefix": "req-cookies"
     },
-    "request.plainCookie": {
+    "request: set plain cookie": {
         "body": "${1:request}.plainCookie(${2:key}, ${3:default})",
-        "description": "Adonis Route - plainCookie",
+        "description": "Adonis Route: Get the raw cookie value for a given key (optionally with default value).",
         "prefix": "req-plainCookie"
     },
-    "request.plainCookies": {
+    "request: get all plain cookies data": {
         "body": "${1:request}.plainCookies()",
-        "description": "Adonis Route - plainCookies",
+        "description": "Adonis Route: Get an object of all raw cookie data.",
         "prefix": "req-plainCookies"
     },
-    "request.accepts": {
+    "request: accepts": {
         "body": "${1:request}.accepts([${2:value}$3])",
-        "description": "Adonis Route - accepts",
+        "description": "Adonis Route: Reads the Accept header to help determine the response format.",
         "prefix": "req-accepts"
     },
-    "request.language": {
+    "request: language": {
         "body": "${1:request}.language([${2:value}$3])",
-        "description": "Adonis Route - language",
+        "description": "Adonis Route: Language can also be negotiated based upon the Accept-Language header.",
         "prefix": "req-language"
     },
-    "request.url": {
+    // Request methods
+    "request: url": {
         "body": "${1:request}.url()",
-        "description": "Adonis Route - url",
+        "description": "Adonis Route: Returns the current request url",
         "prefix": "req-url"
     },
-    "request.originalUrl": {
+    "request: original url": {
         "body": "${1:request}.originalUrl()",
-        "description": "Adonis Route - originalUrl",
+        "description": "Adonis Route: Get the full current request url with query strings.",
         "prefix": "req-originalUrl"
     },
-    "request.method": {
+    "request: method": {
         "body": "${1:request}.method()",
-        "description": "Adonis Route - method",
+        "description": "Adonis Route: Get the HTTP request method.",
         "prefix": "req-method"
     },
-    "request.intended": {
+    "request: intended": {
         "body": "${1:request}.intended()",
-        "description": "Adonis Route - intended",
+        "description": "Adonis Route: Get the actual method leveraging AdonisJS method spoofing.",
         "prefix": "req-intended"
     },
-    "request.ip": {
+    "request: ip": {
         "body": "${1:request}.ip()",
-        "description": "Adonis Route - ip",
+        "description": "Adonis Route: Get the most trusted ip address for the user.",
         "prefix": "req-ip"
     },
-    "request.ips": {
+    "request: ips": {
         "body": "${1:request}.ips()",
-        "description": "Adonis Route - ips",
+        "description": "Adonis Route: Get an array of ips from most to the least trusted (removes the default ip address, which can be accessed via the ip method).",
         "prefix": "req-ips"
     },
-    "request.subdomains": {
+    "request: subdomains": {
         "body": "${1:request}.subdomains()",
-        "description": "Adonis Route - subdomains",
+        "description": "Adonis Route: Get a list of request subdomains (removes www from the list).",
         "prefix": "req-subdomains"
     },
-    "request.ajax": {
+    "request: ajax": {
         "body": "${1:request}.ajax()",
-        "description": "Adonis Route - ajax",
+        "description": "Adonis Route: Checks for X-Requested-With header to determine if the request is ajax or not.",
         "prefix": "req-ajax"
     },
-    "request.pjax": {
+    "request: pjax": {
         "body": "${1:request}.pjax()",
-        "description": "Adonis Route - pjax",
+        "description": "Adonis Route: Look for the X-PJAX header to identify if a request is pjax or not.",
         "prefix": "req-pjax"
     },
-    "request.hostname": {
+    "request: hostname": {
         "body": "${1:request}.hostname()",
-        "description": "Adonis Route - hostname",
+        "description": "Adonis Route: Get the request hostname.",
         "prefix": "req-hostname"
     },
-    "request.protocol": {
+    "request: protocol": {
         "body": "${1:request}.protocol()",
-        "description": "Adonis Route - protocol",
+        "description": "Adonis Route: Get the request protocol.",
         "prefix": "req-protocol"
     },
-    "request.match": {
+    "request: match": {
         "body": "${1:request}.match([${2:expression}$3])",
-        "description": "Adonis Route - match",
+        "description": "Adonis Route: Get whether the passed set of expressions match the current request URL.",
         "prefix": "req-match"
     },
-    "request.hasBody": {
+    "request: has body": {
         "body": "${1:request}.hasBody()",
-        "description": "Adonis Route - hasBody",
+        "description": "Adonis Route: A boolean indicating if the request has a post body (mainly used by the BodyParser to determine whether or not to parse the body).",
         "prefix": "req-hasBody"
     },
-    "request.is": {
+    "request: is": {
         "body": "${1:request}.is([${2:contentType}$3])",
-        "description": "Adonis Route - is",
+        "description": "Adonis Route: Get the best matching content type for the current request.",
         "prefix": "req-is"
     }
 }

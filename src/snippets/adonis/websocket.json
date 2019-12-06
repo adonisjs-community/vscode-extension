@@ -1,95 +1,95 @@
 {
-    "Ws": {
+    "websocket:": {
         "body": "${1:Ws}.${2|channel,getChannel|}($3)",
-        "description": "Adonis Ws",
+        "description": "Adonis Websocket",
         "prefix": "ws"
     },
-    "Ws Channel": {
+    "websocket: channel": {
         "body": [
             "${1:Ws}.channel(${2:name}, ({ ${3:socket} \\}) => {",
             "  ${4:// implementation}",
             "\\})"
         ],
-        "description": "Adonis Ws - channel",
+        "description": "Adonis Websocket: Register a dynamic function to a socket channel.",
         "prefix": "ws-channel"
     },
-    "Ws Get Channel": {
+    "websocket: get channel": {
         "body": "${1:Ws}.getChannel(${2:name})$0",
-        "description": "Adonis Ws - get channel",
+        "description": "Adonis Websocket: Select a given channel to perform an action on.",
         "prefix": "ws-get-channel"
     },
-    "Ws Middleware": {
+    "websocket: middleware": {
         "body": [
             "${1:Ws}",
             "  .channel(${2:name}, ${3:controller})",
             "  .middleware([${4:middleware},$5])$0"
         ],
-        "description": "Adonis Ws - middleware",
+        "description": "Adonis Websocket: Register a middleware to a channel.",
         "prefix": "ws-middleware"
     },
-    "Socket": {
+    // Socket events
+    "socket:": {
         "body": "${1:socket}.${2|on,emit,emitTo,broadcast,broadcastToAllon,emit,close|}($3)",
-        "description": "Adonis Ws",
+        "description": "Adonis Websocket (Server API)",
         "prefix": "socket"
     },
-    // Socket events
-    "Socket On": {
+    "socket: on": {
         "body": [
             "${1:socket}.on('${2|close,error|}', ${3:() => {",
             "  // implementation",
             "\\}})"
         ],
-        "description": "Adonis Ws - on",
+        "description": "Adonis Websocket (Server API): Subscribe to available socket events (error, close).",
         "prefix": "socket-on"
     },
-    "Socket On Close": {
+    "socket: on close": {
         "body": [
             "${1:socket}.on('close', ${2:() => {",
             "  // implementation",
             "\\}})"
         ],
-        "description": "Adonis Ws - on close",
+        "description": "Adonis Websocket (Server API): Invoked when a subscription is closed.",
         "prefix": "socket-on-close"
     },
-    "Socket On Error": {
+    "socket: on error": {
         "body": [
             "${1:socket}.on('error', ${2:() => {",
             "  // implementation",
             "\\}})"
         ],
-        "description": "Adonis Ws - on error",
+        "description": "Adonis Websocket (Server API): Invoked when an error is received.",
         "prefix": "socket-on-error"
     },
     // Socket methods
-    "Socket Emit": {
+    "socket: emit": {
         "body": "${1:socket}.emit(${2:event}, ${3:data}, ${4:[ackCallback]})",
-        "description": "Adonis Ws - emit",
+        "description": "Adonis Websocket (Server API): Emit event to the connected client.",
         "prefix": "socket-emit"
     },
-    "Socket Emit To": {
+    "socket: emit to": {
         "body": "${1:socket}.emitTo(${2:event}, ${3:data}, ${4:[socketIds]})",
-        "description": "Adonis Ws - emit to",
+        "description": "Adonis Websocket (Server API): Emit event to an array of socket ids.",
         "prefix": "socket-emit-to"
     },
-    "Socket Broadcast": {
+    "socket: broadcast": {
         "body": "${1:socket}.broadcast(${2:event}, ${3:data})",
-        "description": "Adonis Ws - broadcast",
+        "description": "Adonis Websocket (Server API): Emit event to everyone except yourself.",
         "prefix": "socket-broadcast"
     },
-    "Socket Broadcast To All": {
+    "socket: broadcast to all": {
         "body": "${1:socket}.broadcastToAll(${2:event}, ${3:data})",
-        "description": "Adonis Ws - broadcastToAll",
+        "description": "Adonis Websocket (Server API): Emit event to everyone including yourself.",
         "prefix": "socket-broadcastToAll"
     },
-    "Socket Close": {
+    "socket: close": {
         "body": "${1:socket}.close()",
-        "description": "Adonis Ws - close",
+        "description": "Adonis Websocket (Server API): Forcefully close a subscription from the server.",
         "prefix": "socket-close"
     },
     // Socket properties
-    "Socket Properties": {
+    "socket: properties": {
         "body": "${1:socket}.${2|id,topic,connection|}",
-        "description": "Adonis Socket - properties",
+        "description": "Adonis Websocket (Server API) - Read-only socket prorities.",
         "prefix": "socket-props"
     }
 }

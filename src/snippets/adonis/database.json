@@ -1,47 +1,490 @@
 {
-    "Database": {
+    "database:": {
         "body": "${1:Database}.${2|table,connection,close,withOutPrefix,on|}($3)",
         "description": "Adonis Database",
         "prefix": "db"
     },
-    "Database Table": {
-        "body": "${4:await }${1:Database}.table('${2:users}')$3",
-        "description": "Adonis Database - table",
+    "database: get table": {
+        "body": "${4:await }${1:Database}.table('${2:name}')$3",
+        "description": "Adonis Database: Select a database table.",
         "prefix": "db-table"
     },
-    "Database Where": {
-        "body": "${5:await }${1:Database}.table('${2:users}').where($3)$4",
-        "description": "Adonis Database - where",
-        "prefix": "db-where"
-    },
-    "Database Or Where": {
-        "body": "${6:await }${1:Database}.table('${2:users}').where($3).orWhere($4)$5",
-        "description": "Adonis Database - orWhere",
-        "prefix": "db-or-where"
-    },
-    "Database Select": {
-        "body": "${5:await }${1:Database}.table('${2:users}').select($3)$4",
-        "description": "Adonis Database - select",
-        "prefix": "db-select"
-    },
-    "Database Connection": {
+    "database: set connection": {
         "body": "${1:Database}.connection('${2:mysql}').${3:table}($4)",
-        "description": "Adonis Database - connection",
+        "description": "Adonis Database: Set the db connection to use for query.",
         "prefix": "db-conn"
     },
-    "Database Close": {
+    "database: close specified connection": {
         "body": "${1:Database}.close(['${2:mysql}', $3])",
-        "description": "Adonis Database - close",
+        "description": "Adonis Database: Close the specified db connection.",
         "prefix": "db-close"
     },
-    "Database withOutPrefix": {
+    "database: withOutPrefix": {
         "body": "${1:Database}.withOutPrefix()",
-        "description": "Adonis Database - wihOutPrefix",
+        "description": "Adonis Database: wihOutPrefix",
         "prefix": "db-close"
     },
-    "Database on": {
+    "database: on": {
         "body": "${1:Database}.on('${2:query}', ${3:(param) => {\\}})",
-        "description": "Adonis Database - on",
+        "description": "Adonis Database: on",
         "prefix": "db-on"
+    },
+    "database: select": {
+        "body": "${5:await }${1:Database}.table('${2:name}').select($3)$4",
+        "description": "Adonis Database: Defines the fields to be selected for a given query",
+        "prefix": "db-select"
+    },
+    // Where conditions
+    "database: where": {
+        "body": "${5:await }${1:Database}.table('${2:name}').where($3)$4",
+        "description": "Adonis Database: sql where",
+        "prefix": "db-where"
+    },
+    "database: or Where": {
+        "body": "${6:await }${1:Database}.table('${2:name}').where($3).orWhere($4)$5",
+        "description": "Adonis Database: sql where or where",
+        "prefix": "db-or-where"
+    },
+    "database: where not": {
+        "body": "${5:await }${1:Database}.table('${2:name}').whereNot($3)$4",
+        "description": "Adonis Database: sql where not",
+        "prefix": "db-where-not"
+    },
+    "database: where in": {
+        "body": "${6:await }${1:Database}.table('${2:name}').whereIn($3, ${4:ids = []})$5",
+        "description": "Adonis Database: sql where in",
+        "prefix": "db-where-in"
+    },
+    "database: where not in": {
+        "body": "${6:await }${1:Database}.table('${2:name}').whereNotIn($3, ${4:ids = []})$5",
+        "description": "Adonis Database: sql where not in",
+        "prefix": "db-where-not-in"
+    },
+    "database: where null": {
+        "body": "${5:await }${1:Database}.table('${2:name}').whereNull($3)$4",
+        "description": "Adonis Database: sql where null",
+        "prefix": "db-where-null"
+    },
+    "database: where not null": {
+        "body": "${5:await }${1:Database}.table('${2:name}').whereNotNull($3)$4",
+        "description": "Adonis Database: sql where not null",
+        "prefix": "db-where-not-null"
+    },
+    "database: where exists": {
+        "body": [
+            "${6:await }${1:Database}.table('${2:name}').whereExists(function () {",
+            "  this.from('$3').where($4)$5",
+            "\\})"
+        ],
+        "description": "Adonis Database: sql where exists",
+        "prefix": "db-where-exists"
+    },
+    "database: where not exists": {
+        "body": [
+            "${6:await }${1:Database}.table('${2:name}').whereNotExists(function () {",
+            "  this.from('$3').where($4)$5",
+            "\\})"
+        ],
+        "description": "Adonis Database: sql where not exists",
+        "prefix": "db-where-not-exists"
+    },
+    "database: where between": {
+        "body": "${5:await }${1:Database}.table('${2:name}').whereBetween($3)$4",
+        "description": "Adonis Database: sql where between",
+        "prefix": "db-where-between"
+    },
+    "database: where not between": {
+        "body": "${5:await }${1:Database}.table('${2:name}').whereNotBetween($3)$4",
+        "description": "Adonis Database: sql where not between",
+        "prefix": "db-where-not-between"
+    },
+    "database: where raw": {
+        "body": "${5:await }${1:Database}.table('${2:name}').whereRaw($3)$4",
+        "description": "Adonis Database: sql where raw",
+        "prefix": "db-where-raw"
+    },
+    // Join conditions
+    "database: inner join": {
+        "body": "${7:await }${1:Database}.table('${2:name}').innerJoin($3, $4, $5)$6",
+        "description": "Adonis Database: sql inner join",
+        "prefix": "db-inner-join"
+    },
+    "database: left join": {
+        "body": "${8:await }${1:Database}.select(${2:fields}).from('${3:table}').leftJoin($4, $5, $6)$7",
+        "description": "Adonis Database: sql left join",
+        "prefix": "db-left-join"
+    },
+    "database: left outer join": {
+        "body": "${8:await }${1:Database}.select(${2:fields}).from('${3:table}').leftOuterJoin($4, $5, $6)$7",
+        "description": "Adonis Database: sql left outer join",
+        "prefix": "db-left-outer-join"
+    },
+    "database: right join": {
+        "body": "${8:await }${1:Database}.select(${2:fields}).from('${3:table}').rightJoin($4, $5, $6)$7",
+        "description": "Adonis Database: sql right join",
+        "prefix": "db-right-join"
+    },
+    "database: right outer join": {
+        "body": "${8:await }${1:Database}.select(${2:fields}).from('${3:table}').rightOuterJoin($4, $5, $6)$7",
+        "description": "Adonis Database: sql right outer join",
+        "prefix": "db-right-outer-join"
+    },
+    "database: outer join": {
+        "body": "${8:await }${1:Database}.select(${2:fields}).from('${3:table}').outerJoin($4, $5, $6)$7",
+        "description": "Adonis Database: sql right outer join",
+        "prefix": "db-right-outer-join"
+    },
+    "database: full outer join": {
+        "body": "${8:await }${1:Database}.select(${2:fields}).from('${3:table}').fullOuterJoin($4, $5, $6)$7",
+        "description": "Adonis Database: sql full outer join",
+        "prefix": "db-full-outer-join"
+    },
+    "database: cross join": {
+        "body": "${8:await }${1:Database}.select(${2:fields}).from('${3:table}').crossJoin($4, $5, $6)$7",
+        "description": "Adonis Database: sql cross join",
+        "prefix": "db-cross-join"
+    },
+    "database: join raw": {
+        "body": "${6:await }${1:Database}.select(${2:fields}).from('${3:table}').joinRaw($4)$5",
+        "description": "Adonis Database: sql right outer join",
+        "prefix": "db-join-raw"
+    },
+    // Ordering and limits
+    "database: distinct": {
+        "body": "${5:await }${1:Database}.table('${2:name}').distinct($3)$4",
+        "description": "Adonis Database: sql distinct",
+        "prefix": "db-distinct"
+    },
+    "database: group by": {
+        "body": "${5:await }${1:Database}.table('${2:name}').groupBy($3)$4",
+        "description": "Adonis Database: sql group by",
+        "prefix": "db-group-by"
+    },
+    "database: group by raw": {
+        "body": "${6:await }${1:Database}.table('${2:name}').groupByRaw($3, $4)$5",
+        "description": "Adonis Database: sql group by raw",
+        "prefix": "db-group-by-raw"
+    },
+    "database: order by": {
+        "body": "${6:await }${1:Database}.table('${2:name}').orderBy(${3:column}, '${4:|asc,desc|}')$5",
+        "description": "Adonis Database: sql order by",
+        "prefix": "db-order-by"
+    },
+    "database: order by raw": {
+        "body": "${5:await }${1:Database}.table('${2:name}').orderByRaw(${3:raw})$4",
+        "description": "Adonis Database: sql order by raw",
+        "prefix": "db-order-by-raw"
+    },
+    "database: having": {
+        "body": [
+            "${8:await }${1:Database}",
+            "  .table('${2:name}')",
+            "  .groupBy(${3:column})",
+            "  .having(${4:column}, ${5:operator}, ${6:value})$7"
+        ],
+        "description": "Adonis Database: sql having (N.B. `groupBy()` must be called before `having()` ).",
+        "prefix": "db-having"
+    },
+    "database: offset and limit": {
+        "body": [
+            "await ${1:Database}",
+            "  .table('${2:name}')",
+            "  .offset(${3:number})",
+            "  .limit(${4:number})$5"
+        ],
+        "description": "Adonis Database: sql offset and limit.",
+        "prefix": "db-offset-and-limit"
+    },
+    // Inserts
+    "database: insert": {
+        "body": [
+            "await ${1:Database}",
+            "  .table('${2:name}')",
+            "  .insert(${3:values})$4"
+        ],
+        "description": "Adonis Database: Create a row and return its newly created `id`.",
+        "prefix": "db-insert"
+    },
+    "database: insert into": {
+        "body": [
+            "await ${1:Database}",
+            "  .insert(${2:values})",
+            "  .into('${3:table}')$4"
+        ],
+        "description": "Adonis Database: Create a row and return its newly created `id`.",
+        "prefix": "db-insert-into"
+    },
+    "database: PostreSQL - insert into and return column value": {
+        "body": [
+            "await ${1:Database}",
+            "  .insert(${2:values})",
+            "  .into('${3:table}')",
+            "  .returning('${4:column}')$5"
+        ],
+        "description": "Adonis Database: PostgreSQL - sql insert into and return column value.",
+        "prefix": "db-insert-into-return"
+    },
+    // Updates
+    "database: update where": {
+        "body": [
+            "await ${1:Database}",
+            "  .table(${2:name})",
+            "  .where(${3:query})",
+            "  .update(${4:data})$5"
+        ],
+        "description": "Adonis Database: sql update where.",
+        "prefix": "db-update"
+    },
+    // Deletes
+    "database: delete where": {
+        "body": [
+            "await ${1:Database}",
+            "  .table(${2:name})",
+            "  .where(${3:query})",
+            "  .delete()"
+        ],
+        "description": "Adonis Database: Delete operations also return the number of affected rows.",
+        "prefix": "db-delete"
+    },
+    "database: truncate": {
+        "body": "await ${1:Database}.truncate(${2:table})",
+        "description": "Adonis Database: sql delete where.",
+        "prefix": "db-truncate"
+    },
+    // Pagination
+    "database: for page": {
+        "body": [
+            "await ${1:Database}",
+            "  .from(${2:table})",
+            "  .forPage(${3:page}, ${4:[limit=20]})"
+        ],
+        "description": "Adonis Database: paginate for page.",
+        "prefix": "db-for-page"
+    },
+    "database: paginate": {
+        "body": [
+            "await ${1:Database}",
+            "  .from(${2:table})",
+            "  .paginate(${3:page}, ${4:[limit=20]})"
+        ],
+        "description": "Adonis Database: paginate.",
+        "prefix": "db-paginate"
+    },
+    // Database Transactions
+    "database: begin transaction": {
+        "body": "await ${1:Database}.beginTransaction()",
+        "description": "Adonis Database: sql begin transaction.",
+        "prefix": "db-trx-begin"
+    },
+    "database: insert using transaction": {
+        "body": "await ${1:trx}.insert(${2:data}).into(${3:table})",
+        "description": "Adonis Database: sql insert using transaction.",
+        "prefix": "db-trx-insert"
+    },
+    "database: commit transaction": {
+        "body": "await ${1:trx}.commit()",
+        "description": "Adonis Database: sql commit transaction.",
+        "prefix": "db-trx-commit"
+    },
+    "database: rollback transaction": {
+        "body": "await ${1:trx}.rollback()",
+        "description": "Adonis Database: sql rollback transaction.",
+        "prefix": "db-trx-rollback"
+    },
+    // Aggregate
+    "database: count": {
+        "body": [
+            "await ${1:Database}",
+            "  .from(${2:table})",
+            "  .count('${3:*} as ${4:total}')[0]",
+            "  .${4:total}"
+        ],
+        "description": "Adonis Database: count.",
+        "prefix": "db-count"
+    },
+    "database: count distinct": {
+        "body": [
+            "await ${1:Database}",
+            "  .from(${2:table})",
+            "  .countDistinct('${3:*} as ${4:total}')[0]",
+            "  .${4:total}"
+        ],
+        "description": "Adonis Database: count distinct.",
+        "prefix": "db-count-distinct"
+    },
+    "database: get minimum": {
+        "body": "await ${1:Database}.from(${2:table}).min(${3:column})",
+        "description": "Adonis Database: sql get minimum value.",
+        "prefix": "db-min"
+    },
+    "database: get maximum": {
+        "body": "await ${1:Database}.from(${2:table}).max(${3:column})",
+        "description": "Adonis Database: sql get maximum value.",
+        "prefix": "db-max"
+    },
+    "database: sum": {
+        "body": "await ${1:Database}.from(${2:table}).sum(${3:column})",
+        "description": "Adonis Database: sql sum column.",
+        "prefix": "db-sum"
+    },
+    "database: sum distinct": {
+        "body": "await ${1:Database}.from(${2:table}).sumDistinct(${3:column})",
+        "description": "Adonis Database: sql sum distinct.",
+        "prefix": "db-sum-distinct"
+    },
+    "database: avg": {
+        "body": "await ${1:Database}.from(${2:table}).avg(${3:column})",
+        "description": "Adonis Database: sql average.",
+        "prefix": "db-avg"
+    },
+    "database: avg distinct": {
+        "body": "await ${1:Database}.from(${2:table}).avgDistinct(${3:column})",
+        "description": "Adonis Database: sql average distinct.",
+        "prefix": "db-avg-distinct"
+    },
+    "database: increment column by value": {
+        "body": [
+            "await ${1:Database}",
+            "  .table(${2:name})",
+            "  .where(${3:query})",
+            "  .increment(${4:column}, ${5:value})"
+        ],
+        "description": "Adonis Database: Increment column by value.",
+        "prefix": "db-increment"
+    },
+    "database: decrement column by value": {
+        "body": [
+            "await ${1:Database}",
+            "  .table(${2:name})",
+            "  .where(${3:query})",
+            "  .decrement(${4:column}, ${5:value})"
+        ],
+        "description": "Adonis Database: decrement column by value.",
+        "prefix": "db-decrement"
+    },
+    // Aggregate Helpers
+    "database: query builder - get count": {
+        "body": [
+            "await ${1:Database}",
+            "  .from(${2:table})",
+            "  .getCount(${3:columnName = '*'})"
+        ],
+        "description": "Adonis Database: Query Builder - count.",
+        "prefix": "db-get-count"
+    },
+    "database: query builder - get count distinct": {
+        "body": [
+            "await ${1:Database}",
+            "  .from(${2:table})",
+            "  .getCountDistinct(${3:columnName = '*'})"
+        ],
+        "description": "Adonis Database: Query Builder - count distinct.",
+        "prefix": "db-get-count-distinct"
+    },
+    "database: query builder - get min": {
+        "body": [
+            "await ${1:Database}",
+            "  .from(${2:table})",
+            "  .getMin(${3:columnName = '*'})"
+        ],
+        "description": "Adonis Database: Query Builder - min.",
+        "prefix": "db-get-min"
+    },
+    "database: query builder - get max": {
+        "body": [
+            "await ${1:Database}",
+            "  .from(${2:table})",
+            "  .getMax(${3:columnName = '*'})"
+        ],
+        "description": "Adonis Database: Query Builder - max.",
+        "prefix": "db-get-max"
+    },
+    "database: query builder - get sum": {
+        "body": [
+            "await ${1:Database}",
+            "  .from(${2:table})",
+            "  .getSum(${3:columnName = '*'})"
+        ],
+        "description": "Adonis Database: Query Builder - sum.",
+        "prefix": "db-get-sum"
+    },
+    "database: query builder - get sum distinct": {
+        "body": [
+            "await ${1:Database}",
+            "  .from(${2:table})",
+            "  .getSumDistinct(${3:columnName = '*'})"
+        ],
+        "description": "Adonis Database: Query Builder - sum distinct.",
+        "prefix": "db-get-sum-distinct"
+    },
+    "database: query builder - get average": {
+        "body": [
+            "await ${1:Database}",
+            "  .from(${2:table})",
+            "  .getAvg(${3:columnName = '*'})"
+        ],
+        "description": "Adonis Database: Query Builder - average",
+        "prefix": "db-get-avg"
+    },
+    "database: query builder - get average distinct": {
+        "body": [
+            "await ${1:Database}",
+            "  .from(${2:table})",
+            "  .getAvgDistinct(${3:columnName = '*'})"
+        ],
+        "description": "Adonis Database: Query Builder - average distinct.",
+        "prefix": "db-get-avg-distinct"
+    },
+    // Database Helpers
+    "database: pluck": {
+        "body": "await ${1:Database}.from(${2:table}).pluck(${3:column})",
+        "description": "Adonis Database: Get an array of values for the selected column.",
+        "prefix": "db-pluck"
+    },
+    "database: first": {
+        "body": "await ${1:Database}.from(${2:table}).first()",
+        "description": "Adonis Database: Get first item in table by adding a limit 1 clause to the query.",
+        "prefix": "db-first"
+    },
+    "database: clone": {
+        "body": [
+            "${4:await }${1:Database}",
+            "  .from(${2:table})",
+            "  .where($3)",
+            "  .clone()"
+        ],
+        "description": "Adonis Database: Clones the current query chain for later usage.",
+        "prefix": "db-clone"
+    },
+    "database: get column information": {
+        "body": [
+            "await ${1:Database}",
+            "  .table(${2:table})",
+            "  .columnInfo(${3:column})"
+        ],
+        "description": "Adonis Database: Get information for a given column",
+        "prefix": "db-column-info"
+    },
+    // Subqueries
+    "database: sub-query": {
+        "body": [
+            "${5:await }${1:Database}",
+            "  .from(${2:table})",
+            "  .whereIn(${3:column}, ${4:subquery})"
+        ],
+        "description": "Adonis Database: sql sub-query",
+        "prefix": "db-subquery"
+    },
+    // Raw Queries
+    "database: raw queries": {
+        "body": "await ${1:Database}.raw(${2:sql}, [${3:values}])",
+        "description": "Adonis Database: sql raw queries",
+        "prefix": "db-raw"
+    },
+    // Close Connection
+    "database: close connections": {
+        "body": "${1:Database}.close(${2:['${3:mysql}']})",
+        "description": "Adonis Database: Close database connectionn for specified connection names. If no connection is provided, all connections are closed by default.",
+        "prefix": "db-close"
     }
 }

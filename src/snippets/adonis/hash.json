@@ -1,17 +1,17 @@
 {
-    "Hashing": {
+    "hash": {
         "body": "${1:Encryption}.${2|make,verify|}($3)",
         "description": "Adonis Hashing",
-        "prefix": "hashing"
-    },
-    "Hashing make": {
-        "body": "${1:Encryption}.make(${2:value}, ${3:config = {\\}})",
-        "description": "Adonis Hashing - make",
         "prefix": "hash"
     },
-    "Hashing verify": {
+    "hash: make hash from plain string": {
+        "body": "${1:Encryption}.make(${2:value}, ${3:config = {\\}})",
+        "description": "Adonis Hashing: Hash a plain string value.",
+        "prefix": "hash"
+    },
+    "hash: verify hash string": {
         "body": "${1:Encryption}.verify(${2:value}, ${3:hashedValue})",
-        "description": "Adonis Hashing - verify",
+        "description": "Adonis Hashing: Verify the input value against the previously hashed value.",
         "prefix": "hash-verify"
     }
 }

@@ -1,73 +1,73 @@
 {
-    "Drive": {
+    "drive:": {
         "body": "${1:Drive}.${2|exists,get,getStream,put,prepend,append,delete,move,copy|}($3)",
         "description": "Adonis Drive",
         "prefix": "drive"
     },
-    "Drive exists": {
+    "drive: exists": {
         "body": "${1:Drive}.exists(${2:relativePath})",
-        "description": "Adonis Drive - exists",
+        "description": "Adonis Drive: Find if a file/directory exists or not.",
         "prefix": "drive-exists"
     },
-    "Drive get": {
+    "drive: get": {
         "body": "${1:Drive}.get(${2:relativePath}, ${3:encoding = utf-8})",
-        "description": "Adonis Drive - get",
+        "description": "Adonis Drive: Get file contents as a buffer or string.",
         "prefix": "drive-get"
     },
-    "Drive getStream": {
+    "drive: get stream": {
         "body": "${1:Drive}.getStream(${2:relativePath})",
-        "description": "Adonis Drive - getStream",
-        "prefix": "drive-getStream"
+        "description": "Adonis Drive: Get file as a stream.",
+        "prefix": "drive-get-stream"
     },
-    "Drive put": {
+    "drive: put": {
         "body": "${1:Drive}.put(${2:relativePath}, ${3:content}, ${4:options = {\\}})",
-        "description": "Adonis Drive - put",
+        "description": "Adonis Drive: Create a new file with given contents (creates any missing directories).",
         "prefix": "drive-put"
     },
-    "Drive prepend": {
+    "drive: prepend": {
         "body": "${1:Drive}.prepend(${2:relativePath}, ${3:content}, ${4:options = {\\}})",
-        "description": "Adonis Drive - prepend",
+        "description": "Adonis Drive: Prepend content to a file (creates a new file if path doesn’t exist).",
         "prefix": "drive-prepend"
     },
-    "Drive append": {
+    "drive: append": {
         "body": "${1:Drive}.append(${2:relativePath}, ${3:content}, ${4:options = {\\}})",
-        "description": "Adonis Drive - append",
+        "description": "Adonis Drive: Append content to a file (creates a new file if path doesn’t exist).",
         "prefix": "drive-append"
     },
-    "Drive delete": {
+    "drive: delete": {
         "body": "${1:Drive}.delete(${2:relativePath})",
-        "description": "Adonis Drive - delete",
+        "description": "Adonis Drive: Remove existing file.",
         "prefix": "drive-delete"
     },
-    "Drive move": {
+    "drive: move": {
         "body": "${1:Drive}.move(${2:relativePath}, ${3:content}, ${4:options = {\\}})",
-        "description": "Adonis Drive - move",
+        "description": "Adonis Drive: Move file from one directory to another.",
         "prefix": "drive-move"
     },
-    "Drive copy": {
+    "drive: copy": {
         "body": "${1:Drive}.copy(${2:relativePath}, ${3:content}, ${4:options = {\\}})",
-        "description": "Adonis Drive - copy",
+        "description": "Adonis Drive: Copy file from one directory to another.",
         "prefix": "drive-copy"
     },
     //  Amazon S3 specific APIs
-    "Drive S3": {
+    "drive: S3": {
         "body": "${1:Drive}.disk('s3').${2|getObject,getUrl,getSignedUrl|}($3)",
-        "description": "Adonis Drive S3",
+        "description": "Adonis Drive: S3 API",
         "prefix": "s3"
     },
-    "Drive S3 getObject": {
+    "drive: get object from S3": {
         "body": "${1:Drive}.disk('s3').getObject(${2:location}, ${3:params})",
-        "description": "Adonis Drive S3 - getObject",
-        "prefix": "s3-getObject"
+        "description": "Adonis Drive: S3 - Get S3 object for a given file (for params info, see S3 params).",
+        "prefix": "s3-get-object"
     },
-    "Drive S3  getUrl": {
+    "drive: get url from S3": {
         "body": "${1:Drive}.disk('s3').getUrl(${2:location}, ${3:bucket})",
-        "description": "Adonis Drive S3 - getUrl",
-        "prefix": "s3-getUrl"
+        "description": "Adonis Drive: S3 - Get url for a given file (accepts optional alternative bucket param).",
+        "prefix": "s3-get-url"
     },
-    "Drive S3 getSignedUrl": {
+    "drive: get signed url from S3": {
         "body": "${1:Drive}.disk('s3').getSignedUrl(${2:location}, ${3:expiry = 900}, ${4:params})",
-        "description": "Adonis Drive S3 - getSignedUrl",
-        "prefix": "s3-getSignedUrl"
+        "description": "Adonis Drive: S3 - Get signed url for a given file (expiry set to 15mins by default).",
+        "prefix": "s3-get-signed-url"
     }
 }

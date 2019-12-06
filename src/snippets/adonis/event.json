@@ -1,72 +1,72 @@
 {
-    "Event": {
+    "event:": {
         "body": "${1:Event}.${2|on,fire,when,once,onAny,times,emit,removeListener,off,removeAlllisteners,listenersCount,getListeners,hasListeners|}($3)",
         "description": "Adonis Event",
         "prefix": "event"
     },
-    "Event on": {
+    "event: on": {
         "body": "${1:Event}.on(${2:event}, ${3:listener})",
-        "description": "Adonis Event - on",
+        "description": "Adonis Event: Bind single or multiple listeners for a given event. The listener can be a closure function or reference to one (or many) IoC container bindings.",
         "prefix": "event-on"
     },
-    "Event fire": {
+    "event: fire": {
         "body": "${1:Event}.fire(${2:event}, ${3:data})",
-        "description": "Adonis Event - fire",
+        "description": "Adonis Event: Emit an event with optional data (an alias to the `emit` method).",
         "prefix": "event-fire"
     },
-    "Event when": {
+    "event: when": {
         "body": "${1:Event}.when(${2:event}, ${3:listener})",
-        "description": "Adonis Event - when",
+        "description": "Adonis Event: The when method aliases the on method.",
         "prefix": "event-when"
     },
-    "Event once": {
+    "event: once": {
         "body": "${1:Event}.once(${2:event}, ${3:listener})",
-        "description": "Adonis Event - once",
+        "description": "Adonis Event: Same as on, but only called one time.",
         "prefix": "event-once"
     },
-    "Event onAny": {
+    "event: on any": {
         "body": "${1:Event}.onAny(${2:listener})",
-        "description": "Adonis Event - onAny",
-        "prefix": "event-onAny"
+        "description": "Adonis Event: Bind listener for any event.",
+        "prefix": "event-on-any"
     },
-    "Event times": {
+    "event: times": {
         "body": "${1:Event}.times(${2:times})",
-        "description": "Adonis Event - times",
+        "description": "Adonis Event: The times method is chained with `on` or `when` to limit the number of times the listener should be fired.",
         "prefix": "event-times"
     },
-    "Event emit": {
+    "event: emit": {
         "body": "${1:Event}.emit(${2:event}, ${3:data})",
-        "description": "Adonis Event - emit",
+        "description": "Adonis Event: Emit an event with optional data.",
         "prefix": "event-emit"
     },
-    "Event removeListener": {
+    "event: remove listener": {
         "body": "${1:Event}.removeListener(${2:event}, ${3:listener})",
-        "description": "Adonis Event - removeListener",
-        "prefix": "event-removeListener"
+        "description": "Adonis Event: Remove listener(s) for a given event.",
+        "prefix": "event-remove-listener"
     },
-    "Event off": {
+    "event: off": {
         "body": "${1:Event}.off(${2:event}, ${3:listener})",
-        "description": "Adonis Event - off",
+        "description": "Adonis Event: Remove all listeners for a given event.",
         "prefix": "event-off"
     },
-    "Event removeAlllisteners": {
+    "event: remove all listeners": {
         "body": "${1:Event}.removeAlllisteners(${2:event})",
-        "description": "Adonis Event - removeAlllisteners",
-        "prefix": "event-removeAlllisteners"
+        "description": "Adonis Event: Remove all listeners for a given event.",
+        "prefix": "event-remove-all-listeners"
     },
-    "Event listenersCount": {
+    "event: count listeners": {
         "body": "${1:Event}.listenersCount(${2:event})",
-        "description": "Adonis Event - listenersCount",
-        "prefix": "event-listenersCount"
+        "description": "Adonis Event: Get the number of listeners for a given event.",
+        "prefix": "event-listeners-count"
     },
-    "Event getListeners": {
+    "event: get listeners": {
         "body": "${1:Event}.getListeners(${2:event})",
-        "description": "Adonis Event - getListeners",
-        "prefix": "event-getListeners"
+        "description": "Adonis Event: Get an array of listeners for a given event.",
+        "prefix": "event-get-listeners"
     },
-    "Event hasListeners": {
+    "event: check if isteners exist for event": {
         "body": "${1:Event}.hasListeners(${2:event})",
-        "description": "Adonis Event - hasListeners",
-        "prefix": "event-hasListeners"
+        "description": "Adonis Event: Get a boolean indicating whether there are any listeners for a given event.",
+        "prefix": "event-has-listeners"
     }
 }

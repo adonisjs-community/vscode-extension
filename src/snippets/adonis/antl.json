@@ -1,72 +1,72 @@
 {
     "Antl": {
-        "body": "${1:Antl}.${2|currentLocale,defaultLocale,formatMessage,formatNumber,formatAmount,formateDate,formatRelative,forLocale,bootLoader,loader,switchLocale|}($3)",
+        "body": "${1:Antl}.${2|currentLocale,defaultLocale,formatMessage,formatNumber,formatAmount,formatDate,formatRelative,forLocale,bootLoader,loader,switchLocale|}($3)",
         "description": "Adonis Antl",
         "prefix": "antl"
     },
-    "Antl currentLocale": {
+    "antl: current locale": {
         "body": "${1:Antl}.currentLocale()",
-        "description": "Adonis Antl - currentLocale",
-        "prefix": "antl-currentLocale"
+        "description": "Adonis Antl: Get the current locale of antl",
+        "prefix": "antl-locale-current"
     },
-    "Antl defaultLocale": {
+    "antl: default locale": {
         "body": "${1:Antl}.defaultLocale()",
-        "description": "Adonis Antl - defaultLocale",
-        "prefix": "antl-defaultLocale"
+        "description": "Adonis Antl: Get the default locale of antl",
+        "prefix": "antl-locale"
     },
-    "Antl formatMessage": {
+    "antl: format message": {
         "body": "${1:Antl}.formatMessage(${2:key}, ${3:data}, ${4:format})",
-        "description": "Adonis Antl - formatMessage",
-        "prefix": "antl-formatMessage"
+        "description": "Adonis Antl: format a message usign the default locale",
+        "prefix": "antl-fmessage"
     },
-    "Antl formatNumber": {
+    "antl: format number": {
         "body": "${1:Antl}.formatNumber(${2:value}, ${3:options = {\\}})",
-        "description": "Adonis Antl - formatNumber",
-        "prefix": "antl-formatNumber"
+        "description": "Adonis Antl: Format value as a number (accepts NumberFormat options as defined [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/NumberFormat))",
+        "prefix": "antl-fnumber"
     },
-    "Antl formatAmount": {
+    "antl: format amount": {
         "body": "${1:Antl}.formatAmount(${2:value}, ${3:currency}, ${4:options = {\\}})",
-        "description": "Adonis Antl - formatAmount",
-        "prefix": "antl-formatAmount"
+        "description": "Adonis Antl: Format value with style set to currency",
+        "prefix": "antl-famount"
     },
-    "Antl formateDate": {
-        "body": "${1:Antl}.formateDate(${2:value}, ${3:options = {\\}})",
-        "description": "Adonis Antl - formateDate",
-        "prefix": "antl-formateDate"
+    "antl: format date": {
+        "body": "${1:Antl}.formatDate(${2:value}, ${3:options = {\\}})",
+        "description": "Adonis Antl: Format value as date (accepts DateTimeFormat options as defined [here](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/DateTimeFormat))",
+        "prefix": "antl-fdate"
     },
-    "Antl formatRelative": {
+    "antl: format relative": {
         "body": "${1:Antl}.formatRelative(${2:value}, ${3:options = {\\}})",
-        "description": "Adonis Antl - formatRelative",
-        "prefix": "antl-formatRelative"
+        "description": "Adonis Antl: Format a date relative to the current date/time (accepts RelativeFormat options as defined [here](https://github.com/yahoo/intl-relativeformat#custom-options))",
+        "prefix": "antl-frelative"
     },
-    "Antl forLocale": {
+    "antl: for locale": {
         "body": "${1:Antl}.forLocale('${2:fr}')",
-        "description": "Adonis Antl - forLocale",
-        "prefix": "antl-forLocale"
+        "description": "Adonis Antl: Switch locale format at runtime",
+        "prefix": "antl-for-locale"
     },
-    "Antl bootLoader": {
+    "antl: boot loader": {
         "body": "await ${1:Antl}.bootLoader()",
-        "description": "Adonis Antl - bootLoader",
-        "prefix": "antl-bootLoader"
+        "description": "Adonis Antl: Initialize the bootlader",
+        "prefix": "antl-boot-loader"
     },
-    "Antl loader": {
+    "antl: loader": {
         "body": "${1:Antl}.loader(${2:loader})",
-        "description": "Adonis Antl - loader",
+        "description": "Adonis Antl: Switch between loaders at runtime. Always call `await Antl.bootLoader()` before Antl.loader (you only need to call bootLoader once)",
         "prefix": "antl-loader"
     },
-    "Antl switchLocale": {
-        "body": "${1:Antl}.switchLocale(${2:key}, ${3:data}, ${4:format})",
-        "description": "Adonis Antl - switchLocale",
-        "prefix": "antl-switchLocale"
+    "antl: switch locale for view": {
+        "body": "${1:antl}.switchLocale(${2:key}, ${3:data}, ${4:format})",
+        "description": "Adonis Antl: Switch locale for view",
+        "prefix": "antl-switch-locale"
     },
-    "Antl Format": {
+    "antl: add format": {
         "body": [
             "${1:Format}.add(${2:key}, {",
             "  style: '$3'",
             "  ${4:currency}: '$5'}",
             "\\})$0"
         ],
-        "description": "Adonis Internationalisation - format",
+        "description": "Adonis Antl: Add a new localisation format",
         "prefix": "antl-format-add"
     }
 }
