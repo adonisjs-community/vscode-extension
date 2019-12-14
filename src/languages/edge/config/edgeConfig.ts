@@ -1,5 +1,23 @@
 import { IndentAction } from "vscode";
-import { EMPTY_ELEMENTS as HTML_EMPTY_ELEMENTS } from "../../html/config/html";
+
+const HTML_EMPTY_ELEMENTS: string[] = [
+  "area",
+  "base",
+  "br",
+  "col",
+  "embed",
+  "hr",
+  "img",
+  "input",
+  "keygen",
+  "link",
+  "menuitem",
+  "meta",
+  "param",
+  "source",
+  "track",
+  "wbr"
+];
 
 /**
  * Edge language configuration

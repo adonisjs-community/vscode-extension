@@ -6,13 +6,9 @@ import {
   RouteHoverProvider,
   RouteLinkProvider
 } from "./completion";
-import {
-  HtmlHighlighterProvider,
-  EdgeFormatterProvider,
-  EdgeLanguageClient
-} from "./languages";
-import Tasks from "./tasks";
+import { EdgeFormatterProvider } from "./languages";
 import { ExtensionContext, languages, DocumentFilter } from "vscode";
+import Tasks from "./tasks";
 
 export function activate(context: ExtensionContext) {
   const edgeSelector = { language: "edge", scheme: "file" };
@@ -52,14 +48,6 @@ export function activate(context: ExtensionContext) {
     new RouteLinkProvider()
   );
 
-  const edgeHighlighters = [
-    // Highlight html in edge file
-    languages.registerDocumentHighlightProvider(
-      edgeSelector,
-      new HtmlHighlighterProvider()
-    )
-  ];
-
   const edgeFormatters = [
     languages.registerDocumentFormattingEditProvider(
       edgeSelector,
@@ -73,9 +61,6 @@ export function activate(context: ExtensionContext) {
   ];
 
   const tasks = Tasks();
-
-  const edgeLanguageClient = new EdgeLanguageClient(context).start();
-
   context.subscriptions.push(
     edgeHover,
     edgeLink,
@@ -83,10 +68,8 @@ export function activate(context: ExtensionContext) {
     routeCompletion,
     routeHover,
     routeLink,
-    ...edgeHighlighters,
     ...edgeFormatters,
-    ...tasks,
-    edgeLanguageClient
+    ...tasks
   );
 }
 

@@ -209,9 +209,8 @@
 		}
 	},
 	"scripts": {
-		"compile-html-server": "cd ./languageServers/html && npm install && tsc -p ./",
 		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./ && npm run compile-html-server",
+		"compile": "tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile",
 		"test": "node ./out/test/runTest.js"
