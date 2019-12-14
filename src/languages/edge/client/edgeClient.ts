@@ -57,7 +57,7 @@ class EdgeLanguageClient {
    */
   start(): Disposable {
     const id = "edge";
-    const name = localize("edgeserver.name", "EDGE Language Server");
+    const name = localize("edgeserver.name", "Edge Language Server");
     const client = new LanguageClient(
       id,
       name,
