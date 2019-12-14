@@ -1,4 +1,3 @@
-import { ExtensionContext, languages, DocumentFilter } from "vscode";
 import {
   EdgeHoverProvider,
   EdgeLinkProvider,
@@ -7,27 +6,30 @@ import {
   RouteHoverProvider,
   RouteLinkProvider
 } from "./completion";
-
+import { EdgeFormatterProvider } from "./languages";
+import { ExtensionContext, languages, DocumentFilter } from "vscode";
 import Tasks from "./tasks";
 
 export function activate(context: ExtensionContext) {
+  const edgeSelector = { language: "edge", scheme: "file" };
+
   const jsAndTsSelector: Array<DocumentFilter> = [
     { scheme: "file", language: "javascript" },
     { scheme: "file", language: "typescript" }
   ];
 
   const edgeHover = languages.registerHoverProvider(
-    ["edge"],
+    edgeSelector,
     new EdgeHoverProvider()
   );
 
   const edgeLink = languages.registerDocumentLinkProvider(
-    ["edge"],
+    edgeSelector,
     new EdgeLinkProvider()
   );
 
   const edgeCompletion = languages.registerCompletionItemProvider(
-    ["edge"],
+    edgeSelector,
     new EdgeCompletionProvider()
   );
 
@@ -46,8 +48,19 @@ export function activate(context: ExtensionContext) {
     new RouteLinkProvider()
   );
 
-  const tasks = Tasks();
+  const edgeFormatters = [
+    languages.registerDocumentFormattingEditProvider(
+      edgeSelector,
+      new EdgeFormatterProvider()
+    ),
 
+    languages.registerDocumentRangeFormattingEditProvider(
+      edgeSelector,
+      new EdgeFormatterProvider()
+    )
+  ];
+
+  const tasks = Tasks();
   context.subscriptions.push(
     edgeHover,
     edgeLink,
@@ -55,6 +68,7 @@ export function activate(context: ExtensionContext) {
     routeCompletion,
     routeHover,
     routeLink,
+    ...edgeFormatters,
     ...tasks
   );
 }
