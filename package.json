@@ -12,6 +12,15 @@
     "Formatters",
     "Other"
   ],
+  "keywords": [
+    "adonis",
+    "edge",
+    "template",
+    "snippet",
+    "formatter",
+    "autocompletion",
+    "commands"
+  ],
   "activationEvents": [
     "onLanguage:edge",
     "onLanguage:javascript",
@@ -20,6 +29,32 @@
   ],
   "main": "./out/extension.js",
   "contributes": {
+    "languages": [
+      {
+        "id": "edge",
+        "aliases": [
+          "Edge Template",
+          "Edge",
+          "edge"
+        ],
+        "extensions": [
+          ".edge",
+          ".edge.html"
+        ],
+        "configuration": "./src/syntaxes/edge/edge.configuration.jsonc"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "edge",
+        "scopeName": "text.html.edge",
+        "path": "./src/syntaxes/edge/edge.tmLanguage.json",
+        "embeddedLanguages": {
+          "source.css": "css",
+          "source.js": "javascript"
+        }
+      }
+    ],
     "snippets": [
       {
         "language": "javascript",
