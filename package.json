@@ -23,9 +23,7 @@
   ],
   "activationEvents": [
     "onLanguage:edge",
-    "onLanguage:javascript",
-    "onLanguage:typescript",
-    "workspaceContains:ace"
+    "workspaceContains:**/.adonisrc.json"
   ],
   "main": "./out/extension.js",
   "contributes": {
