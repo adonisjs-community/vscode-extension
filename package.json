@@ -344,6 +344,7 @@
   },
   "scripts": {
     "vscode:prepublish": "npm run compile",
+    "build:snippets": "npm run compile && node ./out/src/snippets/combine.js",
     "compile": "tsc -p ./",
     "watch": "tsc -watch -p ./",
     "pretest": "npm run compile",
@@ -363,6 +364,8 @@
     "@poppinss/module-methods-extractor": "^1.0.0",
     "docblock": "^0.4.4",
     "glob": "^7.1.5",
-    "strip-ansi": "^6.0.0"
+    "strip-ansi": "^6.0.0",
+    "vscode-html-languageservice": "^3.0.3",
+    "vscode-languageserver-types": "^3.14.0"
   }
 }
