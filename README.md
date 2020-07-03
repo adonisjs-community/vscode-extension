@@ -1,5 +1,7 @@
 # adonisjs-vscode
 
+🚨 The extension is not ready for usage yet 🚨
+
 Official VSCode extension for AdonisJS.
 
 ## Features
