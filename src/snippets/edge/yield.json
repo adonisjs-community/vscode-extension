@@ -1,0 +1,11 @@
+{
+    "edge: @yield('value') ... @endyield": {
+        "prefix": "yield",
+        "body": [
+            "@yield('$1')",
+            "  $2",
+            "@endyield"
+        ],
+        "description": "Edge: yield slot"
+    }
+}

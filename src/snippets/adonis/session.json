@@ -1,0 +1,77 @@
+{
+    "session": {
+        "body": "${1:session}.${2|put,get,all,increment,decrement,forget,pull,clear,flashAll,flashOnly,flashExcept,withErrors,flash,old,withErrorFor,getErrorFor,flashMessage,commit|}($3)",
+        "description": "Adonis Session",
+        "prefix": "session"
+    },
+    "session: put key pair value to session": {
+        "body": "${1:session}.put(${2:key}, ${3:value})",
+        "description": "Adonis Session: Add a key/value pair to the session store.",
+        "prefix": "session-put"
+    },
+    "session: get session value by key": {
+        "body": "${1:session}.get(${2:key}, ${3:default})",
+        "description": "Adonis Session: Get the value for a given key (accepts an optional default value).",
+        "prefix": "session-get"
+    },
+    "session: get all session data": {
+        "body": "${1:session}.all()",
+        "description": "Adonis Session: Get everything back as an object from the session store.",
+        "prefix": "session-all"
+    },
+    "session: increment session value by key": {
+        "body": "${1:session}.increment(${2:key}, ${3:steps})",
+        "description": "Adonis Session: Increment the value for a given key (ensure the previous value is a number).",
+        "prefix": "session-increment"
+    },
+    "session: decrement session value by key": {
+        "body": "${1:session}.decrement(${2:key}, ${3:steps})",
+        "description": "Adonis Session: Decrement the value for a given key (ensure the previous value is a number).",
+        "prefix": "session-decrement"
+    },
+    "session: forget": {
+        "body": "${1:session}.forget(${2:key})",
+        "description": "Adonis Session: Remove a key/value pair from the session store.",
+        "prefix": "session-forget"
+    },
+    "session: pull": {
+        "body": "${1:session}.pull(${2:key}, ${3:default})",
+        "description": "Adonis Session: Get (and then remove) a key/value pair from the session store.",
+        "prefix": "session-pull"
+    },
+    "session: clear session store": {
+        "body": "${1:session}.clear()",
+        "description": "Adonis Session: Empty the session store.",
+        "prefix": "session-clear"
+    },
+    "session: flash all fields": {
+        "body": "${1:session}.flashAll()",
+        "description": "Adonis Session: Flash the request form data.",
+        "prefix": "session-flash-all"
+    },
+    "session: flash only selected fields": {
+        "body": "${1:session}.flashOnly([$2,$3])",
+        "description": "Adonis Session: Flash only the selected fields.",
+        "prefix": "session-flash-only"
+    },
+    "session: flash except selected fields": {
+        "body": "${1:session}.flashExcept([$2,$3])",
+        "description": "Adonis Session: Flash the request form data except the selected fields.",
+        "prefix": "session-flash-except"
+    },
+    "session: flash with provided errors": {
+        "body": "${1:session}.withErrors([{$2}])",
+        "description": "Adonis Session: Flash with an array of errors.",
+        "prefix": "session-with-errors"
+    },
+    "session: flash": {
+        "body": "${1:session}.flash({$2})",
+        "description": "Adonis Session: Flash a custom object.",
+        "prefix": "session-flash"
+    },
+    "session: commit session": {
+        "body": "${1:session}.commit($2)",
+        "description": "Adonis Session: Commit the session manually (usefull when handling exceptions of your own).",
+        "prefix": "session-commit"
+    }
+}

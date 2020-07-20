@@ -1,0 +1,58 @@
+{
+    "factory": {
+        "body": "${1:Factory}.${2|model,blueprint,get|}($3)",
+        "description": "Adonis Factory",
+        "prefix": "factory"
+    },
+    "factory: create model instance": {
+        "body": "${1:Factory}.model(${2:name}).create()",
+        "description": "Adonis Factory: Persist and return model instance.",
+        "prefix": "factory-create"
+    },
+    "factory: create many model instances": {
+        "body": "${1:Factory}.model(${2:name}).createMany(${3:3})",
+        "description": "Adonis Factory: Persist and return many model instances.",
+        "prefix": "factory-create-many"
+    },
+    "factory: make un-persisted model": {
+        "body": "${1:Factory}.model(${2:name}).make()",
+        "description": "Adonis Factory: Get model instance but do not persist it to the database.",
+        "prefix": "factory-make"
+    },
+    "factory: make many un-persisted model": {
+        "body": "${1:Factory}.model(${2:name}).makeMany(${3:3})",
+        "description": "Adonis Factory: Get array of model instances but do not persist them to the database.",
+        "prefix": "factory-make-many"
+    },
+    "factory: create model factory blueprint": {
+        "body": [
+            "${1:Factory}.blueprint(${2:table}, (faker) => {",
+            "  return {",
+            "    $3",
+            "  }",
+            "\\})"
+        ],
+        "description": "Adonis Factory: Define a factory blueprint for a database table.",
+        "prefix": "factory-blueprint"
+    },
+    "factory: change table without lucid": {
+        "body": "${1:Factory}.get(${2:table}).table(${3:newTableName}).create()",
+        "description": "Adonis Factory: Define a different table name at runtime.",
+        "prefix": "factory-table"
+    },
+    "factory: returning without lucid": {
+        "body": "${1:Factory}.get(${2:table}).returning(${3:column}).create()",
+        "description": "Adonis Factory: For PostgreSQL, define a returning column.",
+        "prefix": "factory-return"
+    },
+    "factory: change connection without lucid": {
+        "body": "${1:Factory}.get(${2:table}).connection('${3:myql}')",
+        "description": "Adonis Factory: Choose a different connection at runtime.",
+        "prefix": "factory-conn"
+    },
+    "factory: create many without lucid": {
+        "body": "${1:Factory}.get(${2:table}).creatMany(${3:3})",
+        "description": "Adonis Factory: Create multiple records.",
+        "prefix": "factory-create-many"
+    }
+}

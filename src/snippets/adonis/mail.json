@@ -1,0 +1,94 @@
+{
+    "mail": {
+        "body": "${1:Mail}.${2|send,raw,connection|}($3)",
+        "description": "Adonis Mail: ",
+        "prefix": "mail"
+    },
+    "mail: send message": {
+        "body": [
+            "await ${1:Mail}.send(${2:views = []}, ${3:data}, (${4:message}) => {",
+            "  ${4:message}$0",
+            "\\})$5"
+        ],
+        "description": "Adonis Mail: Send email using one or many Edge views.",
+        "prefix": "mail-send"
+    },
+    "mail: send raw text": {
+        "body": [
+            "await ${1:Mail}.raw(${2:views = []}, (${3:message}) => {",
+            "  ${3:message}$0",
+            "\\})$4"
+        ],
+        "description": "Adonis Mail: Use a raw string to send the mail (when the string is HTML the email HTML body will be set, otherwise just a plain text email will be sent).",
+        "prefix": "mail-send-raw"
+    },
+    "mail: switch connection": {
+        "body": [
+            "await ${1:Mail}",
+            "  .connection(${2:name})",
+            "  .${3|send,raw|}($4)"
+        ],
+        "description": "Adonis Mail: Switch the mail driver.",
+        "prefix": "mail-connection"
+    },
+    "mail: set `to` address": {
+        "body": "${1:message}.to(${2:email}, ${3:optionalName})",
+        "description": "Adonis Mail: Set `to` address.",
+        "prefix": "mail-msg-to"
+    },
+    "mail: set `from` address": {
+        "body": "${1:message}.from(${2:email}, ${3:optionalName})",
+        "description": "Adonis Mail: Set `from` address.",
+        "prefix": "mail-msg-from"
+    },
+    "mail: set `cc` address": {
+        "body": "${1:message}.cc(${2:email}, ${3:optionalName})",
+        "description": "Adonis Mail: Add `cc` address to the email.",
+        "prefix": "mail-msg-cc"
+    },
+    "mail: set `bcc` address": {
+        "body": "${1:message}.bcc(${2:email}, ${3:optionalName})",
+        "description": "Adonis Mail: Add `bcc` address to the email.",
+        "prefix": "mail-msg-bcc"
+    },
+    "mail: reply to message": {
+        "body": "${1:message}.replyTo(${2:email})",
+        "description": "Adonis Mail: Set `replyTo` email address.",
+        "prefix": "mail-msg-reply-to"
+    },
+    "mail: send mail in reply to another message": {
+        "body": "${1:message}.inReplyTo(${2:messageId})",
+        "description": "Adonis Mail: Set email message `id`.",
+        "prefix": "mail-msg-in-reply-to"
+    },
+    "mail: set mail `subject`": {
+        "body": "${1:message}.subject(${2:value})",
+        "description": "Adonis Mail: Set email subject.",
+        "prefix": "mail-msg-subject"
+    },
+    "mail: manually set message text": {
+        "body": "${1:message}.text(${2:messageId})",
+        "description": "Adonis Mail: Manually set the plain text body for the email.",
+        "prefix": "mail-msg-text"
+    },
+    "mail: attach file to message": {
+        "body": "${1:message}.attach(${2:filePath}, ${3:options = {\\}})",
+        "description": "Adonis Mail: Attach file(s) to the email.",
+        "prefix": "mail-msg-attach"
+    },
+    "mail: attach data(string, buffer, stream) to message": {
+        "body": "${1:message}.attachData(${2|new Buffer,fs|}, ${3:filename}, ${4:options = {\\}})",
+        "description": "Adonis Mail: Attach raw data as a `String`, `Buffer` or `Stream`.",
+        "prefix": "mail-msg-attach-data"
+    },
+    "mail: embed image into message": {
+        "body": "${1:message}.embed(${2:filePath}, ${3:contendId}, ${4:options = {\\}}))",
+        "description": "Adonis Mail: Embed an image into the HTML body using a *content id*.",
+        "prefix": "mail-msg-embed"
+    },
+    "mail: pass in more values to mail driver": {
+        "body": "${1:message}.driverExtras(${2:options = {\\}})",
+        "description": "Adonis Mail: Pass an object of values to the current driver.",
+        "prefix": "mail-msg-driver-extras"
+    }
+}

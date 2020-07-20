@@ -1,0 +1,62 @@
+{
+    "helper": {
+        "body": "${1:Helper}.${2|appRoot,publicPath,configPath,resourcesPath,migrationsPath,seedsPath,databasePath,viewsPath,tmpPath,promisify,isAceCommand|}($3)",
+        "description": "Adonis Helper",
+        "prefix": "help"
+    },
+    "helper: get app root": {
+        "body": "${1:Helper}.appRoot()",
+        "description": "Adonis Helper: Get path to the application root.",
+        "prefix": "help-app-root"
+    },
+    "helper: get public directory path": {
+        "body": "${1:Helper}.publicPath(${2:toFile = optional})",
+        "description": "Adonis Helper: Get path to the public directory or file inside the directory.",
+        "prefix": "help-public-path"
+    },
+    "helper: get path to config directory": {
+        "body": "${1:Helper}.configPath(${2:toFile = optional})",
+        "description": "Adonis Helper: Get path to the config directory or file inside the directory.",
+        "prefix": "help-config-path"
+    },
+    "helper: get path to resources directory": {
+        "body": "${1:Helper}.resourcesPath(${2:toFile = optional})",
+        "description": "Adonis Helper: Get path to the resources directory or file inside the directory.",
+        "prefix": "help-resources-path"
+    },
+    "helper: get path to migrations directory": {
+        "body": "${1:Helper}.migrationsPath(${2:toFile = optional})",
+        "description": "Adonis Helper: Get path to the migrations directory or file inside the directory.",
+        "prefix": "help-migrations-path"
+    },
+    "helper: get path to seeds directory": {
+        "body": "${1:Helper}.seedsPath(${2:toFile = optional})",
+        "description": "Adonis Helper: Get path to the seeds directory or file inside the directory.",
+        "prefix": "help-seeds-path"
+    },
+    "helper: get path to database directory": {
+        "body": "${1:Helper}.databasePath(${2:toFile = optional})",
+        "description": "Adonis Helper: Get path to the database directory or file inside the directory.",
+        "prefix": "help-database-path"
+    },
+    "helper: get path to views directory": {
+        "body": "${1:Helper}.viewsPath(${2:toFile = optional})",
+        "description": "Adonis Helper: Get path to the views directory or file inside the directory.",
+        "prefix": "help-views-path"
+    },
+    "helper: get path to `tmp` directories": {
+        "body": "${1:Helper}.tmpPath(${2:toFile = optional})",
+        "description": "Adonis Helper: Get path to the tmp directory or file inside the directory.",
+        "prefix": "help-tmp-path"
+    },
+    "helper: get promisified callback callback": {
+        "body": "${1:Helper}.promisify(${2:item})",
+        "description": "Adonis Helper: Get promisified callback functions.",
+        "prefix": "help-promisify"
+    },
+    "helper: check if ace command started current process": {
+        "body": "${1:Helper}.isAceCommand()",
+        "description": "Adonis Helper: Get whether the process was started as the ace command or not.",
+        "prefix": "help-is-ace"
+    }
+}

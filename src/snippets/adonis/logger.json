@@ -1,0 +1,57 @@
+{
+    "logger": {
+        "body": "${1:Logger}.${2|emerg,alert,crit,error,warning,notice,info,debug|}(${3:msg}, ${4:...data})",
+        "description": "Adonis Logger",
+        "prefix": "log"
+    },
+    "logger: debug": {
+        "body": "${1:Logger}.debug(${2:msg}, ${3:...data})",
+        "description": "Adonis Logger: Debug",
+        "prefix": "log-debug"
+    },
+    "logger: info": {
+        "body": "${1:Logger}.info(${2:msg}, ${3:...data})",
+        "description": "Adonis Logger: Info",
+        "prefix": "log-info"
+    },
+    "logger: notice": {
+        "body": "${1:Logger}.notice(${2:msg}, ${3:...data})",
+        "description": "Adonis Logger: Notice",
+        "prefix": "log-notice"
+    },
+    "logger: warning": {
+        "body": "${1:Logger}.warning(${2:msg}, ${3:...data})",
+        "description": "Adonis Logger: Warning",
+        "prefix": "log-warning"
+    },
+    "logger: error": {
+        "body": "${1:Logger}.error(${2:msg}, ${3:...data})",
+        "description": "Adonis Logger: Error",
+        "prefix": "log-error"
+    },
+    "logger: critical": {
+        "body": "${1:Logger}.crit(${2:msg}, ${3:...data})",
+        "description": "Adonis Logger: Critical",
+        "prefix": "log-crit"
+    },
+    "logger: alert": {
+        "body": "${1:Logger}.alert(${2:msg}, ${3:...data})",
+        "description": "Adonis Logger: Alert",
+        "prefix": "log-alert"
+    },
+    "logger: emergency": {
+        "body": "${1:Logger}.emerg(${2:msg}, ${3:...data})",
+        "description": "Adonis Logger: Emergency",
+        "prefix": "log-emerg"
+    },
+    "logger: switch transport": {
+        "body": "${1:Logger}.transport(${2:transport}).${3|emerg,alert,crit,error,warning,notice,info,debug|}(${4:msg}, ${5:...data})",
+        "description": "Adonis Logger: Switch log transport.",
+        "prefix": "log-transport"
+    },
+    "logger: change log level": {
+        "body": "${1:Logger}.level = '${2|emerg,alert,crit,error,warning,notice,info,debug|}'",
+        "description": "Adonis Logger: Change log level.",
+        "prefix": "log-level"
+    }
+}

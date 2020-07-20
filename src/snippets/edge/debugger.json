@@ -1,0 +1,10 @@
+{
+    "edge: @debugger": {
+        "prefix": "debugger",
+        "body": [
+            "@debugger",
+            "$0"
+        ],
+        "description": "Edge: Debug block"
+    }
+}

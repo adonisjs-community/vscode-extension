@@ -1,0 +1,46 @@
+{
+    "edge: @if (...)": {
+        "prefix": "if",
+        "body": [
+            "@if($1)",
+            "  $2",
+            "@endif"
+        ],
+        "description": "Edge: if block"
+    },
+    "edge: @if (...) ... @else ... @endif": {
+        "prefix": "ifelse",
+        "body": [
+            "@if($1)",
+            "  $2",
+            "@else",
+            "  $3",
+            "@endif"
+        ],
+        "description": "Edge: if-else block"
+    },
+    "edge: @if (...) ... @elseif (...) ... @else ... @endif": {
+        "prefix": "ifelseif",
+        "body": [
+            "@if($1)",
+            "  $2",
+            "@elseif($3)",
+            "  $4",
+            "@else",
+            "  $5",
+            "@endif"
+        ],
+        "description": "Edge: if-else block"
+    },
+    "edge: @unless (...) ... @else ... @endunless": {
+        "prefix": "unless",
+        "body": [
+            "@unless($1)",
+            "  $2",
+            "@else",
+            "  $3",
+            "@endunless"
+        ],
+        "description": "Edge: unless-block"
+    }
+}

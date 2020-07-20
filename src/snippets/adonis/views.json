@@ -1,0 +1,12 @@
+{
+    "view": {
+        "body": "${1:view}.render('${3:path.name}')",
+        "description": "Adonis View: Render an edge view to a client.",
+        "prefix": "view"
+    },
+    "view: share": {
+        "body": "${1:view}.share({$3})",
+        "description": "Adonis View: Share specific request values with views.",
+        "prefix": "view-share"
+    }
+}

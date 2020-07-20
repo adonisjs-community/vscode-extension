@@ -1,0 +1,17 @@
+{
+    "edge: {{ text }}": {
+        "prefix": "echo",
+        "body": "{{ ${1:data} }}$2",
+        "description": "Edge: Echo data"
+    },
+    "edge: {{{ text }}}": {
+        "prefix": "echo-html",
+        "body": "{{{ ${1:html_data} }}}$2",
+        "description": "Edge: Echo unescaped data (allow html outputs)"
+    },
+    "edge: @{{ text }}": {
+        "prefix": "echo-raw",
+        "body": "@{{ ${1:variable} }}$2",
+        "description": "Edge: Echo untouched data (allow javascript expression)"
+    }
+}

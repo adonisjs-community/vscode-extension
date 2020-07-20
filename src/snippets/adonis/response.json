@@ -1,0 +1,287 @@
+{
+    "response": {
+        "body": "${1:response}.${2|send,json,header,safeHeader,removeHeader,type,cookie,clearCookie,plainCookie,redirect,route,download,attachment,unauthorized,status,continue,switchingProtocols,ok,created,accepted,nonAuthoritativeInformation,noContent,resetContent,partialContent,multipleChoices,movedPermanently,found,seeOther,notModified,useProxy,temporaryRedirect,badRequest,unauthorized,paymentRequired,forbidden,notFound,methodNotAllowed,notAcceptable,proxyAuthenticationRequired,requestTimeout,conflict,gone,lengthRequired,preconditionFailed,requestEntityTooLarge,requestUriTooLong,unsupportedMediaType,requestedRangeNotSatisfiable,expectationFailed,unprocessableEntity,tooManyRequests,internalServerError,notImplemented,badGateway,serviceUnavailable,gatewayTimeout,httpVersionNotSupported|}($3)",
+        "description": "Adonis Response",
+        "prefix": "res"
+    },
+    "response: send": {
+        "body": "${1:response}.send(${2:data})",
+        "description": "Adonis Response: Send the provided data.",
+        "prefix": "res-send"
+    },
+    "response: json": {
+        "body": "${1:response}.json(${2:data})",
+        "description": "Adonis Response: Return json response.",
+        "prefix": "res-json"
+    },
+    "response: header": {
+        "body": "${1:response}.header(${2:key}, ${3:value})",
+        "description": "Adonis Response: Set a header value.",
+        "prefix": "res-header"
+    },
+    "response: safe header": {
+        "body": "${1:response}.safeHeader(${2:key}, ${3:value})",
+        "description": "Adonis Response: Only set a header value if it does not already exist.",
+        "prefix": "res-safeHeader"
+    },
+    "response: remove header": {
+        "body": "${1:response}.removeHeader(${2:key})",
+        "description": "Adonis Response: Remove an existing header.",
+        "prefix": "res-removeHeader"
+    },
+    "response: type": {
+        "body": "${1:response}.type(${2:contentType})",
+        "description": "Adonis Response: Set the Content-Type header.",
+        "prefix": "res-type"
+    },
+    "response: cookie": {
+        "body": "${1:response}.cookie(${2:key}, ${3:value})",
+        "description": "Adonis Response: Set a cookie value.",
+        "prefix": "res-cookie"
+    },
+    "response: clear cookie": {
+        "body": "${1:response}.clearCookie(${2:key})",
+        "description": "Adonis Response: Remove an existing cookie value (by setting its expiry in the past).",
+        "prefix": "res-clearCookie"
+    },
+    "response: plain cookie": {
+        "body": "${1:response}.plainCookie(${2:key}, ${3:value})",
+        "description": "Adonis Response: Set a plain cookie key/value pair.",
+        "prefix": "res-plainCookie"
+    },
+    "response: redirect": {
+        "body": "${1:response}.redirect(${2:url}, ${3:sendParam = true}, ${4:status = 301})",
+        "description": "Adonis Response: Redirect request to a different url (by default it will set the status as 302).",
+        "prefix": "res-redirect"
+    },
+    "response: route": {
+        "body": "${1:response}.route(${2:route}, ${3:data}, ${4:domain}, ${5:sendParams = false}, ${6:status = 302})",
+        "description": "Adonis Response: Redirect to a route (via route name or controller method).",
+        "prefix": "res-route"
+    },
+    "response: download": {
+        "body": "${1:response}.download(${2:filePath})",
+        "description": "Adonis Response: Stream the file specified to the client.",
+        "prefix": "res-download"
+    },
+    "response: attachment": {
+        "body": "${1:response}.attachment(${2:filePath}, ${3:name}, ${4:disposition})",
+        "description": "Adonis Response: Force download the file specified.",
+        "prefix": "res-attachment"
+    },
+    "response: status": {
+        "body": "${1:response}.status(${2:data})",
+        "description": "Adonis Response: Specify the status code to be return to a client.",
+        "prefix": "res-status"
+    },
+    "response: 100 - continue": {
+        "body": "${1:response}.continue(${2:data})",
+        "description": "Adonis Response: 100 - continue.",
+        "prefix": "res-continue"
+    },
+    "response: 101 - switching protocols": {
+        "body": "${1:response}.switchingProtocols(${2:data})",
+        "description": "Adonis Response: 101 - switching protocols.",
+        "prefix": "res-switching-protocols"
+    },
+    "response: 200 - ok": {
+        "body": "${1:response}.ok(${2:data})",
+        "description": "Adonis Response: 200 - ok.",
+        "prefix": "res-ok"
+    },
+    "response: 201 - created": {
+        "body": "${1:response}.created(${2:data})",
+        "description": "Adonis Response: 201 - created.",
+        "prefix": "res-created"
+    },
+    "response: 202 - accepted": {
+        "body": "${1:response}.accepted(${2:data})",
+        "description": "Adonis Response: 202 - accepted.",
+        "prefix": "res-accepted"
+    },
+    "response: 203 - non-authoritative information": {
+        "body": "${1:response}.nonAuthoritativeInformation(${2:data})",
+        "description": "Adonis Response: 203 - non authoritative information.",
+        "prefix": "res-non-auth-info"
+    },
+    "response: 204 - no content": {
+        "body": "${1:response}.noContent(${2:data})",
+        "description": "Adonis Response: 204 - no content.",
+        "prefix": "res-no-content"
+    },
+    "response: 205 - reset content": {
+        "body": "${1:response}.resetContent(${2:data})",
+        "description": "Adonis Response: 205 - reset content.",
+        "prefix": "res-reset-content"
+    },
+    "response: 206 - partial content": {
+        "body": "${1:response}.partialContent(${2:data})",
+        "description": "Adonis Response: 206 - partial content.",
+        "prefix": "res-partial-content"
+    },
+    "response: 300 - multiple choices": {
+        "body": "${1:response}.multipleChoices(${2:data})",
+        "description": "Adonis Response: 300 - multiple choices.",
+        "prefix": "res-multiple choices"
+    },
+    "response: 301 - moved permanently": {
+        "body": "${1:response}.movedPermanently(${2:data})",
+        "description": "Adonis Response: 301 - moved permanently.",
+        "prefix": "res-moved-permanently"
+    },
+    "response: 302 - found": {
+        "body": "${1:response}.found(${2:data})",
+        "description": "Adonis Response: 302 - found.",
+        "prefix": "res-found"
+    },
+    "response: 303 - see other": {
+        "body": "${1:response}.seeOther(${2:data})",
+        "description": "Adonis Response: 303 - see-other.",
+        "prefix": "res-see-other"
+    },
+    "response: 304 - not modified": {
+        "body": "${1:response}.notModified(${2:data})",
+        "description": "Adonis Response: 304 - not modified.",
+        "prefix": "res-not-modified"
+    },
+    "response: 305 - use proxy": {
+        "body": "${1:response}.useProxy(${2:data})",
+        "description": "Adonis Response: 305 - use proxy.",
+        "prefix": "res-use-proxy"
+    },
+    "response: 307 - temporary redirect": {
+        "body": "${1:response}.temporaryRedirect(${2:data})",
+        "description": "Adonis Response: 307 - temporary redirect.",
+        "prefix": "res-temp-redirect"
+    },
+    "response: 400 - bad request": {
+        "body": "${1:response}.badRequest(${2:data})",
+        "description": "Adonis Response: 400 - bad request.",
+        "prefix": "res-bad-request"
+    },
+    "response: 401 - unauthorized": {
+        "body": "${1:response}.unauthorized(${2:data})",
+        "description": "Adonis Response: 401 - unauthorized.",
+        "prefix": "res-unauthorized"
+    },
+    "response: 402 - payment required": {
+        "body": "${1:response}.paymentRequired(${2:data})",
+        "description": "Adonis Response: 402 - payment required.",
+        "prefix": "res-payment-required"
+    },
+    "response: 403 - forbidden": {
+        "body": "${1:response}.forbidden(${2:data})",
+        "description": "Adonis Response: 403 - forbidden.",
+        "prefix": "res-forbidden"
+    },
+    "response: 404 - not found": {
+        "body": "${1:response}.notFound(${2:data})",
+        "description": "Adonis Response: 404 - not found.",
+        "prefix": "res-not-found"
+    },
+    "response: 405 - method not allowed": {
+        "body": "${1:response}.methodNotAllowed(${2:data})",
+        "description": "Adonis Response: 405 - method not allowed.",
+        "prefix": "res-method-not-allowed"
+    },
+    "response: 406 - not acceptable": {
+        "body": "${1:response}.notAcceptable(${2:data})",
+        "description": "Adonis Response: 406 - not acceptable.",
+        "prefix": "res-not-acceptable"
+    },
+    "response: 407 - proxy authentication required": {
+        "body": "${1:response}.proxyAuthenticationRequired(${2:data})",
+        "description": "Adonis Response: 407 - proxy authentication required.",
+        "prefix": "res-proxy-auth-required"
+    },
+    "response: 408 - request timeout": {
+        "body": "${1:response}.requestTimeout(${2:data})",
+        "description": "Adonis Response: 408 - request timeout.",
+        "prefix": "res-request-timeout"
+    },
+    "response: 409 - conflict": {
+        "body": "${1:response}.conflict(${2:data})",
+        "description": "Adonis Response: 409 - conflict.",
+        "prefix": "res-conflict"
+    },
+    "response: 410 - gone": {
+        "body": "${1:response}.gone(${2:data})",
+        "description": "Adonis Response: 410 - gone.",
+        "prefix": "res-gone"
+    },
+    "response: 411 - length required": {
+        "body": "${1:response}.lengthRequired(${2:data})",
+        "description": "Adonis Response: 411 - length required.",
+        "prefix": "res-length-required"
+    },
+    "response: 412 - precondition failed": {
+        "body": "${1:response}.preconditionFailed(${2:data})",
+        "description": "Adonis Response: 412 - precondition failed.",
+        "prefix": "res-precondition-failed"
+    },
+    "response: 413 - request entity too large": {
+        "body": "${1:response}.requestEntityTooLarge(${2:data})",
+        "description": "Adonis Response: 413 - request entity too large.",
+        "prefix": "res-request-entity-too-large"
+    },
+    "response: 414 - request uri too long": {
+        "body": "${1:response}.requestUriTooLong(${2:data})",
+        "description": "Adonis Response: 414 - request URI too long.",
+        "prefix": "res-request-uri-too-long"
+    },
+    "response: 415 - unsupported media type": {
+        "body": "${1:response}.unsupportedMediaType(${2:data})",
+        "description": "Adonis Response: 415 - unsupported media type.",
+        "prefix": "res-unsupported-media-type"
+    },
+    "response: 416 - requested range not satisfiable": {
+        "body": "${1:response}.requestedRangeNotSatisfiable(${2:data})",
+        "description": "Adonis Response: 416 - requested range not satisfiable.",
+        "prefix": "res-requested-range-not-satisfiable"
+    },
+    "response: 417 - expectation failed": {
+        "body": "${1:response}.expectationFailed(${2:data})",
+        "description": "Adonis Response: 417 - expectation failed.",
+        "prefix": "res-expectation-failed"
+    },
+    "response: 422 - unprocessable entity": {
+        "body": "${1:response}.unprocessableEntity(${2:data})",
+        "description": "Adonis Response: 422 - unprocessable entity.",
+        "prefix": "res-unprocessable-entity"
+    },
+    "response: 429 - too many requests": {
+        "body": "${1:response}.tooManyRequests(${2:data})",
+        "description": "Adonis Response: 429 - too many requests.",
+        "prefix": "res-too-many-requests"
+    },
+    "response: 500 - internal server error": {
+        "body": "${1:response}.internalServerError(${2:data})",
+        "description": "Adonis Response: 500 - internal server error.",
+        "prefix": "res-internal-server-error"
+    },
+    "response: 501 - not implemented": {
+        "body": "${1:response}.notImplemented(${2:data})",
+        "description": "Adonis Response: 501 - not implemented.",
+        "prefix": "res-not-implemented"
+    },
+    "response: 502 - bad gateway": {
+        "body": "${1:response}.badGateway(${2:data})",
+        "description": "Adonis Response: 502 - bad gateway.",
+        "prefix": "res-bad-gateway"
+    },
+    "response: 503 - service unavailable": {
+        "body": "${1:response}.serviceUnavailable(${2:data})",
+        "description": "Adonis Response: 503 - service unavailable.",
+        "prefix": "res-service-unavailable"
+    },
+    "response: 504 - gateway timeout": {
+        "body": "${1:response}.gatewayTimeout(${2:data})",
+        "description": "Adonis Response: 504 - gateway timeout.",
+        "prefix": "res-gateway-timeout"
+    },
+    "response: 505 - http version not supported": {
+        "body": "${1:response}.httpVersionNotSupported(${2:data})",
+        "description": "Adonis Response: 505 - http version not supported.",
+        "prefix": "res-http-version-not-supported"
+    }
+}

@@ -1,0 +1,88 @@
+{
+    "ally": {
+        "body": "ally.driver('${1:facebook}').${2|getUser,redirect,getRedirectUrl|}();",
+        "description": "Adonis Ally",
+        "prefix": "ally"
+    },
+    "ally: redirect": {
+        "body": "ally.driver('${1:facebook}').redirect();",
+        "description": "Adonis Ally: Redirect user to the 3rd party website",
+        "prefix": "ally-redirect"
+    },
+    "ally: get redirect url": {
+        "body": "ally.driver('${1:facebook}').getRedirectUrl();",
+        "description": "Adonis Ally: Get redirect URL back as a string",
+        "prefix": "ally-get-redirect-url"
+    },
+    "ally: with scope": {
+        "body": "ally.driver('${1:facebook}').scope(['$2',$3]).${4|getUser,redirect,getRedirectUrl|}();",
+        "description": "Adonis Ally: Define runtime scopes before redirecting the user",
+        "prefix": "ally-scope"
+    },
+    "ally: with fields": {
+        "body": "ally.driver('${1:facebook}').fields(['$2',$3]).${4|getUser,redirect,getRedirectUrl|}();",
+        "description": "Adonis Ally: Fields to be fetched when getting the authenticated user profile",
+        "prefix": "ally-fields"
+    },
+    "ally: get user": {
+        "body": "ally.driver('${1:facebook}').fields(['$2',$3]).getUser();",
+        "description": "Adonis Ally: Get the user profile of an authenticated user (returns an AllyUser instance)",
+        "prefix": "ally-get-user"
+    },
+    "ally: by access token": {
+        "body": "ally.getUserByToken($1);",
+        "description": "Adonis Ally: Get the user details using the accessToken",
+        "prefix": "ally-by-token"
+    },
+    // Ally user API
+    "ally: user": {
+        "body": "${1:user}.${2|getName,getEmail,getNickname,getAvatar,getAccessToken,getRefreshToken,getExpires,getTokenSecret,getOriginal|}();",
+        "description": "Adonis Ally User",
+        "prefix": "ally-user"
+    },
+    "ally: get name for user": {
+        "body": "${1:user}.getName()",
+        "description": "Adonis Ally User: Get the user name",
+        "prefix": "ally-user-name"
+    },
+    "ally: get email for user": {
+        "body": "${1:user}.getEmail()",
+        "description": "Adonis Ally User: Get the user email",
+        "prefix": "ally-user-email"
+    },
+    "ally: get nickname for user": {
+        "body": "${1:user}.getNickname()",
+        "description": "Adonis Ally User: Get the nickname / display name of the user",
+        "prefix": "ally-user-nickname"
+    },
+    "ally: get avatar for user": {
+        "body": "${1:user}.getAvatar()",
+        "description": "Adonis Ally User: Get the public URL to the user’s profile picture",
+        "prefix": "ally-user-avatar"
+    },
+    "ally: get access token for user": {
+        "body": "${1:user}.getAccessToken()",
+        "description": "Adonis Ally User: Get the access token which may be used later to update the user profile",
+        "prefix": "ally-user-token"
+    },
+    "ally: get refresh token for user": {
+        "body": "${1:user}.getRefreshToken()",
+        "description": "Adonis Ally User: Get token to be used when access token expires",
+        "prefix": "ally-user-rtoken"
+    },
+    "ally: get expires for user": {
+        "body": "${1:user}.getExpires()",
+        "description": "Adonis Ally User: Access token expiry data",
+        "prefix": "ally-user-expires"
+    },
+    "ally: get token secret for user": {
+        "body": "${1:user}.getTokenSecret()",
+        "description": "Adonis Ally User: ",
+        "prefix": "ally-user-stoken"
+    },
+    "ally: get original 3rd party payload for user": {
+        "body": "${1:user}.getOriginal()",
+        "description": "Adonis Ally User: Get original payload returned by the 3rd party provider",
+        "prefix": "ally-user-original"
+    }
+}

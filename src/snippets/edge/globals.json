@@ -1,0 +1,87 @@
+{
+    "edge: range(from, to)": {
+        "prefix": "range",
+        "body": "{{ range($1, $2) }}",
+        "description": "Edge: Returns an array of numbers within a given range"
+    },
+    "edge: batch(array)": {
+        "prefix": "batch",
+        "body": "{{ batch([ $1 ]) }}",
+        "description": "Edge: Convert an array to a batch of nested arrays."
+    },
+    "edge: toJSON(object)": {
+        "prefix": "toJSON",
+        "body": "{{ toJSON({ $1 }) }}",
+        "description": "Edge: Convert an object to a JSON string via JSON.stringify."
+    },
+    "edge: first(array)": {
+        "prefix": "first",
+        "body": "{{ first([ $1 ]) }}",
+        "description": "Edge: Returns the first item from an array."
+    },
+    "edge: last(array)": {
+        "prefix": "last",
+        "body": "{{ last([ $1 ]) }}",
+        "description": "Edge: Returns the last item from an array."
+    },
+    "edge: groupBy(array)": {
+        "prefix": "groupBy",
+        "body": "{{ groupBy([ $1 ], '$2') }}",
+        "description": "Edge: Group an array via given field. For example group all articles for an author."
+    },
+    "edge: size(array)": {
+        "prefix": "size",
+        "body": "{{ size($1) }}",
+        "description": "Edge: Return size of a string or an array."
+    },
+    "edge: el(...)": {
+        "prefix": "el",
+        "body": "{{ el($1) }}",
+        "description": "Edge: Returns an HTML string by replacing dynamic placeholders with actual content. It is helpful inside if shorthand."
+    },
+    "edge: camelCase(text)": {
+        "prefix": "camelCase",
+        "body": "{{ camelCase('$1') }}",
+        "description": "Edge: Convert string to camelcase."
+    },
+    "edge: upperCase(text)": {
+        "prefix": "upperCase",
+        "body": "{{ upperCase('$1') }}",
+        "description": "Edge: Convert string to uppercase."
+    },
+    "edge: upperFirst(text)": {
+        "prefix": "upperFirst",
+        "body": "{{ upperFirst('$1') }}",
+        "description": "Edge: Convert first character of a string to uppercase."
+    },
+    "edge: lowerCase(text)": {
+        "prefix": "lowerCase",
+        "body": "{{ lowerCase('$1') }}",
+        "description": "Edge: Convert string to lowerCase."
+    },
+    "edge: lowerFirst(text)": {
+        "prefix": "lowerFirst",
+        "body": "{{ lowerFirst('$1') }}",
+        "description": "Edge: Convert first character of a string to lowercase."
+    },
+    "edge: capitalize(text)": {
+        "prefix": "capitalize",
+        "body": "{{ capitalize('$1') }}",
+        "description": "Edge: Convert first character of all words inside a string to uppercase."
+    },
+    "edge: truncate (text1, limit, ...)": {
+        "prefix": "truncate",
+        "body": "{{ truncate('$1', $2, '...') }}",
+        "description": "Edge: Truncate a string to a given limit"
+    },
+    "edge: toAnchor(url, title = url)": {
+        "prefix": "toAnchor",
+        "body": "{{ toAnchor('$1', '$2') }}",
+        "description": "Edge: Convert a url to an anchor tag"
+    },
+    "edge: urlEncode(string)": {
+        "prefix": "urlEncode",
+        "body": "{{ urlEncode('$1') }}",
+        "description": "Edge: Encode a string to be url safe."
+    }
+}

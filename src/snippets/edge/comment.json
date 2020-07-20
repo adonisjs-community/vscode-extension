@@ -1,0 +1,28 @@
+{
+    "edge: comment": {
+        "prefix": "comment",
+        "body": [
+            "{{-- ${1:comment} --}}",
+            "$2"
+        ],
+        "description": "Edge: Comment block"
+    },
+    "edge: multiline comment": {
+        "prefix": "comment-multiline",
+        "body": [
+            "{{-- ",
+            "  ${1:comment}",
+            "--}}",
+            "$2"
+        ],
+        "description": "Edge: Multiline comment block"
+    },
+    "html: comment": {
+        "prefix": "html-comment",
+        "body": [
+            "<!-- ${1:comment} -->",
+            "$2"
+        ],
+        "description": "HTML: Comment block"
+    }
+}
