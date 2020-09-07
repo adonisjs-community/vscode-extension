@@ -37,7 +37,7 @@ export class CommandSteps {
     let steps = this.steps;
     let params: CommandStepsOutput = {
       required: {},
-      optional: {}
+      optional: {},
     };
 
     // If disable is true, optional input prompt are hidden, and adonis
@@ -69,7 +69,7 @@ export class CommandSteps {
   ): FilteredCommandSteps {
     let result: FilteredCommandSteps = {
       optionalDefaultParams: {},
-      requiredSteps: []
+      requiredSteps: [],
     };
 
     return steps.reduce((previous, current) => {
@@ -121,7 +121,7 @@ export class CommandSteps {
     return window.showInputBox({
       placeHolder: step.message,
       value: step.default === undefined ? "" : step.default.toString(),
-      validateInput: step.validateInput
+      validateInput: step.validateInput,
     });
   }
 

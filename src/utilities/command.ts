@@ -25,7 +25,7 @@ export function createVscodeCommand(
       optional = adonisOptionalParamsToString(optional);
 
       return executeAdonisCommand(`${key} ${compulsory} ${optional}`, cwd);
-    }
+    },
   };
 }
 
@@ -80,7 +80,7 @@ export async function showCommandOutput({ stderr, stdout }: CommandOutput) {
 
   if (stdout) {
     await Promise.all(
-      stdout.split("\n").map(line => {
+      stdout.split("\n").map((line) => {
         return window.showInformationMessage(line);
       })
     );
