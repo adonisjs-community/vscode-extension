@@ -34,7 +34,7 @@ async function executeCommand(command: VscodeCommand) {
  * Register all AdonisJS commands supported.
  */
 function registerCommands(): Disposable[] {
-  return Commands.map(function(command) {
+  return Commands.map(function (command) {
     return commands.registerCommand(
       command.key,
       async () => await executeCommand(command)
@@ -50,7 +50,7 @@ function registerCommands(): Disposable[] {
 async function showCatchedError({
   stderr,
   stdout,
-  message
+  message,
 }: CommandOutput & { message: string }) {
   let err = stdout ? stdout.trim() : "";
   if (err.length === 0) {

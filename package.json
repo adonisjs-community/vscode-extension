@@ -20,64 +20,76 @@
 	"contributes": {
 		"commands": [
 			{
-				"title": "🚀 Adonis: Key Generate",
-				"command": "adonisjs.key.generate"
+				"title": "🚀 Adonis: Build",
+				"command": "adonisjs.build"
 			},
 			{
-				"title": "🚀 Adonis: Make Controller",
-				"command": "adonisjs.make.controller"
+				"title": "🚀 Adonis: Invoke",
+				"command": "adonisjs.invoke"
 			},
 			{
-				"title": "🚀 Adonis: Make Model",
-				"command": "adonisjs.make.model"
-			},
-			{
-				"title": "🚀 Adonis: Make Trait",
-				"command": "adonisjs.make.trait"
-			},
-			{
-				"title": "🚀 Adonis: Make View",
-				"command": "adonisjs.make.view"
-			},
-			{
-				"title": "🚀 Adonis: Make Middleware",
-				"command": "adonisjs.make.middleware"
+				"title": "🚀 Adonis: DB Seed",
+				"command": "adonisjs.db.seed"
 			},
 			{
 				"title": "🚀 Adonis: Make Command",
 				"command": "adonisjs.make.command"
 			},
 			{
+				"title": "🚀 Adonis: Make Controller",
+				"command": "adonisjs.make.controller"
+			},
+			{
 				"title": "🚀 Adonis: Make Exception",
 				"command": "adonisjs.make.exception"
-			},
-			{
-				"title": "🚀 Adonis: Make Hook",
-				"command": "adonisjs.make.hook"
-			},
-			{
-				"title": "🚀 Adonis: Make Migration",
-				"command": "adonisjs.make.migration"
 			},
 			{
 				"title": "🚀 Adonis: Make Listener",
 				"command": "adonisjs.make.listener"
 			},
 			{
+				"title": "🚀 Adonis: Make Middleware",
+				"command": "adonisjs.make.middleware"
+			},
+			{
+				"title": "🚀 Adonis: Make Preload File",
+				"command": "adonisjs.make.prldfile"
+			},
+			{
 				"title": "🚀 Adonis: Make Provider",
 				"command": "adonisjs.make.provider"
 			},
 			{
-				"title": "🚀 Adonis: Make Exception Handler",
-				"command": "adonisjs.make.ehandler"
+				"title": "🚀 Adonis: Make Validator",
+				"command": "adonisjs.make.validator"
+			},
+			{
+				"title": "🚀 Adonis: Make View",
+				"command": "adonisjs.make.view"
+			},
+			{
+				"title": "🚀 Adonis: Make Migration",
+				"command": "adonisjs.make.migration"
+			},
+			{
+				"title": "🚀 Adonis: Make Model",
+				"command": "adonisjs.make.model"
 			},
 			{
 				"title": "🚀 Adonis: Make Seed",
 				"command": "adonisjs.make.seed"
 			},
 			{
-				"title": "🚀 Adonis: Run Instructions",
-				"command": "adonisjs.run.instructions"
+				"title": "🚀 Adonis: Migration Rollback",
+				"command": "adonisjs.migration.rollback"
+			},
+			{
+				"title": "🚀 Adonis: Migration Run",
+				"command": "adonisjs.migration.run"
+			},
+			{
+				"title": "🚀 Adonis: Migration Status",
+				"command": "adonisjs.migration.status"
 			}
 		],
 		"configuration": {

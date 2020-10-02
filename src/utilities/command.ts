@@ -75,8 +75,8 @@ async function executeAdonisCommand(
  * @param { stdout, stderr}
  */
 export async function showCommandOutput({ stderr, stdout }: CommandOutput) {
-  stderr = stderr ? stripAnsi(stderr).replace(/^\s*ERROR\s*/, "") : stderr;
-  stdout = stdout ? stripAnsi(stdout).replace(/^\s*SUCCESS\s*/, "") : stdout;
+  stderr = stderr ? stripAnsi(stderr).replace(/^[✖]\s*\w+\s*/, "") : stderr;
+  stdout = stdout ? stripAnsi(stdout).replace(/^[✔●]\s*\w+\s*/, "") : stdout;
 
   if (stdout) {
     await Promise.all(
