@@ -7,187 +7,95 @@
 		"vscode": "^1.39.0"
 	},
 	"categories": [
-		"Snippets",
 		"Other"
 	],
 	"keywords": [
 		"adonis",
-		"edge",
-		"template",
-		"snippet",
-		"formatter",
-		"autocompletion",
 		"commands"
 	],
 	"activationEvents": [
-		"onLanguage:edge",
 		"workspaceContains:**/.adonisrc.json"
 	],
 	"main": "./out/extension.js",
 	"contributes": {
-		"languages": [
-			{
-				"id": "edge",
-				"aliases": [
-					"Edge Template",
-					"Edge",
-					"edge"
-				],
-				"extensions": [
-					".edge",
-					".edge.html"
-				],
-				"configuration": "./src/syntaxes/edge/edge.configuration.jsonc"
-			}
-		],
-		"grammars": [
-			{
-				"language": "edge",
-				"scopeName": "text.html.edge",
-				"path": "./src/syntaxes/edge/edge.tmLanguage.json",
-				"embeddedLanguages": {
-					"source.css": "css",
-					"source.js": "javascript"
-				}
-			}
-		],
 		"commands": [
 			{
-				"title": "🚀 Adonis: Key Generate",
-				"command": "adonisjs.key.generate"
+				"title": "🚀 Adonis: Build",
+				"command": "adonisjs.build"
 			},
 			{
-				"title": "🚀 Adonis: Make Controller",
-				"command": "adonisjs.make.controller"
+				"title": "🚀 Adonis: Invoke",
+				"command": "adonisjs.invoke"
 			},
 			{
-				"title": "🚀 Adonis: Make Model",
-				"command": "adonisjs.make.model"
-			},
-			{
-				"title": "🚀 Adonis: Make Trait",
-				"command": "adonisjs.make.trait"
-			},
-			{
-				"title": "🚀 Adonis: Make View",
-				"command": "adonisjs.make.view"
-			},
-			{
-				"title": "🚀 Adonis: Make Middleware",
-				"command": "adonisjs.make.middleware"
+				"title": "🚀 Adonis: DB Seed",
+				"command": "adonisjs.db.seed"
 			},
 			{
 				"title": "🚀 Adonis: Make Command",
 				"command": "adonisjs.make.command"
 			},
 			{
+				"title": "🚀 Adonis: Make Controller",
+				"command": "adonisjs.make.controller"
+			},
+			{
 				"title": "🚀 Adonis: Make Exception",
 				"command": "adonisjs.make.exception"
-			},
-			{
-				"title": "🚀 Adonis: Make Hook",
-				"command": "adonisjs.make.hook"
-			},
-			{
-				"title": "🚀 Adonis: Make Migration",
-				"command": "adonisjs.make.migration"
 			},
 			{
 				"title": "🚀 Adonis: Make Listener",
 				"command": "adonisjs.make.listener"
 			},
 			{
+				"title": "🚀 Adonis: Make Middleware",
+				"command": "adonisjs.make.middleware"
+			},
+			{
+				"title": "🚀 Adonis: Make Preload File",
+				"command": "adonisjs.make.prldfile"
+			},
+			{
 				"title": "🚀 Adonis: Make Provider",
 				"command": "adonisjs.make.provider"
 			},
 			{
-				"title": "🚀 Adonis: Make Exception Handler",
-				"command": "adonisjs.make.ehandler"
+				"title": "🚀 Adonis: Make Validator",
+				"command": "adonisjs.make.validator"
+			},
+			{
+				"title": "🚀 Adonis: Make View",
+				"command": "adonisjs.make.view"
+			},
+			{
+				"title": "🚀 Adonis: Make Migration",
+				"command": "adonisjs.make.migration"
+			},
+			{
+				"title": "🚀 Adonis: Make Model",
+				"command": "adonisjs.make.model"
 			},
 			{
 				"title": "🚀 Adonis: Make Seed",
 				"command": "adonisjs.make.seed"
 			},
 			{
-				"title": "🚀 Adonis: Run Instructions",
-				"command": "adonisjs.run.instructions"
+				"title": "🚀 Adonis: Migration Rollback",
+				"command": "adonisjs.migration.rollback"
+			},
+			{
+				"title": "🚀 Adonis: Migration Run",
+				"command": "adonisjs.migration.run"
+			},
+			{
+				"title": "🚀 Adonis: Migration Status",
+				"command": "adonisjs.migration.status"
 			}
 		],
 		"configuration": {
 			"type": "object",
 			"title": "AdonisJS",
 			"properties": {
-				"adonisjs.autocomplete.quickJump": {
-					"type": "boolean",
-					"default": true,
-					"description": "Quick jump between files using 'Ctrl' + Click"
-				},
-				"adonisjs.autocomplete.folderTip": {
-					"type": "boolean",
-					"default": true,
-					"description": "Display file path name on hover"
-				},
-				"adonisjs.autocomplete.maxLinesCount": {
-					"type": "integer",
-					"default": 1200,
-					"description": "Maximum lines of text to scan for autocompletion"
-				},
-				"adonisjs.autocomplete.viewsDirectories": {
-					"type": "array",
-					"description": "Paths to the directory containing edge views",
-					"default": [
-						"resources/views"
-					]
-				},
-				"adonisjs.autocomplete.viewsExtensions": {
-					"type": "array",
-					"description": "Supported file extension for view completion",
-					"default": [
-						".edge"
-					]
-				},
-				"adonisjs.autocomplete.viewsRegex": {
-					"type": "string",
-					"description": "Regular expression to match handle edge includes",
-					"default": "(?<=@include\\()(['\"])[^'\"]*\\1"
-				},
-				"adonisjs.autocomplete.viewsCompletionRegex": {
-					"type": "string",
-					"description": "Regular expression to match handle edge includes",
-					"default": "(?<=@include\\()(['\"])[^'\"]*\\1"
-				},
-				"adonisjs.autocomplete.controllersDirectories": {
-					"type": "array",
-					"description": "Paths to the directory containing AdonisJS controllers",
-					"default": [
-						"app/controllers"
-					]
-				},
-				"adonisjs.autocomplete.controllersExtensions": {
-					"type": "array",
-					"description": "Supported file extension for controller completion",
-					"default": [
-						"controller.js",
-						"controller.ts",
-						"Controller.js",
-						"Controller.ts"
-					]
-				},
-				"adonisjs.autocomplete.controllersRegex": {
-					"type": "string",
-					"description": "Regular expression to match handle route controllers",
-					"default": "(?<=Route\\.[a-zA-Z]*\\(['\"][^'\"]*['\"]\\s*,\\s*)(['\"])([^'\"]*)\\.?([^'\"]*)\\1"
-				},
-				"adonisjs.autocomplete.controllersNameCompletionRegex": {
-					"type": "string",
-					"description": "Regular expression to match handle route controllers",
-					"default": "(?<=Route\\.[a-zA-Z]*\\(['\"][^'\"]*['\"]\\s*,\\s*)(['\"])([^\\.'\"]*)\\1"
-				},
-				"adonisjs.autocomplete.controllersMethodCompletionRegex": {
-					"type": "string",
-					"description": "Regular expression to match handle route controllers",
-					"default": "(?<=Route\\.[a-zA-Z]*\\(['\"][^'\"]*['\"]\\s*,\\s*)(['\"])([^'\"]*)\\.([^'\"]*)\\1"
-				},
 				"adonisjs.tasks.disableOptionalValuePrompts": {
 					"type": "boolean",
 					"description": "Disable showing of prompts for optional fields. All commands will be ran with default values",
@@ -196,7 +104,7 @@
 				"adonisjs.tasks.adonisExecutable": {
 					"type": "string",
 					"description": "Executable path for Adonis CLI",
-					"default": "adonis"
+					"default": "node ace"
 				},
 				"adonisjs.tasks.maxBuffer": {
 					"type": "integer",
@@ -224,12 +132,7 @@
 		"vscode-test": "^1.2.0"
 	},
 	"dependencies": {
-		"@poppinss/module-methods-extractor": "^1.0.0",
-		"docblock": "^0.4.4",
 		"glob": "^7.1.5",
-		"strip-ansi": "^6.0.0",
-		"vscode-html-languageservice": "^3.0.3",
-		"vscode-languageclient": "^5.2.1",
-		"vscode-languageserver-types": "^3.14.0"
+		"strip-ansi": "^6.0.0"
 	}
 }

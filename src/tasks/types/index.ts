@@ -6,7 +6,8 @@ import { CommandSteps } from "./commandSteps";
 export enum DataType {
   Integer = "integer",
   Boolean = "boolean",
-  String = "string"
+  String = "string",
+  Array = "array",
 }
 
 /**
@@ -42,7 +43,14 @@ export type CommandStep = {
   /**
    * Is this paramter optional for the command
    */
-  optional: boolean;
+  optional?: boolean;
+
+  /**
+   * Is this paramter a multichoice value.
+   *
+   * This only works when the `type` = `Enum`.
+   */
+  isMultiChoice?: boolean;
 
   /**
    * An optional function that will be called to validate input and to give a hint
@@ -53,7 +61,7 @@ export type CommandStep = {
    * Return `undefined`, `null`, or the empty string when 'value' is valid.
    */
   validateInput?(
-    value: string
+    value: string[] | string
   ): string | undefined | null | Thenable<string | undefined | null>;
 };
 

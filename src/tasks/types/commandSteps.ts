@@ -37,7 +37,7 @@ export class CommandSteps {
     let steps = this.steps;
     let params: CommandStepsOutput = {
       required: {},
-      optional: {}
+      optional: {},
     };
 
     // If disable is true, optional input prompt are hidden, and adonis
@@ -69,7 +69,7 @@ export class CommandSteps {
   ): FilteredCommandSteps {
     let result: FilteredCommandSteps = {
       optionalDefaultParams: {},
-      requiredSteps: []
+      requiredSteps: [],
     };
 
     return steps.reduce((previous, current) => {
@@ -95,7 +95,7 @@ export class CommandSteps {
    */
   private async _collectInputByStepType(
     step: CommandStep
-  ): Promise<string | boolean | undefined> {
+  ): Promise<string[] | string | boolean | undefined> {
     switch (step.type) {
       case DataType.String:
       case DataType.Integer:
@@ -104,8 +104,13 @@ export class CommandSteps {
       case DataType.Boolean:
         return this._collectInputForBoolean(step);
 
+      case DataType.Array:
+        return this._collectInputForArray(step);
+
       default:
-        return this._collectInputForEnum(step);
+        return step.isMultiChoice
+          ? this._collectMultiChoiceInputForEnum(step)
+          : this._collectInputForEnum(step);
     }
   }
 
@@ -121,7 +126,7 @@ export class CommandSteps {
     return window.showInputBox({
       placeHolder: step.message,
       value: step.default === undefined ? "" : step.default.toString(),
-      validateInput: step.validateInput
+      validateInput: step.validateInput,
     });
   }
 
@@ -136,7 +141,7 @@ export class CommandSteps {
     const items = ["Yes", "No"];
     const options = { placeHolder: step.message };
     const value = await window.showQuickPick(items, options);
-    if (value === undefined) return value;
+    if (value === undefined) return false;
     return value === "Yes";
   }
 
@@ -151,5 +156,34 @@ export class CommandSteps {
     const items = Object.values(step.type);
     const options = { placeHolder: step.message };
     return window.showQuickPick(items, options);
+  }
+
+  /**
+   * Collect multichoice user input for an command step from a given
+   * set of enum values.
+   *
+   * @param step Command step to collect input for.
+   */
+  private async _collectMultiChoiceInputForEnum(
+    step: CommandStep
+  ): Promise<string[] | undefined> {
+    const items = Object.values(step.type);
+    return window.showQuickPick(items, {
+      placeHolder: step.message,
+      canPickMany: true,
+    });
+  }
+
+  /**
+   * Collect multichoice user input for an command step from a given
+   * set of enum values.
+   *
+   * @param step Command step to collect input for.
+   */
+  private async _collectInputForArray(
+    step: CommandStep
+  ): Promise<string[] | undefined> {
+    const input = await this._collectInputForStringAndInteger(step);
+    return input ? input.split(",").filter((i) => i.length > 0) : [];
   }
 }

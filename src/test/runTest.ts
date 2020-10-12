@@ -4,8 +4,6 @@ import { runTests } from "vscode-test";
 
 async function main() {
   try {
-    const workspacePath = path.resolve(__dirname, "../../src/test/data/");
-
     // The folder containing the Extension Manifest package.json
     // Passed to `--extensionDevelopmentPath`
     const extensionDevelopmentPath = path.resolve(__dirname, "../../");
@@ -16,9 +14,9 @@ async function main() {
 
     // Download VS Code, unzip it and run the integration test
     await runTests({
-      launchArgs: [workspacePath, "--disable-extensions"],
+      launchArgs: ["--disable-extensions"],
       extensionDevelopmentPath,
-      extensionTestsPath
+      extensionTestsPath,
     });
   } catch (err) {
     console.error("Failed to run tests");
