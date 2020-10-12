@@ -116,7 +116,9 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "npm run compile",
-		"compile": "tsc -p ./",
+		"format": "prettier --write .",
+		"lint": "eslint . --ext=.ts",
+		"compile": "npm run lint && tsc -p ./",
 		"watch": "tsc -watch -p ./",
 		"pretest": "npm run compile",
 		"test": "node ./out/test/runTest.js"
@@ -126,8 +128,12 @@
 		"@types/mocha": "^5.2.6",
 		"@types/node": "^10.12.21",
 		"@types/vscode": "^1.39.0",
+		"eslint": "^7.11.0",
+		"eslint-config-prettier": "^6.12.0",
+		"eslint-plugin-adonis": "^1.0.15",
+		"eslint-plugin-prettier": "^3.1.4",
 		"mocha": "^6.1.4",
-		"tslint": "^5.12.1",
+		"prettier": "^2.1.2",
 		"typescript": "^3.3.1",
 		"vscode-test": "^1.2.0"
 	},

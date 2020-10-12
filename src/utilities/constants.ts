@@ -1,2 +1,2 @@
 // Configuration
-export const CONFIG_NAME: string = "adonisjs";
+export const CONFIG_NAME: string = 'adonisjs'

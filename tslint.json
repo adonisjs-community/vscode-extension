@@ -4,10 +4,7 @@
 		"no-unused-expression": true,
 		"no-duplicate-variable": true,
 		"class-name": true,
-		"semicolon": [
-			true,
-			"always"
-		],
+		"semicolon": [true, "always"],
 		"triple-equals": true
 	},
 	"defaultSeverity": "warning"

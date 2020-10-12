@@ -1,10 +1,10 @@
-import { ExtensionContext } from "vscode";
-import Tasks from "./tasks";
+import { ExtensionContext } from 'vscode'
+import Tasks from './tasks'
 
 export function activate(context: ExtensionContext) {
-  const tasks = Tasks();
+	const tasks = Tasks()
 
-  context.subscriptions.push(...tasks);
+	context.subscriptions.push(...tasks)
 }
 
 export function deactivate() {}

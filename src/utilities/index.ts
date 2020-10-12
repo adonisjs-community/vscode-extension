@@ -1,4 +1,4 @@
-import * as Constants from "./constants";
-import Config from "./config";
+import * as Constants from './constants'
+import Config from './config'
 
-export { Constants, Config };
+export { Constants, Config }
